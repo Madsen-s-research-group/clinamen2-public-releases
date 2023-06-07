@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>clinamen2.utils.file_handling &mdash; Clinamen2 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Clinamen2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/example_tutorials.html">Example tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/modules.html">clinamen2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Clinamen2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">clinamen2.utils.file_handling</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for clinamen2.utils.file_handling</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Read and write CMA-ES results.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">asdict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span> <span class="nn">dill</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.typing</span> <span class="k">as</span> <span class="nn">npt</span>
+
+<span class="kn">from</span> <span class="nn">clinamen2.cmaes.params_and_state</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AlgorithmParameters</span><span class="p">,</span>
+    <span class="n">AlgorithmState</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">clinamen2.cmaes.termination_criterion</span> <span class="kn">import</span> <span class="n">Criterion</span>
+
+
+<div class="viewcode-block" id="JSONEncoder"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.JSONEncoder">[docs]</a><span class="k">class</span> <span class="nc">JSONEncoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that extends JSONEncoder to handle different data types.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="JSONEncoder.default"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.JSONEncoder.default">[docs]</a>    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a json-izable version of o or delegate on the base class.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">generic</span><span class="p">):</span>
+            <span class="c1"># Deal with non-serializable types such as numpy.int64</span>
+            <span class="k">return</span> <span class="n">o</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">nruter</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;main_type&quot;</span><span class="p">:</span> <span class="s2">&quot;NumPy/&quot;</span> <span class="o">+</span> <span class="n">o</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">nruter</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">deque</span><span class="p">):</span>
+            <span class="n">nruter</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;main_type&quot;</span><span class="p">:</span> <span class="s2">&quot;deque/&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">maxlen</span><span class="p">),</span>
+                <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">o</span><span class="p">),</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">nruter</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="JSONDecoder"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.JSONDecoder">[docs]</a><span class="k">class</span> <span class="nc">JSONDecoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONDecoder</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that extends the JSONDecoder to handle different data types.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">JSONDecoder</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">object_hook</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">object_hook</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="JSONDecoder.object_hook"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.JSONDecoder.object_hook">[docs]</a>    <span class="k">def</span> <span class="nf">object_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reencode numpy arrays from dictionary.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">main_type</span><span class="p">,</span> <span class="o">*</span><span class="n">extra</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;main_type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">main_type</span> <span class="o">==</span> <span class="s2">&quot;NumPy&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">extra</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">main_type</span> <span class="o">==</span> <span class="s2">&quot;deque&quot;</span><span class="p">:</span>
+                <span class="n">maxlen</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">extra</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">return</span> <span class="n">deque</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">maxlen</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">obj</span></div></div>
+
+
+<div class="viewcode-block" id="CMAFileHandler"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler">[docs]</a><span class="k">class</span> <span class="nc">CMAFileHandler</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Handle input and output files.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        label: Label of the evolution run.</span>
+<span class="sd">        target_dir: Full path to target directory. Default is the current</span>
+<span class="sd">            working directory.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">target_dir</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructor</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Name of generated file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span> <span class="o">=</span> <span class="n">target_dir</span>
+
+<div class="viewcode-block" id="CMAFileHandler.get_evolution_filename"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.get_evolution_filename">[docs]</a>    <span class="k">def</span> <span class="nf">get_evolution_filename</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a pathlib.Path object representing the evolution file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            label: Label of the evolution run.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;evolution&quot;</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">label</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span> <span class="o">/</span> <span class="n">filename</span>
+
+        <span class="k">return</span> <span class="n">filename</span></div>
+
+<div class="viewcode-block" id="CMAFileHandler.get_generation_filename"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.get_generation_filename">[docs]</a>    <span class="k">def</span> <span class="nf">get_generation_filename</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">generation</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a pathlib.Path object representing the generation file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            generation: Generation index.</span>
+<span class="sd">            label: Label of the evolution run.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;generation&quot;</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">generation</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">generation</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">generation</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_dir</span> <span class="o">/</span> <span class="n">filename</span>
+
+        <span class="k">return</span> <span class="n">filename</span></div>
+
+<div class="viewcode-block" id="CMAFileHandler.save_evolution"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.save_evolution">[docs]</a>    <span class="k">def</span> <span class="nf">save_evolution</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">initial_parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">,</span>
+        <span class="n">initial_state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
+        <span class="n">termination_criterion</span><span class="p">:</span> <span class="n">Criterion</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">additional</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">file_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+        <span class="n">json_encoder</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span> <span class="o">=</span> <span class="n">JSONEncoder</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Function that writes the initial evolution to file.</span>
+
+<span class="sd">        Accepts any data that is serializable using dill. It might be</span>
+<span class="sd">        necessary to use a different JSONEncoder. If &#39;additional&#39; contains</span>
+<span class="sd">        dataclasses, use `dataclasses.asdict()` and take care to manually</span>
+<span class="sd">        re-cast after loading.</span>
+
+<span class="sd">        Serialized data contains:</span>
+<span class="sd">           | &#39;initial_parameters&#39;: AlgorithmParameters</span>
+<span class="sd">           | &#39;initial_state&#39;: AlgorithmState</span>
+<span class="sd">           | &#39;termination_criterion&#39;: Criterion (optional)</span>
+<span class="sd">           | any additional compatible information (dill-only)</span>
+
+<span class="sd">        Filenames:</span>
+<span class="sd">            | `evolution.json`</span>
+<span class="sd">            | `evolution_ + label + .json`</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            initial_parameters: The initial parameters to start the evolution.</span>
+<span class="sd">            initial_state: The initial state to start the evolution.</span>
+<span class="sd">            termination_criterion: The termination criterion set up for the</span>
+<span class="sd">                evolution. Can be a combinated criterion.</span>
+<span class="sd">            label: String to be added to filename.</span>
+<span class="sd">            additional: Additional information to be saved with the</span>
+<span class="sd">                initial evolution properties.</span>
+<span class="sd">            file_format: Indicate the file format to be used for serialization.</span>
+<span class="sd">                The options are &#39;json&#39; and &#39;dill&#39;. Default is &#39;json&#39;.</span>
+<span class="sd">            json_encoder: If default encoder file_handling.JSONEncoder does not</span>
+<span class="sd">                offer the required functionality, e.g., JAX datatypes.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Name of generated file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_evolution_filename</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">additional</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">additional</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">additional</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Parameter &#39;additional&#39; must be a dictionary or None.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">initial_parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">initial_parameters</span> <span class="o">=</span> <span class="n">asdict</span><span class="p">(</span><span class="n">initial_parameters</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">initial_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">initial_state</span> <span class="o">=</span> <span class="n">asdict</span><span class="p">(</span><span class="n">initial_state</span><span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;initial_parameters&quot;</span><span class="p">:</span> <span class="n">initial_parameters</span><span class="p">,</span>
+            <span class="s2">&quot;initial_state&quot;</span><span class="p">:</span> <span class="n">initial_state</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">additional</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">termination_criterion</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;termination_criterion&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">termination_criterion</span>
+        <span class="k">if</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;dill&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.dill&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">dill</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span>
+            <span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">json_file</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">json_encoder</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Format </span><span class="si">{</span><span class="n">file_format</span><span class="si">}</span><span class="s2"> has not been implemented.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">filename</span></div>
+
+<div class="viewcode-block" id="CMAFileHandler.load_evolution"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.load_evolution">[docs]</a>    <span class="k">def</span> <span class="nf">load_evolution</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">file_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">AlgorithmParameters</span><span class="p">,</span> <span class="n">AlgorithmState</span><span class="p">,</span> <span class="n">Criterion</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Function that loads an evolution from file.</span>
+
+<span class="sd">        Objects loaded:</span>
+<span class="sd">           | &#39;initial_parameters&#39;: AlgorithmParameters</span>
+<span class="sd">           | &#39;initial_state&#39;: AlgorithmState</span>
+<span class="sd">           | &#39;termination_criterion&#39;: Criterion</span>
+<span class="sd">           | any additional compatible information</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            label: String to be added to filename.</span>
+<span class="sd">            file_format: Indicate the file format used for serialization.</span>
+<span class="sd">                The options are &#39;json&#39; and &#39;dill&#39;. Default is &#39;json&#39;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple containing</span>
+
+<span class="sd">                - AlorithmParameters object</span>
+<span class="sd">                - AlgorithmState object</span>
+<span class="sd">                - Criterion object</span>
+<span class="sd">                - Dictionary containing additional objects if present.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_evolution_filename</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;dill&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.dill&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">loaded</span> <span class="o">=</span> <span class="n">dill</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span>
+            <span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+                <span class="n">loaded</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">JSONDecoder</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Format </span><span class="si">{</span><span class="n">file_format</span><span class="si">}</span><span class="s2"> not understood.&quot;</span><span class="p">)</span>
+
+        <span class="n">initial_parameters</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;initial_parameters&quot;</span><span class="p">)</span>
+        <span class="n">initial_state</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;initial_state&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">termination_criterion</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;termination_criterion&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">termination_criterion</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="n">initial_parameters</span> <span class="o">=</span> <span class="n">AlgorithmParameters</span><span class="p">(</span><span class="o">**</span><span class="n">initial_parameters</span><span class="p">)</span>
+            <span class="n">initial_state</span> <span class="o">=</span> <span class="n">AlgorithmState</span><span class="p">(</span><span class="o">**</span><span class="n">initial_state</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">initial_parameters</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">,</span> <span class="n">termination_criterion</span><span class="p">,</span> <span class="n">loaded</span></div>
+
+<div class="viewcode-block" id="CMAFileHandler.save_generation"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.save_generation">[docs]</a>    <span class="k">def</span> <span class="nf">save_generation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">current_state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
+        <span class="n">population</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span>
+        <span class="n">loss</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span>
+        <span class="n">termination_state</span><span class="p">:</span> <span class="n">NamedTuple</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">additional</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">file_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+        <span class="n">json_encoder</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span> <span class="o">=</span> <span class="n">JSONEncoder</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Function that writes a generation to file.</span>
+
+<span class="sd">        Accepts any data that is serializable using dill.</span>
+
+<span class="sd">        Serialized data contains:</span>
+<span class="sd">           | &#39;current_state&#39;: AlgorithmState</span>
+<span class="sd">           | &#39;population&#39;: numpy.ArrayLike</span>
+<span class="sd">           | &#39;loss&#39;: numpy.ArrayLike</span>
+<span class="sd">           | &#39;termination_state&#39;: NamedTuple</span>
+<span class="sd">           | any additional compatible information in a dictionary</span>
+
+<span class="sd">        Filenames:</span>
+<span class="sd">            &#39;generation&#39; + str(number) + &#39;.json&#39;</span>
+<span class="sd">            &#39;generation&#39; + label + &#39;_&#39; + str(number) +&#39;.json&#39;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            current_state: The current state of the evolution.</span>
+<span class="sd">            population: The population of individuals of the generation.</span>
+<span class="sd">            loss: Loss of each individual within the population.</span>
+<span class="sd">            termination_state: State of termination criterion.</span>
+<span class="sd">            label: String to be added to filename.</span>
+<span class="sd">            additional: Additional information to be saved with the initial</span>
+<span class="sd">                evolution properties.</span>
+<span class="sd">            file_format: Indicate the file format to be used for serialization.</span>
+<span class="sd">                The options are &#39;json&#39; and &#39;dill&#39;. Default is &#39;json&#39;.</span>
+<span class="sd">            json_encoder: If default encoder file_handling.JSONEncoder does not</span>
+<span class="sd">                offer the required functionality, e.g., JAX datatypes.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Name of generated file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">current_state</span><span class="p">,</span> <span class="n">AlgorithmState</span><span class="p">):</span>
+            <span class="n">generation</span> <span class="o">=</span> <span class="n">current_state</span><span class="o">.</span><span class="n">generation</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">current_state</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">generation</span> <span class="o">=</span> <span class="n">current_state</span><span class="p">[</span><span class="s2">&quot;generation&quot;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">generation</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_generation_filename</span><span class="p">(</span><span class="n">generation</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">current_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">current_state</span> <span class="o">=</span> <span class="n">asdict</span><span class="p">(</span><span class="n">current_state</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">termination_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">termination_state</span> <span class="o">=</span> <span class="n">termination_state</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">additional</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">additional</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">additional</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Parameter &#39;additional&#39; must be a dictionary or None.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;current_state&quot;</span><span class="p">:</span> <span class="n">current_state</span><span class="p">,</span>
+            <span class="s2">&quot;population&quot;</span><span class="p">:</span> <span class="n">population</span><span class="p">,</span>
+            <span class="s2">&quot;loss&quot;</span><span class="p">:</span> <span class="n">loss</span><span class="p">,</span>
+            <span class="s2">&quot;termination_state&quot;</span><span class="p">:</span> <span class="n">termination_state</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">additional</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;dill&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.dill&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">dill</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">json_file</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">json_encoder</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Format </span><span class="si">{</span><span class="n">file_format</span><span class="si">}</span><span class="s2"> has not been implemented.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">filename</span></div>
+
+<div class="viewcode-block" id="CMAFileHandler.load_generation"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.load_generation">[docs]</a>    <span class="k">def</span> <span class="nf">load_generation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">generation</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">allow_legacy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">file_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">AlgorithmState</span><span class="p">,</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Function that loads a generation from file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            generation: ID of generation to be loaded.</span>
+<span class="sd">            label: String to be added to filename.</span>
+<span class="sd">            allow_legacy: If True, older results containing &#39;fitness&#39;</span>
+<span class="sd">            instead of &#39;loss&#39; can be loaded. Default is True.</span>
+<span class="sd">            file_format: Indicate the file format used for serialization.</span>
+<span class="sd">                The options are &#39;json&#39; and &#39;dill&#39;. Default is &#39;json&#39;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple containing</span>
+
+<span class="sd">                - AlgorithmState object</span>
+<span class="sd">                - Array of population</span>
+<span class="sd">                - Array of loss values</span>
+<span class="sd">                - NamedTuple of termination state</span>
+<span class="sd">                - Dictionary containing additional objects if present.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_generation_filename</span><span class="p">(</span>
+            <span class="n">generation</span><span class="o">=</span><span class="n">generation</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;dill&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.dill&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">loaded</span> <span class="o">=</span> <span class="n">dill</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span>
+            <span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+                <span class="n">loaded</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">JSONDecoder</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Format </span><span class="si">{</span><span class="n">file_format</span><span class="si">}</span><span class="s2"> has not been implemented.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">current_state</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;current_state&quot;</span><span class="p">)</span>
+        <span class="n">population</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;population&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">current_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">current_state</span> <span class="o">=</span> <span class="n">AlgorithmState</span><span class="p">(</span><span class="o">**</span><span class="n">current_state</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">termination_state</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;termination_state&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">termination_state</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;loss&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># to be able to handle older results</span>
+            <span class="k">if</span> <span class="n">allow_legacy</span><span class="p">:</span>
+                <span class="n">loss</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;fitness&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                    <span class="s2">&quot;Legacy data may not be loaded. Check settings.&quot;</span>
+                <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+        <span class="k">return</span> <span class="n">current_state</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">termination_state</span><span class="p">,</span> <span class="n">loaded</span></div>
+
+<div class="viewcode-block" id="CMAFileHandler.update_evolution"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.update_evolution">[docs]</a>    <span class="k">def</span> <span class="nf">update_evolution</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">additional</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Function that calls save_evolution(file_format=&#39;json&#39;).</span>
+
+<span class="sd">        Accepts all data that is serializable using json.</span>
+<span class="sd">        Values for keys that are already present in the existing additional</span>
+<span class="sd">        information will be replaced.</span>
+
+<span class="sd">        Filenames:</span>
+<span class="sd">            | `evolution.json`</span>
+<span class="sd">            | `evolution_ + label + .json`</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            label: Label of the evolution run.</span>
+<span class="sd">            additional: Additional information to be saved with the</span>
+<span class="sd">                evolution properties.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Name of evolution file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">evolution</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_evolution</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Evolution update only implemented for json format.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+        <span class="n">existing_additional</span> <span class="o">=</span> <span class="n">evolution</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">if</span> <span class="n">evolution</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}</span>
+        <span class="n">updated_additional</span> <span class="o">=</span> <span class="n">existing_additional</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">updated_additional</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">additional</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_evolution</span><span class="p">(</span>
+            <span class="n">initial_parameters</span><span class="o">=</span><span class="n">evolution</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">initial_state</span><span class="o">=</span><span class="n">evolution</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">termination_criterion</span><span class="o">=</span><span class="n">evolution</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+            <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+            <span class="n">additional</span><span class="o">=</span><span class="n">updated_additional</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">filename</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, The Clinamen2 contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

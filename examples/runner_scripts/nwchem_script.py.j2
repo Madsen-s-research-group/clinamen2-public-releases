@@ -1,0 +1,33 @@
+"""Script for simple NWChem calculation on dask worker."""
+import pickle
+
+try:
+    from ase.calculators.nwchem import NWChem
+    from ase.calculators.singlepoint import SinglePointCalculator
+
+    from clinamen2.runner.basic_runner import WorkerResult
+
+    atoms = pickle.load(open("input", "rb"))
+    atoms.pbc = {{pbc}}
+
+    atoms.calc = NWChem(
+    {%- for key, value in nwchem_params.items() %}
+        {{key}}={{value}}, 
+    {%- endfor %}
+    )
+
+    atoms.calc = SinglePointCalculator(
+        atoms, energy=atoms.get_potential_energy()
+    )
+
+    with open("result", "wb") as savefile:
+        pickle.dump(
+            WorkerResult(
+                loss=atoms.get_potential_energy(),
+                information={"atoms": atoms},
+            ),
+            savefile,
+        )
+except Exception as e:
+    with open("result", "wb") as savefile:
+        pickle.dump(e, savefile)

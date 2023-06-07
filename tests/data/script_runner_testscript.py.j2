@@ -1,0 +1,18 @@
+import os
+import pickle
+
+try:
+    with open("input", "rb") as inputfile:
+        data = pickle.load(inputfile)
+
+    if {{denominator}} == 0:
+        raise ZeroDivisionError("test error")
+
+    result = data / {{denominator}}
+
+    with open("result", "wb") as resultfile:
+        pickle.dump(result, resultfile)
+
+except Exception as e:
+    with open("result", "wb") as resultfile:
+        pickle.dump(e, resultfile)

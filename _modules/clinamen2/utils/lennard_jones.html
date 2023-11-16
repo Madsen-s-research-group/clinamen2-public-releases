@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>clinamen2.utils.lennard_jones &mdash; Clinamen2 2023.05.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=952338b5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Clinamen2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/example_tutorials.html">Example tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/modules.html">clinamen2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Clinamen2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">clinamen2.utils.lennard_jones</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for clinamen2.utils.lennard_jones</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Implementation of the Lennard Jones potential and related functions.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.typing</span> <span class="k">as</span> <span class="nn">npt</span>
+
+<span class="kn">from</span> <span class="nn">clinamen2.utils.script_functions</span> <span class="kn">import</span> <span class="n">cma_parser</span>
+
+<span class="n">FRESH_SAMPLING</span> <span class="o">=</span> <span class="s2">&quot;fresh&quot;</span>
+<span class="n">CONTINUE_SAMPLING</span> <span class="o">=</span> <span class="s2">&quot;continue&quot;</span>
+
+
+<div class="viewcode-block" id="get_max_span_from_lj_cluster">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.lennard_jones.get_max_span_from_lj_cluster">[docs]</a>
+<span class="k">def</span> <span class="nf">get_max_span_from_lj_cluster</span><span class="p">(</span>
+    <span class="n">lj_cluster</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluate LJ cluster positions and return largest span.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        lj_cluster: Positions of the LJ spheres.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lj_cluster_resh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">lj_cluster</span><span class="p">,</span> <span class="n">newshape</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">max_x_span</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">lj_cluster_resh</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="n">lj_cluster_resh</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">max_y_span</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">lj_cluster_resh</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="n">lj_cluster_resh</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">max_z_span</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">lj_cluster_resh</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="n">lj_cluster_resh</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;max x span = </span><span class="si">{</span><span class="n">max_x_span</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;max y span = </span><span class="si">{</span><span class="n">max_y_span</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;max z span = </span><span class="si">{</span><span class="n">max_z_span</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span><span class="n">max_x_span</span><span class="p">,</span> <span class="n">max_y_span</span><span class="p">,</span> <span class="n">max_z_span</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="PositionException">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.lennard_jones.PositionException">[docs]</a>
+<span class="k">class</span> <span class="nc">PositionException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Exception to be raised for exceeding position threshold.&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="create_position_filter">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.lennard_jones.create_position_filter">[docs]</a>
+<span class="k">def</span> <span class="nf">create_position_filter</span><span class="p">(</span>
+    <span class="n">position_bounds</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span>
+    <span class="n">exception</span><span class="p">:</span> <span class="ne">Exception</span> <span class="o">=</span> <span class="ne">BaseException</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create function to filter configurations.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        position_bounds: Positions components that may not be crossed.</span>
+<span class="sd">            Shape is (3, 2): 3 components, lower and upper bound for each.</span>
+<span class="sd">        exception: Exception identifying an issue with the calculation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">batch_filter</span><span class="p">(</span>
+        <span class="n">loss</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">additional</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Tuple</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">inp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="n">positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">inp</span><span class="p">,</span> <span class="n">newshape</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">positions</span><span class="p">[:,</span> <span class="n">p</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">position_bounds</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="ow">or</span> <span class="p">(</span>
+                    <span class="n">positions</span><span class="p">[:,</span> <span class="n">p</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">position_bounds</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                    <span class="n">additional</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;exception&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Out of bounds.&quot;</span><span class="p">)</span>
+                    <span class="k">break</span>
+
+        <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">additional</span><span class="p">,</span> <span class="n">inputs</span>
+
+    <span class="k">def</span> <span class="nf">single_filter</span><span class="p">(</span><span class="n">loss</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">additional</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">):</span>
+        <span class="n">positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">newshape</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">positions</span><span class="p">[:,</span> <span class="n">p</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">position_bounds</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="ow">or</span> <span class="p">(</span>
+                <span class="n">positions</span><span class="p">[:,</span> <span class="n">p</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">position_bounds</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="n">additional</span><span class="p">[</span><span class="s2">&quot;exception&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PositionException</span><span class="p">(</span><span class="s2">&quot;Out of bounds.&quot;</span><span class="p">)</span>
+                <span class="k">break</span>
+
+        <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">additional</span><span class="p">,</span> <span class="n">inputs</span>
+
+    <span class="k">return</span> <span class="n">single_filter</span><span class="p">,</span> <span class="n">batch_filter</span></div>
+
+
+
+<div class="viewcode-block" id="create_evaluate_lj_potential">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.lennard_jones.create_evaluate_lj_potential">[docs]</a>
+<span class="k">def</span> <span class="nf">create_evaluate_lj_potential</span><span class="p">(</span>
+    <span class="n">n_atoms</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">38</span><span class="p">,</span>
+    <span class="n">identifier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">wales_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_eval_batch</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create an LJ evaluation function from a Cambridge database entry</span>
+
+<span class="sd">    Load the coordinates of the ground state of an n- atom LJ cluster</span>
+<span class="sd">    from an entry in</span>
+
+<span class="sd">    http://doye.chem.ox.ac.uk/jon/structures/LJ.html</span>
+
+<span class="sd">    and return the corresponding LennardJones object and an eval function.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n_atoms: Number of atoms in the cluster.</span>
+<span class="sd">        identifier: Additional identifier of a specific configuration.</span>
+<span class="sd">            For example &quot;i&quot; for &quot;38i&quot;. Default is None.</span>
+<span class="sd">        wales_path: Path to the Wales potential data.</span>
+<span class="sd">        n_eval_batch: Batchsize to be vmapped.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple</span>
+<span class="sd">            - Coordinates of specified Cluster</span>
+<span class="sd">            - Evaluation function</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If there is a problem with the argument.</span>
+
+<span class="sd">    References:</span>
+
+<span class="sd">        [1] The Cambridge Cluster Database, D. J. Wales, J. P. K. Doye,</span>
+<span class="sd">        A. Dullweber, M. P. Hodges, F. Y. Naumkin F. Calvo, J. Hernández-Rojas</span>
+<span class="sd">        and T. F. Middleton, URL http://www-wales.ch.cam.ac.uk/CCD.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_atoms</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_atoms</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">cluster</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">n_atoms</span><span class="p">)</span> <span class="k">if</span> <span class="n">identifier</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">n_atoms</span><span class="p">)</span> <span class="o">+</span> <span class="n">identifier</span>
+        <span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">wales_path</span> <span class="o">/</span> <span class="n">cluster</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n must be an integer or a string&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Coordinates for </span><span class="si">{</span><span class="n">n_atoms</span><span class="si">}</span><span class="s2"> atoms with identifier&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">identifier</span><span class="si">}</span><span class="s2"> not found in </span><span class="si">{</span><span class="n">wales_path</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+    <span class="n">coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="c1"># These coordinates use the sigma = 1 convention -&gt; rescale</span>
+    <span class="n">coordinates</span> <span class="o">/=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mf">6.0</span><span class="p">)</span>
+
+    <span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+    <span class="k">def</span> <span class="nf">evaluate_lj_potential</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate LJ energy of positions</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            positions: Flat coordinate vector.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            energy: The energy of the configuration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Compute all distances between pairs without iterating.</span>
+        <span class="n">positions</span> <span class="o">=</span> <span class="n">positions</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">positions</span><span class="p">[:,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">positions</span>
+        <span class="n">r2</span> <span class="o">=</span> <span class="p">(</span><span class="n">delta</span> <span class="o">*</span> <span class="n">delta</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># Take only the upper triangle (combinations of two atoms).</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">triu_indices</span><span class="p">(</span><span class="n">r2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">rm2</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">r2</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+
+        <span class="c1"># Compute the potental energy recycling some calculations.</span>
+        <span class="n">rm6</span> <span class="o">=</span> <span class="n">rm2</span> <span class="o">*</span> <span class="n">rm2</span> <span class="o">*</span> <span class="n">rm2</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">rm6</span> <span class="o">*</span> <span class="p">(</span><span class="n">rm6</span> <span class="o">-</span> <span class="mf">2.0</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="p">{}</span>
+
+    <span class="n">vmapped_eval_batch</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">evaluate_lj_potential</span><span class="p">,</span> <span class="n">in_axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">vmapped_eval_wrapper</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Wrapper around the vmapped evaluation.</span>
+
+<span class="sd">        Make sure that the additional information is a list of empty</span>
+<span class="sd">        dictionaries.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            positions: LJ sphere positions.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple containing</span>
+<span class="sd">                - Loss of the configuration.</span>
+<span class="sd">                - Additional information.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">loss</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">index_from</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">while</span> <span class="n">index_from</span> <span class="o">&lt;</span> <span class="n">positions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">index_to</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">index_from</span> <span class="o">+</span> <span class="n">n_eval_batch</span><span class="p">,</span> <span class="n">positions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">positions_batch</span> <span class="o">=</span> <span class="n">positions</span><span class="p">[</span><span class="n">index_from</span><span class="p">:</span><span class="n">index_to</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+            <span class="n">results_batch</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">vmapped_eval_batch</span><span class="p">(</span><span class="n">positions_batch</span><span class="p">)</span>
+            <span class="n">loss</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">results_batch</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+            <span class="n">index_from</span> <span class="o">=</span> <span class="n">index_to</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+
+        <span class="n">additional</span> <span class="o">=</span> <span class="p">[{}]</span> <span class="o">*</span> <span class="n">loss</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">additional</span>
+
+    <span class="k">return</span> <span class="n">coordinates</span><span class="p">,</span> <span class="n">evaluate_lj_potential</span><span class="p">,</span> <span class="n">vmapped_eval_wrapper</span></div>
+
+
+
+<div class="viewcode-block" id="lj_argparse">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.lennard_jones.lj_argparse">[docs]</a>
+<span class="k">def</span> <span class="nf">lj_argparse</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Argument parser for LJ evolution scripts.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">        Parsed arguments</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">cma_parser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-a&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--atom_count&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mi">38</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Number of atoms in the cluster.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-i&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--identifier&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Identifier for cluster configuration, e.g. &#39;i&#39;.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-c&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--configuration&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;cube&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Shape of initial configuration (cube, sphere, packmol).&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-b&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--bounds&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+        <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Positions bounds as x1 x2 y1 y2 z1 z2&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-q&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--quiet&quot;</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Do not write generation data to disk. Only end result.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-j&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--json_output&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;JSON file to store results in.&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-w&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--wales_path&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to Wales potential data.&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;-e&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--packmol_executable&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Packmol executable with full path.&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--packmol_tolerance&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Packmol tolerance parameter.&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--packmol_side_length&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Packmol side_length parameter.&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--packmol_seed&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Random seed for packmol. Default is -1&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--continue_evolution&quot;</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Set this flag to continue a stopped evolution.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--generation_checkpoint&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Generation checkpoint to continue from. Use &#39;last_gen&#39; if None.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">args</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_known_args</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">args</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, The Clinamen2 contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -4,7 +4,7 @@
 
 ## General description
 
-This repository contains releases of the software package described in the manuscript *Clinamen2: Versatile functional-style Python CMA-ES* by Ralf Wanzenböck, Florian Buchner, Péter Kovács, Georg K. H. Madsen and Jesús Carrete at the Institute of Materials Chemistry of TU Wien.
+This repository contains releases of the software package described in the manuscript *Clinamen2: Functional-style evolutionary optimization in Python for atomistic structure searches* by Ralf Wanzenböck, Florian Buchner, Péter Kovács, Georg K. H. Madsen and Jesús Carrete at the Institute of Materials Chemistry of TU Wien.
 
 ## Quick start
 

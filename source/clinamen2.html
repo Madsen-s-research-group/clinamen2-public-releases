@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>clinamen2 package &mdash; Clinamen2 2023.11.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=9bc12b8a"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="clinamen2.cmaes package" href="clinamen2.cmaes.html" />
+    <link rel="prev" title="clinamen2" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Clinamen2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_tutorials.html">Example tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculator_guide.html">Calculator guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">clinamen2</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">clinamen2 package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html">clinamen2.cmaes package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html">clinamen2.runner package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html">clinamen2.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-clinamen2.test_functions">clinamen2.test_functions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#clinamen2.test_functions.create_ackley_function"><code class="docutils literal notranslate"><span class="pre">create_ackley_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clinamen2.test_functions.create_cigar_function"><code class="docutils literal notranslate"><span class="pre">create_cigar_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clinamen2.test_functions.create_diffpowers_function"><code class="docutils literal notranslate"><span class="pre">create_diffpowers_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clinamen2.test_functions.create_discus_function"><code class="docutils literal notranslate"><span class="pre">create_discus_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clinamen2.test_functions.create_ellipsoid_function"><code class="docutils literal notranslate"><span class="pre">create_ellipsoid_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clinamen2.test_functions.create_rosenbrock_function"><code class="docutils literal notranslate"><span class="pre">create_rosenbrock_function()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clinamen2.test_functions.create_sphere_function"><code class="docutils literal notranslate"><span class="pre">create_sphere_function()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-clinamen2">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Clinamen2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">clinamen2</a></li>
+      <li class="breadcrumb-item active">clinamen2 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/clinamen2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="clinamen2-package">
+<h1>clinamen2 package<a class="headerlink" href="#clinamen2-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clinamen2.cmaes.html">clinamen2.cmaes package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.cmaes.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.cmaes.html#module-clinamen2.cmaes.cmaes_criteria">clinamen2.cmaes.cmaes_criteria module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion"><code class="docutils literal notranslate"><span class="pre">ConditionCovCriterion</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.init"><code class="docutils literal notranslate"><span class="pre">ConditionCovCriterion.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.met"><code class="docutils literal notranslate"><span class="pre">ConditionCovCriterion.met()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.update"><code class="docutils literal notranslate"><span class="pre">ConditionCovCriterion.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.ConditionCovState"><code class="docutils literal notranslate"><span class="pre">ConditionCovState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.ConditionCovState.cond"><code class="docutils literal notranslate"><span class="pre">ConditionCovState.cond</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion"><code class="docutils literal notranslate"><span class="pre">EqualFunValuesCriterion</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.init"><code class="docutils literal notranslate"><span class="pre">EqualFunValuesCriterion.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.met"><code class="docutils literal notranslate"><span class="pre">EqualFunValuesCriterion.met()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.update"><code class="docutils literal notranslate"><span class="pre">EqualFunValuesCriterion.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.EqualFunValuesState"><code class="docutils literal notranslate"><span class="pre">EqualFunValuesState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.EqualFunValuesState.fun_values"><code class="docutils literal notranslate"><span class="pre">EqualFunValuesState.fun_values</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion"><code class="docutils literal notranslate"><span class="pre">TolXUpCriterion</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.init"><code class="docutils literal notranslate"><span class="pre">TolXUpCriterion.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.met"><code class="docutils literal notranslate"><span class="pre">TolXUpCriterion.met()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.update"><code class="docutils literal notranslate"><span class="pre">TolXUpCriterion.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpState"><code class="docutils literal notranslate"><span class="pre">TolXUpState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpState.compare_to"><code class="docutils literal notranslate"><span class="pre">TolXUpState.compare_to</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpState.latest_diff"><code class="docutils literal notranslate"><span class="pre">TolXUpState.latest_diff</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.cmaes.html#module-clinamen2.cmaes.params_and_state">clinamen2.cmaes.params_and_state module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_1"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.c_1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_c"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.c_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_m"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.c_m</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_mu"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.c_mu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_sigma"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.c_sigma</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.d_sigma"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.d_sigma</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.dimension"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.dimension</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.initial_step_size"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.initial_step_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.mu"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.mu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.pop_size"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.pop_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.random_seed"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.random_seed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters.weights"><code class="docutils literal notranslate"><span class="pre">AlgorithmParameters.weights</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState"><code class="docutils literal notranslate"><span class="pre">AlgorithmState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState.cholesky_factor"><code class="docutils literal notranslate"><span class="pre">AlgorithmState.cholesky_factor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState.generation"><code class="docutils literal notranslate"><span class="pre">AlgorithmState.generation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState.mean"><code class="docutils literal notranslate"><span class="pre">AlgorithmState.mean</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState.p_c"><code class="docutils literal notranslate"><span class="pre">AlgorithmState.p_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState.p_sigma"><code class="docutils literal notranslate"><span class="pre">AlgorithmState.p_sigma</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState.random_state"><code class="docutils literal notranslate"><span class="pre">AlgorithmState.random_state</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState.step_size"><code class="docutils literal notranslate"><span class="pre">AlgorithmState.step_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.calculate_new_mean"><code class="docutils literal notranslate"><span class="pre">calculate_new_mean()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_init_algorithm_state"><code class="docutils literal notranslate"><span class="pre">create_init_algorithm_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_resample_and_evaluate"><code class="docutils literal notranslate"><span class="pre">create_resample_and_evaluate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_and_evaluate"><code class="docutils literal notranslate"><span class="pre">create_sample_and_evaluate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_and_run"><code class="docutils literal notranslate"><span class="pre">create_sample_and_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_and_sequential_evaluate"><code class="docutils literal notranslate"><span class="pre">create_sample_and_sequential_evaluate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_from_state"><code class="docutils literal notranslate"><span class="pre">create_sample_from_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_update_algorithm_state"><code class="docutils literal notranslate"><span class="pre">create_update_algorithm_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.init_default_algorithm_parameters"><code class="docutils literal notranslate"><span class="pre">init_default_algorithm_parameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.rank_one_update"><code class="docutils literal notranslate"><span class="pre">rank_one_update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.cmaes.html#module-clinamen2.cmaes.termination_criterion">clinamen2.cmaes.termination_criterion module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaAnd"><code class="docutils literal notranslate"><span class="pre">CriteriaAnd</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaAnd.met"><code class="docutils literal notranslate"><span class="pre">CriteriaAnd.met()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaAndState"><code class="docutils literal notranslate"><span class="pre">CriteriaAndState</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaCombination"><code class="docutils literal notranslate"><span class="pre">CriteriaCombination</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaCombination.init"><code class="docutils literal notranslate"><span class="pre">CriteriaCombination.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaCombination.met"><code class="docutils literal notranslate"><span class="pre">CriteriaCombination.met()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaCombination.update"><code class="docutils literal notranslate"><span class="pre">CriteriaCombination.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaCombinationState"><code class="docutils literal notranslate"><span class="pre">CriteriaCombinationState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaCombinationState.criteria_states"><code class="docutils literal notranslate"><span class="pre">CriteriaCombinationState.criteria_states</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaOr"><code class="docutils literal notranslate"><span class="pre">CriteriaOr</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaOr.met"><code class="docutils literal notranslate"><span class="pre">CriteriaOr.met()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaOrState"><code class="docutils literal notranslate"><span class="pre">CriteriaOrState</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion"><code class="docutils literal notranslate"><span class="pre">Criterion</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion.init"><code class="docutils literal notranslate"><span class="pre">Criterion.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion.met"><code class="docutils literal notranslate"><span class="pre">Criterion.met()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion.update"><code class="docutils literal notranslate"><span class="pre">Criterion.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossCriterion"><code class="docutils literal notranslate"><span class="pre">StaleLossCriterion</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossCriterion.init"><code class="docutils literal notranslate"><span class="pre">StaleLossCriterion.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossCriterion.met"><code class="docutils literal notranslate"><span class="pre">StaleLossCriterion.met()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossCriterion.update"><code class="docutils literal notranslate"><span class="pre">StaleLossCriterion.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossState"><code class="docutils literal notranslate"><span class="pre">StaleLossState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossState.compare_to"><code class="docutils literal notranslate"><span class="pre">StaleLossState.compare_to</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossState.counter"><code class="docutils literal notranslate"><span class="pre">StaleLossState.counter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStdCriterion"><code class="docutils literal notranslate"><span class="pre">StaleStdCriterion</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStdCriterion.init"><code class="docutils literal notranslate"><span class="pre">StaleStdCriterion.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStdCriterion.met"><code class="docutils literal notranslate"><span class="pre">StaleStdCriterion.met()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStdCriterion.update"><code class="docutils literal notranslate"><span class="pre">StaleStdCriterion.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStdState"><code class="docutils literal notranslate"><span class="pre">StaleStdState</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStepCriterion"><code class="docutils literal notranslate"><span class="pre">StaleStepCriterion</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStepCriterion.init"><code class="docutils literal notranslate"><span class="pre">StaleStepCriterion.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStepCriterion.met"><code class="docutils literal notranslate"><span class="pre">StaleStepCriterion.met()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStepCriterion.update"><code class="docutils literal notranslate"><span class="pre">StaleStepCriterion.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStepState"><code class="docutils literal notranslate"><span class="pre">StaleStepState</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.cmaes.html#module-clinamen2.cmaes">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clinamen2.runner.html">clinamen2.runner package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.runner.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.runner.html#module-clinamen2.runner.basic_runner">clinamen2.runner.basic_runner module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.FunctionRunner"><code class="docutils literal notranslate"><span class="pre">FunctionRunner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.FunctionRunner.pop"><code class="docutils literal notranslate"><span class="pre">FunctionRunner.pop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.FunctionRunner.submit"><code class="docutils literal notranslate"><span class="pre">FunctionRunner.submit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.Runner"><code class="docutils literal notranslate"><span class="pre">Runner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.Runner.pop"><code class="docutils literal notranslate"><span class="pre">Runner.pop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.Runner.submit"><code class="docutils literal notranslate"><span class="pre">Runner.submit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.Runner.submit_batch"><code class="docutils literal notranslate"><span class="pre">Runner.submit_batch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.ScriptRunner"><code class="docutils literal notranslate"><span class="pre">ScriptRunner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.ScriptRunner.peek_script"><code class="docutils literal notranslate"><span class="pre">ScriptRunner.peek_script()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.ScriptRunner.pop"><code class="docutils literal notranslate"><span class="pre">ScriptRunner.pop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.ScriptRunner.script_driver"><code class="docutils literal notranslate"><span class="pre">ScriptRunner.script_driver()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.ScriptRunner.submit"><code class="docutils literal notranslate"><span class="pre">ScriptRunner.submit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.ScriptRunner.submit_batch"><code class="docutils literal notranslate"><span class="pre">ScriptRunner.submit_batch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.WorkerResult"><code class="docutils literal notranslate"><span class="pre">WorkerResult</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.WorkerResult.information"><code class="docutils literal notranslate"><span class="pre">WorkerResult.information</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.runner.html#clinamen2.runner.basic_runner.WorkerResult.loss"><code class="docutils literal notranslate"><span class="pre">WorkerResult.loss</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.runner.html#module-clinamen2.runner">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clinamen2.utils.html">clinamen2.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.utils.html#module-clinamen2.utils.bipop_restart">clinamen2.utils.bipop_restart module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.bipop_restart.BIPOP"><code class="docutils literal notranslate"><span class="pre">BIPOP</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.bipop_restart.BIPOP.default_pop_size"><code class="docutils literal notranslate"><span class="pre">BIPOP.default_pop_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.bipop_restart.BIPOP.default_step_size"><code class="docutils literal notranslate"><span class="pre">BIPOP.default_step_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.bipop_restart.BIPOP.eval_counter"><code class="docutils literal notranslate"><span class="pre">BIPOP.eval_counter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.bipop_restart.BIPOP.large_restart_counter"><code class="docutils literal notranslate"><span class="pre">BIPOP.large_restart_counter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.bipop_restart.BIPOP.latest_large_pop_size"><code class="docutils literal notranslate"><span class="pre">BIPOP.latest_large_pop_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.bipop_restart.BIPOP.random_state"><code class="docutils literal notranslate"><span class="pre">BIPOP.random_state</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.bipop_restart.bipop_init"><code class="docutils literal notranslate"><span class="pre">bipop_init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.bipop_restart.bipop_next_restart"><code class="docutils literal notranslate"><span class="pre">bipop_next_restart()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.bipop_restart.bipop_update"><code class="docutils literal notranslate"><span class="pre">bipop_update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.utils.html#module-clinamen2.utils.file_handling">clinamen2.utils.file_handling module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler"><code class="docutils literal notranslate"><span class="pre">CMAFileHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.get_evolution_filename"><code class="docutils literal notranslate"><span class="pre">CMAFileHandler.get_evolution_filename()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.get_generation_filename"><code class="docutils literal notranslate"><span class="pre">CMAFileHandler.get_generation_filename()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.load_evolution"><code class="docutils literal notranslate"><span class="pre">CMAFileHandler.load_evolution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.load_generation"><code class="docutils literal notranslate"><span class="pre">CMAFileHandler.load_generation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.save_evolution"><code class="docutils literal notranslate"><span class="pre">CMAFileHandler.save_evolution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.save_generation"><code class="docutils literal notranslate"><span class="pre">CMAFileHandler.save_generation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.update_evolution"><code class="docutils literal notranslate"><span class="pre">CMAFileHandler.update_evolution()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.JSONDecoder"><code class="docutils literal notranslate"><span class="pre">JSONDecoder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.JSONDecoder.object_hook"><code class="docutils literal notranslate"><span class="pre">JSONDecoder.object_hook()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.JSONEncoder"><code class="docutils literal notranslate"><span class="pre">JSONEncoder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.file_handling.JSONEncoder.default"><code class="docutils literal notranslate"><span class="pre">JSONEncoder.default()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.utils.html#module-clinamen2.utils.jax_data">clinamen2.utils.jax_data module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.jax_data.JSONEncoderwithJNP"><code class="docutils literal notranslate"><span class="pre">JSONEncoderwithJNP</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.jax_data.JSONEncoderwithJNP.default"><code class="docutils literal notranslate"><span class="pre">JSONEncoderwithJNP.default()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.utils.html#module-clinamen2.utils.lennard_jones">clinamen2.utils.lennard_jones module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.lennard_jones.PositionException"><code class="docutils literal notranslate"><span class="pre">PositionException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.lennard_jones.create_evaluate_lj_potential"><code class="docutils literal notranslate"><span class="pre">create_evaluate_lj_potential()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.lennard_jones.create_position_filter"><code class="docutils literal notranslate"><span class="pre">create_position_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.lennard_jones.get_max_span_from_lj_cluster"><code class="docutils literal notranslate"><span class="pre">get_max_span_from_lj_cluster()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.lennard_jones.lj_argparse"><code class="docutils literal notranslate"><span class="pre">lj_argparse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.utils.html#module-clinamen2.utils.neuralil_evaluation">clinamen2.utils.neuralil_evaluation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline"><code class="docutils literal notranslate"><span class="pre">NeuralILInputPipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline.clinamen_pipeline"><code class="docutils literal notranslate"><span class="pre">NeuralILInputPipeline.clinamen_pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline.neuralil_pipeline"><code class="docutils literal notranslate"><span class="pre">NeuralILInputPipeline.neuralil_pipeline</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_batch_input_pipeline"><code class="docutils literal notranslate"><span class="pre">create_batch_input_pipeline()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_input_pipeline"><code class="docutils literal notranslate"><span class="pre">create_input_pipeline()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy"><code class="docutils literal notranslate"><span class="pre">create_neuralil_calc_energy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy_and_forces"><code class="docutils literal notranslate"><span class="pre">create_neuralil_calc_energy_and_forces()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy_and_forces_uncertainty"><code class="docutils literal notranslate"><span class="pre">create_neuralil_calc_energy_and_forces_uncertainty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.get_ensemble_model"><code class="docutils literal notranslate"><span class="pre">get_ensemble_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.load_neuralil_model"><code class="docutils literal notranslate"><span class="pre">load_neuralil_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.utils.html#module-clinamen2.utils.plot_functions">clinamen2.utils.plot_functions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper"><code class="docutils literal notranslate"><span class="pre">CMAPlotHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.classify_additional_information"><code class="docutils literal notranslate"><span class="pre">CMAPlotHelper.classify_additional_information()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.get_data_from_generations"><code class="docutils literal notranslate"><span class="pre">CMAPlotHelper.get_data_from_generations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_additional_information_per_generation"><code class="docutils literal notranslate"><span class="pre">CMAPlotHelper.plot_additional_information_per_generation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_additional_per_individual"><code class="docutils literal notranslate"><span class="pre">CMAPlotHelper.plot_additional_per_individual()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_loss_boxplots"><code class="docutils literal notranslate"><span class="pre">CMAPlotHelper.plot_loss_boxplots()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_loss_per_generation"><code class="docutils literal notranslate"><span class="pre">CMAPlotHelper.plot_loss_per_generation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_loss_with_errorbars"><code class="docutils literal notranslate"><span class="pre">CMAPlotHelper.plot_loss_with_errorbars()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_mean_loss_per_generation"><code class="docutils literal notranslate"><span class="pre">CMAPlotHelper.plot_mean_loss_per_generation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_stepsize_ax2"><code class="docutils literal notranslate"><span class="pre">CMAPlotHelper.plot_stepsize_ax2()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.utils.html#module-clinamen2.utils.script_functions">clinamen2.utils.script_functions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.script_functions.cma_parser"><code class="docutils literal notranslate"><span class="pre">cma_parser()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.script_functions.cma_setup"><code class="docutils literal notranslate"><span class="pre">cma_setup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.script_functions.generate_result_figures"><code class="docutils literal notranslate"><span class="pre">generate_result_figures()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.utils.html#module-clinamen2.utils.structure_setup">clinamen2.utils.structure_setup module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.AnchorToImmutable"><code class="docutils literal notranslate"><span class="pre">AnchorToImmutable</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.DofPipeline"><code class="docutils literal notranslate"><span class="pre">DofPipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.DofPipeline.anchor_to_immutable"><code class="docutils literal notranslate"><span class="pre">DofPipeline.anchor_to_immutable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.DofPipeline.apply_weights"><code class="docutils literal notranslate"><span class="pre">DofPipeline.apply_weights</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.DofPipeline.dof_to_atoms"><code class="docutils literal notranslate"><span class="pre">DofPipeline.dof_to_atoms</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.DofToAtoms"><code class="docutils literal notranslate"><span class="pre">DofToAtoms</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.FilterEvalWorkflow"><code class="docutils literal notranslate"><span class="pre">FilterEvalWorkflow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.FilterEvalWorkflow.evaluate_loss"><code class="docutils literal notranslate"><span class="pre">FilterEvalWorkflow.evaluate_loss</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.FilterEvalWorkflow.filter"><code class="docutils literal notranslate"><span class="pre">FilterEvalWorkflow.filter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.bias_covariance_matrix_gauss"><code class="docutils literal notranslate"><span class="pre">bias_covariance_matrix_gauss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.bias_covariance_matrix_r"><code class="docutils literal notranslate"><span class="pre">bias_covariance_matrix_r()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.create_apply_weights"><code class="docutils literal notranslate"><span class="pre">create_apply_weights()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.create_filter_eval_workflow"><code class="docutils literal notranslate"><span class="pre">create_filter_eval_workflow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.create_split_atom"><code class="docutils literal notranslate"><span class="pre">create_split_atom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.create_transform_dof"><code class="docutils literal notranslate"><span class="pre">create_transform_dof()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.dir_context"><code class="docutils literal notranslate"><span class="pre">dir_context()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.get_distances_from_position"><code class="docutils literal notranslate"><span class="pre">get_distances_from_position()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.get_distances_from_scaled_position"><code class="docutils literal notranslate"><span class="pre">get_distances_from_scaled_position()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.place_atoms_packmol"><code class="docutils literal notranslate"><span class="pre">place_atoms_packmol()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.place_atoms_random_cube"><code class="docutils literal notranslate"><span class="pre">place_atoms_random_cube()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.place_atoms_random_sphere"><code class="docutils literal notranslate"><span class="pre">place_atoms_random_sphere()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.prepare_dof_and_pipeline"><code class="docutils literal notranslate"><span class="pre">prepare_dof_and_pipeline()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="clinamen2.utils.html#module-clinamen2.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-clinamen2.test_functions">
+<span id="clinamen2-test-functions-module"></span><h2>clinamen2.test_functions module<a class="headerlink" href="#module-clinamen2.test_functions" title="Link to this heading"></a></h2>
+<p>This module contains auxiliary test functions as defined in table 1 of</p>
+<dl class="simple">
+<dt>[1] O. Krause, D. R. Arbonès, C. Igel, “CMA-ES with Optimal Covariance</dt><dd><p>Update and Storage Complexity”, part of [2], 2016.</p>
+</dd>
+<dt>[2] D. Lee, M. Sugiyama, U. Luxburg, I. Guyon, R. Garnett, “Advances</dt><dd><p>in Neural Information Processing Systems 29, 2016.</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="clinamen2.test_functions.create_ackley_function">
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_ackley_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_ackley_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_ackley_function" title="Link to this definition"></a></dt>
+<dd><p>Create Ackley test function.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Ackley test function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clinamen2.test_functions.create_cigar_function">
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_cigar_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_cigar_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_cigar_function" title="Link to this definition"></a></dt>
+<dd><p>Create cigar test function.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Cigar test function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clinamen2.test_functions.create_diffpowers_function">
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_diffpowers_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_diffpowers_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_diffpowers_function" title="Link to this definition"></a></dt>
+<dd><p>Different Powers test function.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Diffpowers test function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clinamen2.test_functions.create_discus_function">
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_discus_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_discus_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_discus_function" title="Link to this definition"></a></dt>
+<dd><p>Create discus test function.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Discus test function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clinamen2.test_functions.create_ellipsoid_function">
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_ellipsoid_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_ellipsoid_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_ellipsoid_function" title="Link to this definition"></a></dt>
+<dd><p>Create ellipsoid test function.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Ellipsoid test function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clinamen2.test_functions.create_rosenbrock_function">
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_rosenbrock_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_rosenbrock_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_rosenbrock_function" title="Link to this definition"></a></dt>
+<dd><p>Create Rosenbrock test function.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Rosenbrock test function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="clinamen2.test_functions.create_sphere_function">
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_sphere_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_sphere_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_sphere_function" title="Link to this definition"></a></dt>
+<dd><p>Create sphere test function.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Sphere test function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-clinamen2">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-clinamen2" title="Link to this heading"></a></h2>
+<p>Copyright 2023 The Clinamen2 contributors</p>
+<p>Licensed under the Apache License, Version 2.0 (the “License”);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+<blockquote>
+<div><p><a class="reference external" href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+</div></blockquote>
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="clinamen2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="clinamen2.cmaes.html" class="btn btn-neutral float-right" title="clinamen2.cmaes package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, The Clinamen2 contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

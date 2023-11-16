@@ -46,6 +46,16 @@ def unreliable_rosen(vec: npt.ArrayLike, must_fail: bool = False) -> float:
     return rosen(vec)
 
 
+def unreliable_rosen_internal_rng(
+    vec: npt.ArrayLike, threshold: float = 0.5
+) -> float:
+    "Rosenbrock function that fails if the second argument is True"
+    rng = np.random.default_rng()
+    if rng.uniform() > threshold:
+        raise ArithmeticError(True)
+    return rosen(vec)
+
+
 def single_unreliable_rosen_with_info(
     vec: npt.ArrayLike, must_fail: bool = False
 ) -> Tuple[float, dict]:

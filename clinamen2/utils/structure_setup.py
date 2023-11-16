@@ -3,9 +3,13 @@
     Meant to offer simple versions of reusable functions and
     a possible starting point / template for more complex applications.
 """
-import copy
 import os
+import copy
+import shlex
 import pathlib
+import tempfile
+import contextlib
+import subprocess
 from typing import Callable, NamedTuple, Tuple, Union
 
 import ase.atoms
@@ -113,9 +117,7 @@ def prepare_dof_and_pipeline(
         dist = get_distances_from_scaled_position(
             atoms=founder_atoms, scaled_position=scaled_center
         )
-        indices_in = np.where(dist <= radius)[
-            0
-        ].tolist()  # ignore defect atom!
+        indices_in = np.where(dist <= radius)[0].tolist()  # ignore defect atom!
         indices_out = np.where(dist > radius)[0].tolist()
 
         # split founder into dof atoms and immutable atoms
@@ -137,9 +139,7 @@ def prepare_dof_and_pipeline(
     else:
         dof_atoms = founder_atoms.copy()
         dof = dof_atoms.get_positions().flatten()
-        pipeline = DofPipeline(
-            dof_to_atoms=DofToAtoms(template_atoms=founder_atoms)
-        )
+        pipeline = DofPipeline(dof_to_atoms=DofToAtoms(template_atoms=founder_atoms))
 
     return dof, create_transform_dof(pipeline), dof_atoms
 
@@ -293,19 +293,55 @@ def place_atoms_random_sphere(
     rng = np.random.default_rng(seed=random_seed)
     phi = rng.uniform(low=0.0, high=2.0 * np.pi, size=n_atoms)
     costheta = rng.uniform(low=-1.0, high=1.0, size=n_atoms)
-    u = rng.random()
+    u = rng.random(size=n_atoms)
     theta = np.arccos(costheta)
     r = radius * np.cbrt(u)
 
     points = np.asarray(
         [
             r * np.sin(theta) * np.cos(phi),
-            r * np.sin(theta) + np.sin(phi),
+            r * np.sin(theta) * np.sin(phi),
             r * np.cos(theta),
         ]
     ).T.flatten()
 
     return points
+
+
+# Simple template for an input file telling packmol to put spheres
+# in a parallelepiped box.
+PACKMOL_INPUT_TEMPLATE = """tolerance {tolerance}
+filetype xyz 
+output {output_file}
+seed {random_seed}
+
+structure {structure_file}
+  number {n_atoms}
+  inside box 0. 0. 0. {side_length} {side_length} {side_length}
+end structure
+"""
+
+# Contents of a minimal XYZ structure file for Packmol, containing
+# a  single atom.
+TRIVIAL_PACKMOL_STRUCT = """1
+sphere
+H   1.000   1.000   1.00
+"""
+
+
+@contextlib.contextmanager
+def dir_context(dir_name: pathlib.Path):
+    """Create a context to run code in a different directory.
+
+    Args:
+        dir_name: Route to the directory.
+    """
+    cwd = os.getcwd()
+    try:
+        os.chdir(dir_name)
+        yield
+    finally:
+        os.chdir(cwd)
 
 
 def place_atoms_packmol(
@@ -336,9 +372,9 @@ def place_atoms_packmol(
     if exec_string is None:
         raise ValueError("'exec_string' may not be ' None'.")
 
-    structure_file = str(pathlib.Path.cwd() / "data" / "lj" / "lj.xyz")
-    output_file = str(pathlib.Path.cwd() / "data" / "lj" / f"lj{n_atoms}.xyz")
-    input_file = pathlib.Path.cwd() / "data" / "lj" / f"lj_box{n_atoms}.inp"
+    structure_file = "trivial.xyz"
+    input_file = f"box_{n_atoms}.inp"
+    output_file = f"box_{n_atoms}.xyz"
     packmol_dict = {
         "n_atoms": n_atoms,
         "side_length": side_length,
@@ -347,26 +383,21 @@ def place_atoms_packmol(
         "structure_file": structure_file,
         "output_file": output_file,
     }
-    env = jinja2.Environment()
-    with open(
-        pathlib.Path.cwd() / "data" / "lj" / "lj_box.inp.j2",
-        "r",
-        encoding="UTF-8",
-    ) as f:
-        raw_template = f.read()
-    template = env.from_string(raw_template)
-    rendered_template = template.render(packmol_dict)
-    print(rendered_template)
-    with open(
-        input_file,
-        "w",
-        encoding="UTF-8",
-    ) as f:
-        f.write(rendered_template)
-    command_os = f"{exec_string} < {input_file}"
-    os.system(command_os)
-
-    atoms = read(output_file)
+    packmol_input = PACKMOL_INPUT_TEMPLATE.format(**packmol_dict)
+    print(packmol_input)
+    with tempfile.TemporaryDirectory() as folder_name:
+        with dir_context(folder_name):
+            with open(structure_file, "w", encoding="UTF-8") as struct_f:
+                struct_f.write(TRIVIAL_PACKMOL_STRUCT)
+            with open(input_file, "w", encoding="UTF-8") as input_f:
+                input_f.write(packmol_input)
+            with open(input_file, "r", encoding="UTF-8") as input_f:
+                subprocess.run(
+                    shlex.split(exec_string),
+                    stdin=input_f,
+                    check=False,
+                )
+            atoms = read(output_file)
 
     return atoms.get_positions()
 

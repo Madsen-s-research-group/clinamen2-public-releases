@@ -19,8 +19,8 @@ from clinamen2.cmaes.params_and_state import (
     rank_one_update,
 )
 from clinamen2.runner.basic_runner import FunctionRunner
-from clinamen2.utils.file_handling import CMAFileHandler
 from clinamen2.test_functions import create_sphere_function
+from clinamen2.utils.file_handling import CMAFileHandler
 from tests.aux_functions import (
     pretend_to_fail_rosen_with_info,
     single_unreliable_rosen_with_info,
@@ -28,6 +28,7 @@ from tests.aux_functions import (
     transposed_rosen_with_info,
     transposed_rosen_with_info_and_inputs,
     unreliable_rosen,
+    unreliable_rosen_internal_rng,
 )
 
 pytest_plugins = ["pytest-datadir"]
@@ -402,11 +403,14 @@ def test_sample_and_run_with_failures(
     rng.bit_generator.state = minimal_state.random_state
     sample_func = create_sample_from_state(minimal_parameters)
     runner = FunctionRunner(
-        lambda x: (unreliable_rosen(x, rng.uniform() > 0.5), {}), workers
+        lambda x: (unreliable_rosen_internal_rng(x, threshold=0.5), {}),
+        workers,
     )
     sample_and_run = create_sample_and_run(sample_func, runner)
 
-    population_dict, state, loss_dict, _ = sample_and_run(minimal_state, 10)
+    population_dict, state, loss_dict, _ = sample_and_run(
+        minimal_state, 10, n_attempts=5000
+    )
     population = []
     loss = []
     for key, val in population_dict.items():
@@ -450,7 +454,8 @@ def test_sample_and_run_return_failures(
     rng.bit_generator.state = minimal_state.random_state
     sample_func = create_sample_from_state(minimal_parameters)
     runner = FunctionRunner(
-        lambda x: (unreliable_rosen(x, rng.uniform() > 0.75), {}), workers
+        lambda x: (unreliable_rosen_internal_rng(x, threshold=0.75), {}),
+        workers,
     )
     sample_and_run = create_sample_and_run(sample_func, runner)
 

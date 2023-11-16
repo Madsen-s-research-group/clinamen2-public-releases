@@ -2,7 +2,6 @@
 import pickle
 
 try:
-    from ase.calculators.singlepoint import SinglePointCalculator
     from ase.calculators.vasp import Vasp
 
     from clinamen2.runner.basic_runner import WorkerResult
@@ -15,9 +14,8 @@ try:
     {%- endfor %}
     )
 
-    atoms.calc = SinglePointCalculator(
-        atoms, energy=atoms.get_potential_energy(), forces=atoms.get_forces()
-    )
+    energy = atoms.get_potential_energy()
+    forces = atoms.get_forces()
 
     # VASP exits normally even if self-consistency was not achieved.
     # So we manually raise an error in case of non-convergence, in order to

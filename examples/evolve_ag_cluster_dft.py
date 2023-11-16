@@ -2,7 +2,7 @@
 import argparse
 import json
 import pathlib
-from typing import Callable, Tuple
+from typing import Callable, Tuple, Literal
 
 import ase
 import numpy as np
@@ -103,17 +103,17 @@ def prepare_dof_and_pipeline(
 
 def evolution(
     founder_filename: str,
+    dft_backend: Literal["nwchem", "vasp"],
     step_size: float,
     generations: int,
     label: str,
     save_nth: int = 1,
-    nwchem_mult: int = 1,
     pop_size: int = None,
     seed: int = 0,
     randomize_positions: str = None,
     random_positions_limit: float = 0.5,
 ):
-    """Run an Ag cluster optimization with NWChem."""
+    """Run an Ag cluster optimization with DFT."""
 
     dof, transform_dof = prepare_dof_and_pipeline(
         founder_filename=founder_filename,
@@ -131,19 +131,50 @@ def evolution(
     update_state = create_update_algorithm_state(parameters)
     sample_individuals = create_sample_from_state(parameters)
 
-    SCRIPT_CONFIG = {
-        "pbc": False,
-        "nwchem_params": {
-            "label": "'calc/nwchem'",
-            "dft": dict(
-                maxiter=100, xc="xpbe96 cpbe96", mult=nwchem_mult, smear=0.001
-            ),
-            "basis": "'3-21G'",
-        },
-    }
+    if dft_backend == "nwchem":
+        n_atoms = len(read(founder_filename))
+        multiplicity = n_atoms % 2 + 1
+        SCRIPT_CONFIG = {
+            "pbc": False,
+            "nwchem_params": {
+                "label": "'calc/nwchem'",
+                "dft": dict(
+                    maxiter=100,
+                    xc="xpbe96 cpbe96",
+                    mult=multiplicity,
+                    smear=0.001,
+                ),
+                "basis": "'3-21G'",
+            },
+        }
+        runner_script_filename = "nwchem_script.py.j2"
+        scheduler_filename = "scheduler_nwchem.json"
+    elif dft_backend == "vasp":
+        SCRIPT_CONFIG = {
+            "vasp_params": {
+                "nsw": 0,
+                "gga": "'PE'",
+                "pp": "'PBE'",
+                "ispin": 2,
+                "isym": 0,
+                "ismear": 0,
+                "sigma": 0.0001,
+                "ediff": 1e-6,
+                "nelm": 80,
+                "kpts": (1, 1, 1),
+                "lorbit": 11,
+                "lcharg": False,
+                "lwave": False,
+                "ncore": 8,
+            },
+        }
+        runner_script_filename = "vasp_script.py.j2"
+        scheduler_filename = "scheduler_vasp.json"
+    else:
+        raise ValueError("Invalid choice of DFT backend.")
 
     with open(
-        pathlib.Path.cwd() / "runner_scripts" / "nwchem_script.py.j2",
+        pathlib.Path.cwd() / "runner_scripts" / runner_script_filename,
         "r",
         encoding="utf-8",
     ) as f:
@@ -154,7 +185,7 @@ def evolution(
         script_config=SCRIPT_CONFIG,
         script_run_command="python {SCRIPTFILE}",
         convert_input=transform_dof,
-        scheduler_info_path="scheduler_nwchem.json",
+        scheduler_info_path=scheduler_filename,
     )
 
     sample_and_run = create_sample_and_run(
@@ -263,11 +294,11 @@ if __name__ == "__main__":
         help="Filename with relative path to founder.",
     )
     parser.add_argument(
-        "-m",
-        "--nwchem_mult",
-        type=int,
-        default=1,
-        help="NWChem parameter dft.mult",
+        "--dft_backend",
+        type=str,
+        required=True,
+        choices=["nwchem", "vasp"],
+        help="Which DFT backend to use for loss evaluation.",
     )
     parser.add_argument(
         "--plot_mean",
@@ -292,11 +323,11 @@ if __name__ == "__main__":
 
     last_gen = evolution(
         founder_filename=args.founder,
+        dft_backend=args.dft_backend,
         step_size=args.step_size,
         generations=args.generations,
         label=args.label,
         save_nth=args.save_nth,
-        nwchem_mult=args.nwchem_mult,
         pop_size=args.pop_size,
         seed=args.random_seed,
         randomize_positions=args.randomize_positions,

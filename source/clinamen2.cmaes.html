@@ -4,18 +4,18 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2.cmaes package &mdash; Clinamen2 2023.05.1 documentation</title>
+  <title>clinamen2.cmaes package &mdash; Clinamen2 2023.11.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=9bc12b8a"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -46,6 +46,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_tutorials.html">Example tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculator_guide.html">Calculator guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">clinamen2</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="clinamen2.html">clinamen2 package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="clinamen2.html#subpackages">Subpackages</a><ul class="current">
@@ -90,18 +91,18 @@
            <div itemprop="articleBody">
              
   <section id="clinamen2-cmaes-package">
-<h1>clinamen2.cmaes package<a class="headerlink" href="#clinamen2-cmaes-package" title="Permalink to this heading"></a></h1>
+<h1>clinamen2.cmaes package<a class="headerlink" href="#clinamen2-cmaes-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
 <section id="module-clinamen2.cmaes.cmaes_criteria">
-<span id="clinamen2-cmaes-cmaes-criteria-module"></span><h2>clinamen2.cmaes.cmaes_criteria module<a class="headerlink" href="#module-clinamen2.cmaes.cmaes_criteria" title="Permalink to this heading"></a></h2>
+<span id="clinamen2-cmaes-cmaes-criteria-module"></span><h2>clinamen2.cmaes.cmaes_criteria module<a class="headerlink" href="#module-clinamen2.cmaes.cmaes_criteria" title="Link to this heading"></a></h2>
 <p>Implementation of the termination criteria as described in</p>
 <p>References:</p>
 <p>[1] N. Hansen, 2016, arXiv:1604.00772 [cs.LG]</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">ConditionCovCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000000000000.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#ConditionCovCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">ConditionCovCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000000000000.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#ConditionCovCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.Criterion" title="clinamen2.cmaes.termination_criterion.Criterion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Criterion</span></code></a></p>
 <p>ConditionCov criterion</p>
 <p>Stop if the condition number of the covariance matrix exceeds 1e14.</p>
@@ -115,7 +116,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.init">
-<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#ConditionCovCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.init" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#ConditionCovCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.init" title="Link to this definition"></a></dt>
 <dd><p>Initialize the associated NamedTuple.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -126,7 +127,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.met">
-<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#ConditionCovCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.met" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#ConditionCovCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.met" title="Link to this definition"></a></dt>
 <dd><p>Decide if the stopping criterion is met.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -141,7 +142,7 @@ the current stopping criterion state.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#ConditionCovCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#ConditionCovCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.update" title="Link to this definition"></a></dt>
 <dd><p>Return an updated associated NamedTuple.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -166,8 +167,8 @@ criterion.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.ConditionCovState">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">ConditionCovState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cond</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#ConditionCovState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovState" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">ConditionCovState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cond</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#ConditionCovState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovState" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>NamedTuple to keep track of condition number</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -176,7 +177,7 @@ criterion.</p></li>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.ConditionCovState.cond">
-<span class="sig-name descname"><span class="pre">cond</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovState.cond" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">cond</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.ConditionCovState.cond" title="Link to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -184,7 +185,7 @@ criterion.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">EqualFunValuesCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generation_span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-15</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#EqualFunValuesCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">EqualFunValuesCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generation_span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-15</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#EqualFunValuesCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.Criterion" title="clinamen2.cmaes.termination_criterion.Criterion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Criterion</span></code></a></p>
 <p>EqualFunValues criterion</p>
 <p>Stop if the range of the loss within a certain range of generations is
@@ -202,7 +203,7 @@ Default is 10 + ceil(30 dimension / pop_size).</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.init">
-<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#EqualFunValuesCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.init" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#EqualFunValuesCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.init" title="Link to this definition"></a></dt>
 <dd><p>Initialize the associated NamedTuple.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -213,7 +214,7 @@ Default is 10 + ceil(30 dimension / pop_size).</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.met">
-<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#EqualFunValuesCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.met" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#EqualFunValuesCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.met" title="Link to this definition"></a></dt>
 <dd><p>Decide if the stopping criterion is met.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -228,7 +229,7 @@ the current stopping criterion state.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#EqualFunValuesCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#EqualFunValuesCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.update" title="Link to this definition"></a></dt>
 <dd><p>Return an updated associated NamedTuple.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -253,8 +254,8 @@ criterion.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.EqualFunValuesState">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">EqualFunValuesState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#EqualFunValuesState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesState" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">EqualFunValuesState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#EqualFunValuesState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesState" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>NamedTuple to keep track of function value staleness.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -264,7 +265,7 @@ account.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.EqualFunValuesState.fun_values">
-<span class="sig-name descname"><span class="pre">fun_values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">deque</span></code></em><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesState.fun_values" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fun_values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">deque</span></code></em><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.EqualFunValuesState.fun_values" title="Link to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -272,7 +273,7 @@ account.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.TolXUpCriterion">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">TolXUpCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#TolXUpCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">TolXUpCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#TolXUpCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.Criterion" title="clinamen2.cmaes.termination_criterion.Criterion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Criterion</span></code></a></p>
 <p>TolXUp criterion</p>
 <p>Stop if sigma times max(diag(D)) exceeds a threshold when compared to the
@@ -291,7 +292,7 @@ Default is False. Use True for large matrices.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.init">
-<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#TolXUpCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.init" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#TolXUpCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.init" title="Link to this definition"></a></dt>
 <dd><p>Initialize the associated NamedTuple.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -302,7 +303,7 @@ Default is False. Use True for large matrices.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.met">
-<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#TolXUpCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.met" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#TolXUpCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.met" title="Link to this definition"></a></dt>
 <dd><p>Decide if the stopping criterion is met.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -317,7 +318,7 @@ the current stopping criterion state.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#TolXUpCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#TolXUpCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.update" title="Link to this definition"></a></dt>
 <dd><p>Return an updated associated NamedTuple.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -342,8 +343,8 @@ criterion.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.TolXUpState">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">TolXUpState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compare_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latest_diff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#TolXUpState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpState" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.cmaes_criteria.</span></span><span class="sig-name descname"><span class="pre">TolXUpState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compare_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latest_diff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/cmaes_criteria.html#TolXUpState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpState" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>NamedTuple to keep track of function value staleness.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -355,13 +356,13 @@ criterion.</p></li>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.TolXUpState.compare_to">
-<span class="sig-name descname"><span class="pre">compare_to</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpState.compare_to" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">compare_to</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpState.compare_to" title="Link to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.cmaes_criteria.TolXUpState.latest_diff">
-<span class="sig-name descname"><span class="pre">latest_diff</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpState.latest_diff" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">latest_diff</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.cmaes_criteria.TolXUpState.latest_diff" title="Link to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
@@ -369,7 +370,7 @@ criterion.</p></li>
 
 </section>
 <section id="module-clinamen2.cmaes.params_and_state">
-<span id="clinamen2-cmaes-params-and-state-module"></span><h2>clinamen2.cmaes.params_and_state module<a class="headerlink" href="#module-clinamen2.cmaes.params_and_state" title="Permalink to this heading"></a></h2>
+<span id="clinamen2-cmaes-params-and-state-module"></span><h2>clinamen2.cmaes.params_and_state module<a class="headerlink" href="#module-clinamen2.cmaes.params_and_state" title="Link to this heading"></a></h2>
 <p>The core Cholesky CMA-ES implementation.</p>
 <p class="rubric">References</p>
 <p>[1] O. Krause, D. R. Arbonès, C. Igel, “CMA-ES with Optimal Covariance
@@ -378,7 +379,7 @@ Update and Storage Complexity”, part of [2], 2016.</p>
 in Neural Information Processing Systems 29, 2016.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">AlgorithmParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_step_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_mu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#AlgorithmParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">AlgorithmParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_step_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_mu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#AlgorithmParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class for keeping track of the initial, immutable parameters of a run.</p>
 <p>You are unlikely to need to manually instantiate this class. Use
@@ -419,69 +420,69 @@ matrix. It must lie in [0, 1 - c_1].</p></li>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.c_1">
-<span class="sig-name descname"><span class="pre">c_1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_1" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">c_1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_1" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.c_c">
-<span class="sig-name descname"><span class="pre">c_c</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_c" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">c_c</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_c" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.c_m">
-<span class="sig-name descname"><span class="pre">c_m</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_m" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">c_m</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_m" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.c_mu">
-<span class="sig-name descname"><span class="pre">c_mu</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_mu" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">c_mu</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_mu" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.c_sigma">
-<span class="sig-name descname"><span class="pre">c_sigma</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_sigma" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">c_sigma</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.c_sigma" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.d_sigma">
-<span class="sig-name descname"><span class="pre">d_sigma</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.d_sigma" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">d_sigma</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.d_sigma" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.dimension">
-<span class="sig-name descname"><span class="pre">dimension</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.dimension" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dimension</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.dimension" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.initial_step_size">
-<span class="sig-name descname"><span class="pre">initial_step_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.initial_step_size" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">initial_step_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.initial_step_size" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.mu">
-<span class="sig-name descname"><span class="pre">mu</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.mu" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">mu</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.mu" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.pop_size">
-<span class="sig-name descname"><span class="pre">pop_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.pop_size" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pop_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.pop_size" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.random_seed">
-<span class="sig-name descname"><span class="pre">random_seed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.random_seed" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">random_seed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.random_seed" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmParameters.weights">
-<span class="sig-name descname"><span class="pre">weights</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.weights" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">weights</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmParameters.weights" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmState">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">AlgorithmState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cholesky_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#AlgorithmState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">AlgorithmState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cholesky_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#AlgorithmState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class for keeping track of the state of the run.</p>
 <p>Includes the CMA-ES data (e.g. <code class="docutils literal notranslate"><span class="pre">mean</span></code>) and keeps track of the random
@@ -502,44 +503,44 @@ numpy.random.default_rng().</p></li>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmState.cholesky_factor">
-<span class="sig-name descname"><span class="pre">cholesky_factor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.cholesky_factor" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">cholesky_factor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.cholesky_factor" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmState.generation">
-<span class="sig-name descname"><span class="pre">generation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.generation" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">generation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.generation" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmState.mean">
-<span class="sig-name descname"><span class="pre">mean</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.mean" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">mean</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.mean" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmState.p_c">
-<span class="sig-name descname"><span class="pre">p_c</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.p_c" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">p_c</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.p_c" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmState.p_sigma">
-<span class="sig-name descname"><span class="pre">p_sigma</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.p_sigma" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">p_sigma</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.p_sigma" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmState.random_state">
-<span class="sig-name descname"><span class="pre">random_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.random_state" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">random_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.random_state" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.AlgorithmState.step_size">
-<span class="sig-name descname"><span class="pre">step_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.step_size" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">step_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.params_and_state.AlgorithmState.step_size" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.calculate_new_mean">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">calculate_new_mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#calculate_new_mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.calculate_new_mean" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">calculate_new_mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#calculate_new_mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.calculate_new_mean" title="Link to this definition"></a></dt>
 <dd><p>Calculates the new mean of the distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -560,7 +561,7 @@ numpy.random.default_rng().</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.create_init_algorithm_state">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_init_algorithm_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_init_algorithm_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_init_algorithm_state" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_init_algorithm_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_init_algorithm_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_init_algorithm_state" title="Link to this definition"></a></dt>
 <dd><p>Create function that initializes an AlgorithmState.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -577,7 +578,7 @@ numpy.random.default_rng().</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.create_resample_and_evaluate">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_resample_and_evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_individuals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_single</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_pipeline_batch=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_pipeline_single=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_resample_and_evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_resample_and_evaluate" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_resample_and_evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_individuals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_single</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_pipeline_batch=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_pipeline_single=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_resample_and_evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_resample_and_evaluate" title="Link to this definition"></a></dt>
 <dd><p>Create function that samples a population and evaluates its loss.</p>
 <p>Samples that are rejected, i.e., they come with an exception are resampled.</p>
 <dl class="field-list simple">
@@ -609,7 +610,7 @@ state.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.create_sample_and_evaluate">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_sample_and_evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_individuals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_pipeline=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_sample_and_evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_sample_and_evaluate" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_sample_and_evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_individuals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_pipeline=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_sample_and_evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_sample_and_evaluate" title="Link to this definition"></a></dt>
 <dd><p>Create function that samples a population and evaluates its loss.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -633,7 +634,7 @@ data. Default is identity.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.create_sample_and_run">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_sample_and_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_individuals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runner</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_sample_and_run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_sample_and_run" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_sample_and_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_individuals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runner</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_sample_and_run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_sample_and_run" title="Link to this definition"></a></dt>
 <dd><p>Create function that samples a population and evaluates its loss.</p>
 <p>Utilizes an instance of Runner. With resampling for failures.</p>
 <dl class="field-list simple">
@@ -656,7 +657,7 @@ the results.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.create_sample_and_sequential_evaluate">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_sample_and_sequential_evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_individuals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_pipeline=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_sample_and_sequential_evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_sample_and_sequential_evaluate" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_sample_and_sequential_evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_individuals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evaluate_loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_pipeline=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_sample_and_sequential_evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_sample_and_sequential_evaluate" title="Link to this definition"></a></dt>
 <dd><p>Create function that samples a population and evaluates its loss.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -680,7 +681,7 @@ data. Default is identity.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.create_sample_from_state">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_sample_from_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_sample_from_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_sample_from_state" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_sample_from_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_sample_from_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_sample_from_state" title="Link to this definition"></a></dt>
 <dd><p>Create function that samples a population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -697,7 +698,7 @@ data. Default is identity.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.create_update_algorithm_state">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_update_algorithm_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_update_algorithm_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_update_algorithm_state" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">create_update_algorithm_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#create_update_algorithm_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.create_update_algorithm_state" title="Link to this definition"></a></dt>
 <dd><p>Create function that creates an updated AlgorithmState.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -714,7 +715,7 @@ data. Default is identity.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.init_default_algorithm_parameters">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">init_default_algorithm_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_cov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#init_default_algorithm_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.init_default_algorithm_parameters" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">init_default_algorithm_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pop_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_cov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#init_default_algorithm_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.init_default_algorithm_parameters" title="Link to this definition"></a></dt>
 <dd><p>Initialize CMA-ES parameters to recommended defaults wherever possible.</p>
 <p>This function is the recommended way of instantiating an
 AlgorithmParameters object. It exposes only a minimal set of options to
@@ -748,7 +749,7 @@ the learning rates used in covariance matrix update.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.cmaes.params_and_state.rank_one_update">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">rank_one_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#rank_one_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.rank_one_update" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.params_and_state.</span></span><span class="sig-name descname"><span class="pre">rank_one_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/params_and_state.html#rank_one_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.params_and_state.rank_one_update" title="Link to this definition"></a></dt>
 <dd><p>Perform the rank-one update of the Cholesky factor as described in [1].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -769,11 +770,11 @@ the learning rates used in covariance matrix update.</p></li>
 
 </section>
 <section id="module-clinamen2.cmaes.termination_criterion">
-<span id="clinamen2-cmaes-termination-criterion-module"></span><h2>clinamen2.cmaes.termination_criterion module<a class="headerlink" href="#module-clinamen2.cmaes.termination_criterion" title="Permalink to this heading"></a></h2>
+<span id="clinamen2-cmaes-termination-criterion-module"></span><h2>clinamen2.cmaes.termination_criterion module<a class="headerlink" href="#module-clinamen2.cmaes.termination_criterion" title="Link to this heading"></a></h2>
 <p>Classes and functions implementing the CMA-ES termination criteria.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaAnd">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaAnd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criteria</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaAnd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaAnd" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaAnd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criteria</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaAnd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaAnd" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.CriteriaCombination" title="clinamen2.cmaes.termination_criterion.CriteriaCombination"><code class="xref py py-class docutils literal notranslate"><span class="pre">CriteriaCombination</span></code></a></p>
 <p>Class that combines criteria that all have to be fulfilled.</p>
 <p>Evaluates multiple criteria (instances of Criterion). All have to meet
@@ -788,7 +789,7 @@ their respective parameters for the CriterionAnd to be met.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaAnd.met">
-<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaAnd.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaAnd.met" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaAnd.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaAnd.met" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>criterion_state</strong> (<a class="reference internal" href="#clinamen2.cmaes.termination_criterion.CriteriaCombinationState" title="clinamen2.cmaes.termination_criterion.CriteriaCombinationState"><code class="xref py py-class docutils literal notranslate"><span class="pre">CriteriaCombinationState</span></code></a>) – NamedTuple containing tuple of criteria states.</p>
@@ -806,13 +807,13 @@ their respective parameters for the CriterionAnd to be met.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaAndState">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaAndState</span></span><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaAndState" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaAndState</span></span><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaAndState" title="Link to this definition"></a></dt>
 <dd><p>alias of <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.CriteriaCombinationState" title="clinamen2.cmaes.termination_criterion.CriteriaCombinationState"><code class="xref py py-class docutils literal notranslate"><span class="pre">CriteriaCombinationState</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaCombination">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaCombination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criteria</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaCombination"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombination" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaCombination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criteria</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaCombination"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombination" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.Criterion" title="clinamen2.cmaes.termination_criterion.Criterion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Criterion</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract class that combines criteria.</p>
 <dl class="field-list simple">
@@ -825,7 +826,7 @@ their respective parameters for the CriterionAnd to be met.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaCombination.init">
-<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaCombination.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombination.init" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaCombination.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombination.init" title="Link to this definition"></a></dt>
 <dd><p>Initialize the associated CriterionState instances.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -836,7 +837,7 @@ their respective parameters for the CriterionAnd to be met.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaCombination.met">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaCombination.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombination.met" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaCombination.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombination.met" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>criterion_state</strong> (<a class="reference internal" href="#clinamen2.cmaes.termination_criterion.CriteriaCombinationState" title="clinamen2.cmaes.termination_criterion.CriteriaCombinationState"><code class="xref py py-class docutils literal notranslate"><span class="pre">CriteriaCombinationState</span></code></a>) – NamedTuple containing tuple of criteria states.</p>
@@ -852,7 +853,7 @@ their respective parameters for the CriterionAnd to be met.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaCombination.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaCombination.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombination.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaCombination.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombination.update" title="Link to this definition"></a></dt>
 <dd><p>Function to update and return the criteria</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -876,8 +877,8 @@ their respective parameters for the CriterionAnd to be met.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaCombinationState">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaCombinationState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criteria_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaCombinationState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombinationState" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaCombinationState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criteria_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaCombinationState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombinationState" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>NamedTuple to keep track of a tuple of criterion states.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -886,7 +887,7 @@ their respective parameters for the CriterionAnd to be met.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaCombinationState.criteria_states">
-<span class="sig-name descname"><span class="pre">criteria_states</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></em><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombinationState.criteria_states" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">criteria_states</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></em><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaCombinationState.criteria_states" title="Link to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -894,7 +895,7 @@ their respective parameters for the CriterionAnd to be met.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaOr">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaOr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criteria</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaOr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaOr" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaOr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criteria</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaOr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaOr" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.CriteriaCombination" title="clinamen2.cmaes.termination_criterion.CriteriaCombination"><code class="xref py py-class docutils literal notranslate"><span class="pre">CriteriaCombination</span></code></a></p>
 <p>Class that combines criteria were one has to be fulfilled.</p>
 <p>Evaluates multiple criteria (instances of Criterion). Any one has to meet
@@ -909,7 +910,7 @@ their respective parameters for the CriterionOr to be met.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaOr.met">
-<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaOr.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaOr.met" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#CriteriaOr.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaOr.met" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>criterion_state</strong> (<a class="reference internal" href="#clinamen2.cmaes.termination_criterion.CriteriaCombinationState" title="clinamen2.cmaes.termination_criterion.CriteriaCombinationState"><code class="xref py py-class docutils literal notranslate"><span class="pre">CriteriaCombinationState</span></code></a>) – NamedTuple containing tuple of criteria states.</p>
@@ -927,13 +928,13 @@ their respective parameters for the CriterionOr to be met.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.CriteriaOrState">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaOrState</span></span><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaOrState" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">CriteriaOrState</span></span><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.CriteriaOrState" title="Link to this definition"></a></dt>
 <dd><p>alias of <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.CriteriaCombinationState" title="clinamen2.cmaes.termination_criterion.CriteriaCombinationState"><code class="xref py py-class docutils literal notranslate"><span class="pre">CriteriaCombinationState</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.Criterion">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">Criterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#Criterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.Criterion" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">Criterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#Criterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.Criterion" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract base class for termination criteria.</p>
 <dl class="field-list simple">
@@ -943,7 +944,7 @@ their respective parameters for the CriterionOr to be met.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.Criterion.init">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#Criterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.Criterion.init" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#Criterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.Criterion.init" title="Link to this definition"></a></dt>
 <dd><p>Initialize the associated state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -957,7 +958,7 @@ their respective parameters for the CriterionOr to be met.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.Criterion.met">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#Criterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.Criterion.met" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#Criterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.Criterion.met" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>criterion_state</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code>) – State of criterion to base decision on.</p>
@@ -973,7 +974,7 @@ their respective parameters for the CriterionOr to be met.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.Criterion.update">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#Criterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.Criterion.update" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#Criterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.Criterion.update" title="Link to this definition"></a></dt>
 <dd><p>Function to update and return the Criterion</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -997,7 +998,7 @@ their respective parameters for the CriterionOr to be met.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleLossCriterion">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleLossCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleLossCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossCriterion" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleLossCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleLossCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossCriterion" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.Criterion" title="clinamen2.cmaes.termination_criterion.Criterion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Criterion</span></code></a></p>
 <p>Class that implements a termination criterion of the CMA-ES.</p>
 <p>Takes the loss trajectory into account. If the loss is stale for a
@@ -1015,7 +1016,7 @@ stale for the criterion to be met.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleLossCriterion.init">
-<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleLossCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossCriterion.init" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleLossCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossCriterion.init" title="Link to this definition"></a></dt>
 <dd><p>Initialize the associated CriterionState.</p>
 <p>Use base CriterionState and set counter to zero.</p>
 <dl class="field-list simple">
@@ -1027,7 +1028,7 @@ stale for the criterion to be met.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleLossCriterion.met">
-<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleLossCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossCriterion.met" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleLossCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossCriterion.met" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>criterion_state</strong> (<a class="reference internal" href="#clinamen2.cmaes.termination_criterion.StaleLossState" title="clinamen2.cmaes.termination_criterion.StaleLossState"><code class="xref py py-class docutils literal notranslate"><span class="pre">StaleLossState</span></code></a>) – State of criterion to base decision on.</p>
@@ -1043,7 +1044,7 @@ stale for the criterion to be met.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleLossCriterion.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleLossCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossCriterion.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleLossCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossCriterion.update" title="Link to this definition"></a></dt>
 <dd><p>Function to update and return the Criterion</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1067,8 +1068,8 @@ stale for the criterion to be met.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleLossState">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleLossState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">counter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compare_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleLossState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossState" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleLossState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">counter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compare_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleLossState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossState" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>NamedTuple to keep track of the state of a criterion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1080,13 +1081,13 @@ stale for the criterion to be met.</p></li>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleLossState.compare_to">
-<span class="sig-name descname"><span class="pre">compare_to</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossState.compare_to" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">compare_to</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossState.compare_to" title="Link to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleLossState.counter">
-<span class="sig-name descname"><span class="pre">counter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossState.counter" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">counter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleLossState.counter" title="Link to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -1094,7 +1095,7 @@ stale for the criterion to be met.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleStdCriterion">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleStdCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStdCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStdCriterion" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleStdCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStdCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStdCriterion" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.Criterion" title="clinamen2.cmaes.termination_criterion.Criterion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Criterion</span></code></a></p>
 <p>Class that implements a termination criterion of the CMA-ES.</p>
 <p>Takes the standard deviation within generations into account. If the std
@@ -1112,7 +1113,7 @@ threshold for the criterion to be met.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleStdCriterion.init">
-<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStdCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStdCriterion.init" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStdCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStdCriterion.init" title="Link to this definition"></a></dt>
 <dd><p>Initialize the associated CriterionState.</p>
 <p>Use base CriterionState and set counter to zero.</p>
 <dl class="field-list simple">
@@ -1124,7 +1125,7 @@ threshold for the criterion to be met.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleStdCriterion.met">
-<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStdCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStdCriterion.met" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStdCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStdCriterion.met" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>criterion_state</strong> (<a class="reference internal" href="#clinamen2.cmaes.termination_criterion.StaleLossState" title="clinamen2.cmaes.termination_criterion.StaleLossState"><code class="xref py py-class docutils literal notranslate"><span class="pre">StaleLossState</span></code></a>) – State of criterion to base decision on.</p>
@@ -1140,7 +1141,7 @@ threshold for the criterion to be met.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleStdCriterion.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStdCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStdCriterion.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStdCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStdCriterion.update" title="Link to this definition"></a></dt>
 <dd><p>Function to update and return the Criterion</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1164,13 +1165,13 @@ threshold for the criterion to be met.</p></li>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleStdState">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleStdState</span></span><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStdState" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleStdState</span></span><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStdState" title="Link to this definition"></a></dt>
 <dd><p>alias of <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.StaleLossState" title="clinamen2.cmaes.termination_criterion.StaleLossState"><code class="xref py py-class docutils literal notranslate"><span class="pre">StaleLossState</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleStepCriterion">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleStepCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStepCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStepCriterion" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleStepCriterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStepCriterion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStepCriterion" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.Criterion" title="clinamen2.cmaes.termination_criterion.Criterion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Criterion</span></code></a></p>
 <p>Class that implements a termination criterion of the CMA-ES.</p>
 <p>Takes the step size trajectory into account. If the step size is stale for
@@ -1188,7 +1189,7 @@ be stale for the criterion to be met.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleStepCriterion.init">
-<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStepCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStepCriterion.init" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStepCriterion.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStepCriterion.init" title="Link to this definition"></a></dt>
 <dd><p>Initialize the associated CriterionState.</p>
 <p>Use base CriterionState and set counter to zero.</p>
 <dl class="field-list simple">
@@ -1200,7 +1201,7 @@ be stale for the criterion to be met.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleStepCriterion.met">
-<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStepCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStepCriterion.met" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStepCriterion.met"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStepCriterion.met" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>criterion_state</strong> (<a class="reference internal" href="#clinamen2.cmaes.termination_criterion.StaleLossState" title="clinamen2.cmaes.termination_criterion.StaleLossState"><code class="xref py py-class docutils literal notranslate"><span class="pre">StaleLossState</span></code></a>) – State of criterion to base decision on.</p>
@@ -1216,7 +1217,7 @@ be stale for the criterion to be met.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleStepCriterion.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStepCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStepCriterion.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">criterion_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/cmaes/termination_criterion.html#StaleStepCriterion.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStepCriterion.update" title="Link to this definition"></a></dt>
 <dd><p>Function to update and return the Criterion</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1240,13 +1241,13 @@ be stale for the criterion to be met.</p></li>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.cmaes.termination_criterion.StaleStepState">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleStepState</span></span><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStepState" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.cmaes.termination_criterion.</span></span><span class="sig-name descname"><span class="pre">StaleStepState</span></span><a class="headerlink" href="#clinamen2.cmaes.termination_criterion.StaleStepState" title="Link to this definition"></a></dt>
 <dd><p>alias of <a class="reference internal" href="#clinamen2.cmaes.termination_criterion.StaleLossState" title="clinamen2.cmaes.termination_criterion.StaleLossState"><code class="xref py py-class docutils literal notranslate"><span class="pre">StaleLossState</span></code></a></p>
 </dd></dl>
 
 </section>
 <section id="module-clinamen2.cmaes">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-clinamen2.cmaes" title="Permalink to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-clinamen2.cmaes" title="Link to this heading"></a></h2>
 <p>Copyright 2023 The Clinamen2 contributors</p>
 <p>Licensed under the Apache License, Version 2.0 (the “License”);
 you may not use this file except in compliance with the License.

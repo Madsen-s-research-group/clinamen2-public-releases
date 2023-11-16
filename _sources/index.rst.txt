@@ -12,6 +12,7 @@ Welcome to Clinamen2's documentation!
 
    source/getting_started
    source/example_tutorials
+   source/calculator_guide
    source/modules
 
 Indices and tables

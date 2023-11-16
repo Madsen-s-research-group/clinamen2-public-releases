@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2.cmaes.params_and_state &mdash; Clinamen2 1.0 documentation</title>
+  <title>clinamen2.cmaes.params_and_state &mdash; Clinamen2 2023.05.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=952338b5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -93,7 +93,9 @@
 <span class="kn">from</span> <span class="nn">clinamen2.runner.basic_runner</span> <span class="kn">import</span> <span class="n">Runner</span><span class="p">,</span> <span class="n">WorkerResult</span>
 
 
-<div class="viewcode-block" id="AlgorithmParameters"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters">[docs]</a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="viewcode-block" id="AlgorithmParameters">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">AlgorithmParameters</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for keeping track of the initial, immutable parameters of a run.</span>
 
@@ -188,7 +190,10 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;c_mu&#39; must be in [0, 1 - c_1]&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="init_default_algorithm_parameters"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.init_default_algorithm_parameters">[docs]</a><span class="k">def</span> <span class="nf">init_default_algorithm_parameters</span><span class="p">(</span>
+
+<div class="viewcode-block" id="init_default_algorithm_parameters">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.init_default_algorithm_parameters">[docs]</a>
+<span class="k">def</span> <span class="nf">init_default_algorithm_parameters</span><span class="p">(</span>
     <span class="n">dimension</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">pop_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">alpha_cov</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
@@ -262,7 +267,10 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="AlgorithmState"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState">[docs]</a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AlgorithmState">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">AlgorithmState</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for keeping track of the state of the run.</span>
 
@@ -292,7 +300,10 @@
         <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="create_init_algorithm_state"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_init_algorithm_state">[docs]</a><span class="k">def</span> <span class="nf">create_init_algorithm_state</span><span class="p">(</span><span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+
+<div class="viewcode-block" id="create_init_algorithm_state">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_init_algorithm_state">[docs]</a>
+<span class="k">def</span> <span class="nf">create_init_algorithm_state</span><span class="p">(</span><span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create function that initializes an AlgorithmState.</span>
 
 <span class="sd">    Args:</span>
@@ -397,7 +408,10 @@
     <span class="k">return</span> <span class="n">init_algorithm_state</span></div>
 
 
-<div class="viewcode-block" id="create_sample_and_evaluate"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_and_evaluate">[docs]</a><span class="k">def</span> <span class="nf">create_sample_and_evaluate</span><span class="p">(</span>
+
+<div class="viewcode-block" id="create_sample_and_evaluate">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_and_evaluate">[docs]</a>
+<span class="k">def</span> <span class="nf">create_sample_and_evaluate</span><span class="p">(</span>
     <span class="n">sample_individuals</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
     <span class="n">evaluate_loss</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
     <span class="n">input_pipeline</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
@@ -442,7 +456,10 @@
     <span class="k">return</span> <span class="n">sample_and_evaluate</span></div>
 
 
-<div class="viewcode-block" id="create_sample_and_sequential_evaluate"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_and_sequential_evaluate">[docs]</a><span class="k">def</span> <span class="nf">create_sample_and_sequential_evaluate</span><span class="p">(</span>
+
+<div class="viewcode-block" id="create_sample_and_sequential_evaluate">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_and_sequential_evaluate">[docs]</a>
+<span class="k">def</span> <span class="nf">create_sample_and_sequential_evaluate</span><span class="p">(</span>
     <span class="n">sample_individuals</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
     <span class="n">evaluate_loss</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
     <span class="n">input_pipeline</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
@@ -489,7 +506,10 @@
     <span class="k">return</span> <span class="n">sample_and_evaluate</span></div>
 
 
-<div class="viewcode-block" id="create_resample_and_evaluate"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_resample_and_evaluate">[docs]</a><span class="k">def</span> <span class="nf">create_resample_and_evaluate</span><span class="p">(</span>
+
+<div class="viewcode-block" id="create_resample_and_evaluate">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_resample_and_evaluate">[docs]</a>
+<span class="k">def</span> <span class="nf">create_resample_and_evaluate</span><span class="p">(</span>
     <span class="n">sample_individuals</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
     <span class="n">evaluate_batch</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
     <span class="n">evaluate_single</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
@@ -621,7 +641,10 @@
     <span class="k">return</span> <span class="n">resample_and_evaluate</span></div>
 
 
-<div class="viewcode-block" id="create_sample_and_run"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_and_run">[docs]</a><span class="k">def</span> <span class="nf">create_sample_and_run</span><span class="p">(</span>
+
+<div class="viewcode-block" id="create_sample_and_run">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_and_run">[docs]</a>
+<span class="k">def</span> <span class="nf">create_sample_and_run</span><span class="p">(</span>
     <span class="n">sample_individuals</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
     <span class="n">runner</span><span class="p">:</span> <span class="n">Runner</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
@@ -719,7 +742,10 @@
     <span class="k">return</span> <span class="n">sample_and_run</span></div>
 
 
-<div class="viewcode-block" id="create_sample_from_state"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_from_state">[docs]</a><span class="k">def</span> <span class="nf">create_sample_from_state</span><span class="p">(</span><span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+
+<div class="viewcode-block" id="create_sample_from_state">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_sample_from_state">[docs]</a>
+<span class="k">def</span> <span class="nf">create_sample_from_state</span><span class="p">(</span><span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create function that samples a population.</span>
 
 <span class="sd">    Args:</span>
@@ -781,7 +807,10 @@
     <span class="k">return</span> <span class="n">sample_from_state</span></div>
 
 
-<div class="viewcode-block" id="calculate_new_mean"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.calculate_new_mean">[docs]</a><span class="k">def</span> <span class="nf">calculate_new_mean</span><span class="p">(</span>
+
+<div class="viewcode-block" id="calculate_new_mean">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.calculate_new_mean">[docs]</a>
+<span class="k">def</span> <span class="nf">calculate_new_mean</span><span class="p">(</span>
     <span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">,</span>
     <span class="n">original_state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
     <span class="n">population</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span>
@@ -810,7 +839,10 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="rank_one_update"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.rank_one_update">[docs]</a><span class="k">def</span> <span class="nf">rank_one_update</span><span class="p">(</span>
+
+<div class="viewcode-block" id="rank_one_update">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.rank_one_update">[docs]</a>
+<span class="k">def</span> <span class="nf">rank_one_update</span><span class="p">(</span>
     <span class="n">A</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span> <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform the rank-one update of the Cholesky factor as described in [1].</span>
@@ -857,7 +889,10 @@
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span><span class="o">.</span><span class="n">T</span></div>
 
 
-<div class="viewcode-block" id="create_update_algorithm_state"><a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_update_algorithm_state">[docs]</a><span class="k">def</span> <span class="nf">create_update_algorithm_state</span><span class="p">(</span><span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+
+<div class="viewcode-block" id="create_update_algorithm_state">
+<a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.create_update_algorithm_state">[docs]</a>
+<span class="k">def</span> <span class="nf">create_update_algorithm_state</span><span class="p">(</span><span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create function that creates an updated AlgorithmState.</span>
 
 <span class="sd">    Args:</span>
@@ -949,6 +984,7 @@
         <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">update_algorithm_state</span></div>
+
 </pre></div>
 
            </div>

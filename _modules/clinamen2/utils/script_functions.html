@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2.utils.script_functions &mdash; Clinamen2 1.0 documentation</title>
+  <title>clinamen2.utils.script_functions &mdash; Clinamen2 2023.05.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=952338b5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -87,7 +87,9 @@
 <span class="kn">from</span> <span class="nn">clinamen2.utils.plot_functions</span> <span class="kn">import</span> <span class="n">CMAPlotHelper</span>
 
 
-<div class="viewcode-block" id="cma_parser"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.script_functions.cma_parser">[docs]</a><span class="k">def</span> <span class="nf">cma_parser</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">:</span>
+<div class="viewcode-block" id="cma_parser">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.script_functions.cma_parser">[docs]</a>
+<span class="k">def</span> <span class="nf">cma_parser</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Argument parser for example scripts.</span>
 
 <span class="sd">    Has the CMA-ES parameters as attributes.</span>
@@ -145,7 +147,10 @@
     <span class="k">return</span> <span class="n">parser</span></div>
 
 
-<div class="viewcode-block" id="cma_setup"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.script_functions.cma_setup">[docs]</a><span class="k">def</span> <span class="nf">cma_setup</span><span class="p">(</span>
+
+<div class="viewcode-block" id="cma_setup">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.script_functions.cma_setup">[docs]</a>
+<span class="k">def</span> <span class="nf">cma_setup</span><span class="p">(</span>
     <span class="n">mean</span><span class="p">,</span>
     <span class="n">step_size</span><span class="p">,</span>
     <span class="n">run_seed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
@@ -170,7 +175,10 @@
     <span class="k">return</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">state</span></div>
 
 
-<div class="viewcode-block" id="generate_result_figures"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.script_functions.generate_result_figures">[docs]</a><span class="k">def</span> <span class="nf">generate_result_figures</span><span class="p">(</span>
+
+<div class="viewcode-block" id="generate_result_figures">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.script_functions.generate_result_figures">[docs]</a>
+<span class="k">def</span> <span class="nf">generate_result_figures</span><span class="p">(</span>
     <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">input_dir</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
     <span class="n">generation_bounds</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
@@ -217,6 +225,7 @@
         <span class="n">save_fig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span>
     <span class="p">)</span></div>
+
 </pre></div>
 
            </div>

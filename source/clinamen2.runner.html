@@ -4,18 +4,18 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2.runner package &mdash; Clinamen2 2023.05.1 documentation</title>
+  <title>clinamen2.runner package &mdash; Clinamen2 2023.11.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=9bc12b8a"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -46,6 +46,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_tutorials.html">Example tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculator_guide.html">Calculator guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">clinamen2</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="clinamen2.html">clinamen2 package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="clinamen2.html#subpackages">Subpackages</a><ul class="current">
@@ -90,16 +91,16 @@
            <div itemprop="articleBody">
              
   <section id="clinamen2-runner-package">
-<h1>clinamen2.runner package<a class="headerlink" href="#clinamen2-runner-package" title="Permalink to this heading"></a></h1>
+<h1>clinamen2.runner package<a class="headerlink" href="#clinamen2-runner-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
 <section id="module-clinamen2.runner.basic_runner">
-<span id="clinamen2-runner-basic-runner-module"></span><h2>clinamen2.runner.basic_runner module<a class="headerlink" href="#module-clinamen2.runner.basic_runner" title="Permalink to this heading"></a></h2>
+<span id="clinamen2-runner-basic-runner-module"></span><h2>clinamen2.runner.basic_runner module<a class="headerlink" href="#module-clinamen2.runner.basic_runner" title="Link to this heading"></a></h2>
 <p>Implementation of the Runner classes to be used with Dask.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.FunctionRunner">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.runner.basic_runner.</span></span><span class="sig-name descname"><span class="pre">FunctionRunner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evaluator_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheduler_file=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_input=&lt;function</span> <span class="pre">FunctionRunner.&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#FunctionRunner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.FunctionRunner" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.runner.basic_runner.</span></span><span class="sig-name descname"><span class="pre">FunctionRunner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evaluator_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheduler_file=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_input=&lt;function</span> <span class="pre">FunctionRunner.&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#FunctionRunner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.FunctionRunner" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#clinamen2.runner.basic_runner.Runner" title="clinamen2.runner.basic_runner.Runner"><code class="xref py py-class docutils literal notranslate"><span class="pre">Runner</span></code></a></p>
 <p>Simple Runner for local function evaluation using Dask.</p>
 <dl class="field-list simple">
@@ -116,7 +117,7 @@ object that is expected by the Runner. Default is identity.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.FunctionRunner.pop">
-<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#FunctionRunner.pop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.FunctionRunner.pop" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#FunctionRunner.pop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.FunctionRunner.pop" title="Link to this definition"></a></dt>
 <dd><p>Function to fetch results from the Runner</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -131,7 +132,7 @@ object that is expected by the Runner. Default is identity.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.FunctionRunner.submit">
-<span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individual</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#FunctionRunner.submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.FunctionRunner.submit" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individual</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#FunctionRunner.submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.FunctionRunner.submit" title="Link to this definition"></a></dt>
 <dd><p>Function to submit one structure to the Runner</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -147,7 +148,7 @@ object that is expected by the Runner. Default is identity.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.Runner">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.runner.basic_runner.</span></span><span class="sig-name descname"><span class="pre">Runner</span></span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#Runner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.Runner" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.runner.basic_runner.</span></span><span class="sig-name descname"><span class="pre">Runner</span></span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#Runner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.Runner" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract class to interface to any queue</p>
 <p>Inherit from this class to implement any loss evaluation.</p>
@@ -167,7 +168,7 @@ array.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.Runner.pop">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#Runner.pop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.Runner.pop" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#Runner.pop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.Runner.pop" title="Link to this definition"></a></dt>
 <dd><p>Function to fetch results from the Runner</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -182,7 +183,7 @@ array.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.Runner.submit">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individual</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#Runner.submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.Runner.submit" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individual</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#Runner.submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.Runner.submit" title="Link to this definition"></a></dt>
 <dd><p>Function to submit one structure to the Runner</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -196,7 +197,7 @@ array.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.Runner.submit_batch">
-<span class="sig-name descname"><span class="pre">submit_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individuals</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#Runner.submit_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.Runner.submit_batch" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">submit_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individuals</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#Runner.submit_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.Runner.submit_batch" title="Link to this definition"></a></dt>
 <dd><p>Function that sequentially calls submit() for all individuals.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -212,7 +213,7 @@ array.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.ScriptRunner">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.runner.basic_runner.</span></span><span class="sig-name descname"><span class="pre">ScriptRunner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script_text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_run_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_config=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_input=&lt;function</span> <span class="pre">ScriptRunner.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheduler_info_path=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.runner.basic_runner.</span></span><span class="sig-name descname"><span class="pre">ScriptRunner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script_text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_run_command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_config=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_input=&lt;function</span> <span class="pre">ScriptRunner.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheduler_info_path=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#clinamen2.runner.basic_runner.Runner" title="clinamen2.runner.basic_runner.Runner"><code class="xref py py-class docutils literal notranslate"><span class="pre">Runner</span></code></a></p>
 <p>Runner for distributed script evaluations using Dask.</p>
 <dl class="simple">
@@ -247,7 +248,7 @@ Default is None, which starts the Dask scheduler locally.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.ScriptRunner.peek_script">
-<span class="sig-name descname"><span class="pre">peek_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner.peek_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner.peek_script" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">peek_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">script_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner.peek_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner.peek_script" title="Link to this definition"></a></dt>
 <dd><p>Function to check what the jinja script rendering would result in.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -261,7 +262,7 @@ Default is None, which starts the Dask scheduler locally.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.ScriptRunner.pop">
-<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner.pop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner.pop" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner.pop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner.pop" title="Link to this definition"></a></dt>
 <dd><p>Function to fetch results from the Runner</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -276,12 +277,12 @@ Default is None, which starts the Dask scheduler locally.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.ScriptRunner.script_driver">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">script_driver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner.script_driver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner.script_driver" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">script_driver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner.script_driver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner.script_driver" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.ScriptRunner.submit">
-<span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individual</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner.submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner.submit" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">submit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individual</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner.submit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner.submit" title="Link to this definition"></a></dt>
 <dd><p>Function to submit one structure to the Runner</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -295,7 +296,7 @@ Default is None, which starts the Dask scheduler locally.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.ScriptRunner.submit_batch">
-<span class="sig-name descname"><span class="pre">submit_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individuals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner.submit_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner.submit_batch" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">submit_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individuals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">script_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/runner/basic_runner.html#ScriptRunner.submit_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.runner.basic_runner.ScriptRunner.submit_batch" title="Link to this definition"></a></dt>
 <dd><p>Function that sequentially calls submit() for all individuals.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -311,17 +312,17 @@ Default is None, which starts the Dask scheduler locally.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.WorkerResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.runner.basic_runner.</span></span><span class="sig-name descname"><span class="pre">WorkerResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">information</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clinamen2.runner.basic_runner.WorkerResult" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.runner.basic_runner.</span></span><span class="sig-name descname"><span class="pre">WorkerResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">information</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#clinamen2.runner.basic_runner.WorkerResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.WorkerResult.information">
-<span class="sig-name descname"><span class="pre">information</span></span><a class="headerlink" href="#clinamen2.runner.basic_runner.WorkerResult.information" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">information</span></span><a class="headerlink" href="#clinamen2.runner.basic_runner.WorkerResult.information" title="Link to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="clinamen2.runner.basic_runner.WorkerResult.loss">
-<span class="sig-name descname"><span class="pre">loss</span></span><a class="headerlink" href="#clinamen2.runner.basic_runner.WorkerResult.loss" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">loss</span></span><a class="headerlink" href="#clinamen2.runner.basic_runner.WorkerResult.loss" title="Link to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -329,7 +330,7 @@ Default is None, which starts the Dask scheduler locally.</p></li>
 
 </section>
 <section id="module-clinamen2.runner">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-clinamen2.runner" title="Permalink to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-clinamen2.runner" title="Link to this heading"></a></h2>
 <p>Copyright 2023 The Clinamen2 contributors</p>
 <p>Licensed under the Apache License, Version 2.0 (the “License”);
 you may not use this file except in compliance with the License.

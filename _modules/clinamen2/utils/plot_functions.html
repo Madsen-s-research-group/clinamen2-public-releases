@@ -10,11 +10,11 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=952338b5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -85,7 +85,9 @@
 <span class="kn">from</span> <span class="nn">clinamen2.utils.file_handling</span> <span class="kn">import</span> <span class="n">CMAFileHandler</span>
 
 
-<div class="viewcode-block" id="CMAPlotHelper"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper">[docs]</a><span class="k">class</span> <span class="nc">CMAPlotHelper</span><span class="p">:</span>
+<div class="viewcode-block" id="CMAPlotHelper">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper">[docs]</a>
+<span class="k">class</span> <span class="nc">CMAPlotHelper</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Setup figure parameters and plot common results.</span>
 
 <span class="sd">    Args:</span>
@@ -164,7 +166,9 @@
             <span class="n">output_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">additional_info_types</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classify_additional_information</span><span class="p">()</span>
 
-<div class="viewcode-block" id="CMAPlotHelper.get_data_from_generations"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.get_data_from_generations">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_from_generations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="CMAPlotHelper.get_data_from_generations">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.get_data_from_generations">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_data_from_generations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse generations with handler and return data.&quot;&quot;&quot;</span>
         <span class="n">file_format</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">json</span> <span class="k">else</span> <span class="s2">&quot;dill&quot;</span>
         <span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
@@ -197,7 +201,10 @@
             <span class="n">information_list</span><span class="p">,</span>  <span class="c1"># list of dictionaries</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="CMAPlotHelper.classify_additional_information"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.classify_additional_information">[docs]</a>    <span class="k">def</span> <span class="nf">classify_additional_information</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="CMAPlotHelper.classify_additional_information">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.classify_additional_information">[docs]</a>
+    <span class="k">def</span> <span class="nf">classify_additional_information</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse additional information and classify.&quot;&quot;&quot;</span>
         <span class="c1"># check which keys are available</span>
         <span class="k">try</span><span class="p">:</span>
@@ -232,7 +239,10 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;resulting in </span><span class="si">{</span><span class="n">additional_information_types</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">additional_information_types</span></div>
 
-<div class="viewcode-block" id="CMAPlotHelper.plot_additional_information_per_generation"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_additional_information_per_generation">[docs]</a>    <span class="k">def</span> <span class="nf">plot_additional_information_per_generation</span><span class="p">(</span>
+
+<div class="viewcode-block" id="CMAPlotHelper.plot_additional_information_per_generation">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_additional_information_per_generation">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_additional_information_per_generation</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">ax</span><span class="p">:</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">axis</span><span class="o">.</span><span class="n">Axis</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -349,7 +359,10 @@
                     <span class="nb">format</span><span class="o">=</span><span class="n">fig_type</span><span class="p">,</span>
                 <span class="p">)</span></div>
 
-<div class="viewcode-block" id="CMAPlotHelper.plot_stepsize_ax2"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_stepsize_ax2">[docs]</a>    <span class="k">def</span> <span class="nf">plot_stepsize_ax2</span><span class="p">(</span>
+
+<div class="viewcode-block" id="CMAPlotHelper.plot_stepsize_ax2">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_stepsize_ax2">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_stepsize_ax2</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">ax</span><span class="p">:</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">axis</span><span class="o">.</span><span class="n">Axis</span><span class="p">,</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span>
@@ -386,7 +399,10 @@
 
         <span class="k">return</span> <span class="n">ln</span></div>
 
-<div class="viewcode-block" id="CMAPlotHelper.plot_mean_loss_per_generation"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_mean_loss_per_generation">[docs]</a>    <span class="k">def</span> <span class="nf">plot_mean_loss_per_generation</span><span class="p">(</span>
+
+<div class="viewcode-block" id="CMAPlotHelper.plot_mean_loss_per_generation">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_mean_loss_per_generation">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_mean_loss_per_generation</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">generation_bounds</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -532,7 +548,10 @@
 
         <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span></div>
 
-<div class="viewcode-block" id="CMAPlotHelper.plot_loss_boxplots"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_loss_boxplots">[docs]</a>    <span class="k">def</span> <span class="nf">plot_loss_boxplots</span><span class="p">(</span>
+
+<div class="viewcode-block" id="CMAPlotHelper.plot_loss_boxplots">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_loss_boxplots">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_loss_boxplots</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">generations</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
         <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -637,7 +656,10 @@
                 <span class="nb">format</span><span class="o">=</span><span class="n">fig_type</span><span class="p">,</span>
             <span class="p">)</span></div>
 
-<div class="viewcode-block" id="CMAPlotHelper.plot_loss_with_errorbars"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_loss_with_errorbars">[docs]</a>    <span class="k">def</span> <span class="nf">plot_loss_with_errorbars</span><span class="p">(</span>
+
+<div class="viewcode-block" id="CMAPlotHelper.plot_loss_with_errorbars">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_loss_with_errorbars">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_loss_with_errorbars</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">generation</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -726,7 +748,10 @@
                 <span class="nb">format</span><span class="o">=</span><span class="n">fig_type</span><span class="p">,</span>
             <span class="p">)</span></div>
 
-<div class="viewcode-block" id="CMAPlotHelper.plot_loss_per_generation"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_loss_per_generation">[docs]</a>    <span class="k">def</span> <span class="nf">plot_loss_per_generation</span><span class="p">(</span>
+
+<div class="viewcode-block" id="CMAPlotHelper.plot_loss_per_generation">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_loss_per_generation">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_loss_per_generation</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">generation_bounds</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -838,7 +863,10 @@
                 <span class="nb">format</span><span class="o">=</span><span class="n">fig_type</span><span class="p">,</span>
             <span class="p">)</span></div>
 
-<div class="viewcode-block" id="CMAPlotHelper.plot_additional_per_individual"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_additional_per_individual">[docs]</a>    <span class="k">def</span> <span class="nf">plot_additional_per_individual</span><span class="p">(</span>
+
+<div class="viewcode-block" id="CMAPlotHelper.plot_additional_per_individual">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.plot_functions.CMAPlotHelper.plot_additional_per_individual">[docs]</a>
+    <span class="k">def</span> <span class="nf">plot_additional_per_individual</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">generation_bounds</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -954,7 +982,9 @@
             <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="o">+</span> <span class="n">fig_type</span><span class="p">),</span>
                 <span class="nb">format</span><span class="o">=</span><span class="n">fig_type</span><span class="p">,</span>
-            <span class="p">)</span></div></div>
+            <span class="p">)</span></div>
+</div>
+
 </pre></div>
 
            </div>

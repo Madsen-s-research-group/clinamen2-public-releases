@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2.utils.bipop_restart &mdash; Clinamen2 1.0 documentation</title>
+  <title>clinamen2.utils.bipop_restart &mdash; Clinamen2 2023.05.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=952338b5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -89,7 +89,9 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
-<div class="viewcode-block" id="BIPOP"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.bipop_restart.BIPOP">[docs]</a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="viewcode-block" id="BIPOP">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.bipop_restart.BIPOP">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">BIPOP</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Dataclass representing the current state of a BIPOP run.</span>
 
@@ -112,7 +114,10 @@
     <span class="n">eval_counter</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="bipop_init"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.bipop_restart.bipop_init">[docs]</a><span class="k">def</span> <span class="nf">bipop_init</span><span class="p">(</span><span class="n">default_pop_size</span><span class="p">,</span> <span class="n">default_step_size</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BIPOP</span><span class="p">:</span>
+
+<div class="viewcode-block" id="bipop_init">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.bipop_restart.bipop_init">[docs]</a>
+<span class="k">def</span> <span class="nf">bipop_init</span><span class="p">(</span><span class="n">default_pop_size</span><span class="p">,</span> <span class="n">default_step_size</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BIPOP</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Initialize a BIPOP object.</span>
 
 <span class="sd">    The arguments are &#39;default&#39; with respect to the BIPOP algorithm, not</span>
@@ -137,7 +142,10 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="bipop_next_restart"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.bipop_restart.bipop_next_restart">[docs]</a><span class="k">def</span> <span class="nf">bipop_next_restart</span><span class="p">(</span><span class="n">bipop</span><span class="p">:</span> <span class="n">BIPOP</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">BIPOP</span><span class="p">]:</span>
+
+<div class="viewcode-block" id="bipop_next_restart">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.bipop_restart.bipop_next_restart">[docs]</a>
+<span class="k">def</span> <span class="nf">bipop_next_restart</span><span class="p">(</span><span class="n">bipop</span><span class="p">:</span> <span class="n">BIPOP</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">BIPOP</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate pop_size, step_size for next restart.</span>
 
 <span class="sd">    Also returns an updated BIPOP. The first restart is always a large</span>
@@ -185,7 +193,10 @@
     <span class="k">return</span> <span class="n">pop_size</span><span class="p">,</span> <span class="n">step_size</span><span class="p">,</span> <span class="n">new_bipop</span></div>
 
 
-<div class="viewcode-block" id="bipop_update"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.bipop_restart.bipop_update">[docs]</a><span class="k">def</span> <span class="nf">bipop_update</span><span class="p">(</span><span class="n">bipop</span><span class="p">:</span> <span class="n">BIPOP</span><span class="p">,</span> <span class="n">new_evals</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BIPOP</span><span class="p">:</span>
+
+<div class="viewcode-block" id="bipop_update">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.bipop_restart.bipop_update">[docs]</a>
+<span class="k">def</span> <span class="nf">bipop_update</span><span class="p">(</span><span class="n">bipop</span><span class="p">:</span> <span class="n">BIPOP</span><span class="p">,</span> <span class="n">new_evals</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BIPOP</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a new BIPOP with updated eval_counter.</span>
 
 <span class="sd">    The lower counter will be updated.</span>
@@ -217,6 +228,7 @@
         <span class="n">latest_large_pop_size</span><span class="o">=</span><span class="n">bipop</span><span class="o">.</span><span class="n">latest_large_pop_size</span><span class="p">,</span>
         <span class="n">eval_counter</span><span class="o">=</span><span class="n">eval_counter</span><span class="p">,</span>
     <span class="p">)</span></div>
+
 </pre></div>
 
            </div>

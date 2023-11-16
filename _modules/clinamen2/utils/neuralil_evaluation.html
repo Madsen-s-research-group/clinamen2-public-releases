@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2.utils.neuralil_evaluation &mdash; Clinamen2 1.0 documentation</title>
+  <title>clinamen2.utils.neuralil_evaluation &mdash; Clinamen2 2023.05.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=952338b5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -84,7 +84,9 @@
 <span class="kn">from</span> <span class="nn">neuralil.model</span> <span class="kn">import</span> <span class="n">NeuralIL</span><span class="p">,</span> <span class="n">NeuralILModelInfo</span>
 
 
-<div class="viewcode-block" id="NeuralILInputPipeline"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline">[docs]</a><span class="k">class</span> <span class="nc">NeuralILInputPipeline</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<div class="viewcode-block" id="NeuralILInputPipeline">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline">[docs]</a>
+<span class="k">class</span> <span class="nc">NeuralILInputPipeline</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Combined pipelines for input transformation.</span>
 
 <span class="sd">    Args:</span>
@@ -98,7 +100,10 @@
     <span class="n">clinamen_pipeline</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># dof -&gt; structure</span></div>
 
 
-<div class="viewcode-block" id="create_input_pipeline"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_input_pipeline">[docs]</a><span class="k">def</span> <span class="nf">create_input_pipeline</span><span class="p">(</span><span class="n">pipeline</span><span class="p">:</span> <span class="n">NeuralILInputPipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+
+<div class="viewcode-block" id="create_input_pipeline">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_input_pipeline">[docs]</a>
+<span class="k">def</span> <span class="nf">create_input_pipeline</span><span class="p">(</span><span class="n">pipeline</span><span class="p">:</span> <span class="n">NeuralILInputPipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create combined pipeline.</span>
 
 <span class="sd">    Args:</span>
@@ -119,7 +124,10 @@
     <span class="k">return</span> <span class="n">input_pipeline</span></div>
 
 
-<div class="viewcode-block" id="create_batch_input_pipeline"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_batch_input_pipeline">[docs]</a><span class="k">def</span> <span class="nf">create_batch_input_pipeline</span><span class="p">(</span><span class="n">pipeline</span><span class="p">:</span> <span class="n">NeuralILInputPipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+
+<div class="viewcode-block" id="create_batch_input_pipeline">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_batch_input_pipeline">[docs]</a>
+<span class="k">def</span> <span class="nf">create_batch_input_pipeline</span><span class="p">(</span><span class="n">pipeline</span><span class="p">:</span> <span class="n">NeuralILInputPipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create combined pipeline.</span>
 
 <span class="sd">    Args:</span>
@@ -143,7 +151,10 @@
     <span class="k">return</span> <span class="n">input_pipeline</span></div>
 
 
-<div class="viewcode-block" id="load_neuralil_model"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.load_neuralil_model">[docs]</a><span class="k">def</span> <span class="nf">load_neuralil_model</span><span class="p">(</span>
+
+<div class="viewcode-block" id="load_neuralil_model">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.load_neuralil_model">[docs]</a>
+<span class="k">def</span> <span class="nf">load_neuralil_model</span><span class="p">(</span>
     <span class="n">pickled_model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">max_neighbors</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">core_class</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span>
@@ -193,7 +204,10 @@
     <span class="k">return</span> <span class="n">individual_model</span><span class="p">,</span> <span class="n">model_info</span></div>
 
 
-<div class="viewcode-block" id="get_ensemble_model"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.get_ensemble_model">[docs]</a><span class="k">def</span> <span class="nf">get_ensemble_model</span><span class="p">(</span>
+
+<div class="viewcode-block" id="get_ensemble_model">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.get_ensemble_model">[docs]</a>
+<span class="k">def</span> <span class="nf">get_ensemble_model</span><span class="p">(</span>
     <span class="n">individual_model</span><span class="p">:</span> <span class="n">NeuralIL</span><span class="p">,</span> <span class="n">n_ensemble</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ensemble_class</span><span class="p">:</span> <span class="nb">type</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">flax</span><span class="o">.</span><span class="n">linen</span><span class="o">.</span><span class="n">Module</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Function to load a NeuralIL cheap ensemble for evaluation.</span>
@@ -210,7 +224,10 @@
     <span class="k">return</span> <span class="n">ensemble_class</span><span class="p">(</span><span class="n">individual_model</span><span class="p">,</span> <span class="n">n_ensemble</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="create_neuralil_calc_energy"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy">[docs]</a><span class="k">def</span> <span class="nf">create_neuralil_calc_energy</span><span class="p">(</span>
+
+<div class="viewcode-block" id="create_neuralil_calc_energy">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy">[docs]</a>
+<span class="k">def</span> <span class="nf">create_neuralil_calc_energy</span><span class="p">(</span>
     <span class="n">dynamics_model</span><span class="p">:</span> <span class="n">flax</span><span class="o">.</span><span class="n">linen</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">model_info</span><span class="p">:</span> <span class="n">NeuralILModelInfo</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Closure that returns wrappers for jitted evaluation functions.</span>
@@ -257,7 +274,10 @@
     <span class="k">return</span> <span class="n">calc_wrapper</span><span class="p">,</span> <span class="n">vmapped_calc_wrapper</span></div>
 
 
-<div class="viewcode-block" id="create_neuralil_calc_energy_and_forces"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy_and_forces">[docs]</a><span class="k">def</span> <span class="nf">create_neuralil_calc_energy_and_forces</span><span class="p">(</span>
+
+<div class="viewcode-block" id="create_neuralil_calc_energy_and_forces">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy_and_forces">[docs]</a>
+<span class="k">def</span> <span class="nf">create_neuralil_calc_energy_and_forces</span><span class="p">(</span>
     <span class="n">dynamics_model</span><span class="p">:</span> <span class="n">flax</span><span class="o">.</span><span class="n">linen</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">model_info</span><span class="p">:</span> <span class="n">NeuralILModelInfo</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Closure that returns wrappers for jitted evaluation functions.</span>
@@ -305,7 +325,10 @@
     <span class="k">return</span> <span class="n">calc_wrapper</span><span class="p">,</span> <span class="n">vmapped_calc_wrapper</span></div>
 
 
-<div class="viewcode-block" id="create_neuralil_calc_energy_and_forces_uncertainty"><a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy_and_forces_uncertainty">[docs]</a><span class="k">def</span> <span class="nf">create_neuralil_calc_energy_and_forces_uncertainty</span><span class="p">(</span>
+
+<div class="viewcode-block" id="create_neuralil_calc_energy_and_forces_uncertainty">
+<a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy_and_forces_uncertainty">[docs]</a>
+<span class="k">def</span> <span class="nf">create_neuralil_calc_energy_and_forces_uncertainty</span><span class="p">(</span>
     <span class="n">dynamics_model</span><span class="p">:</span> <span class="n">flax</span><span class="o">.</span><span class="n">linen</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">model_info</span><span class="p">:</span> <span class="n">NeuralILModelInfo</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Closure that returns wrappers for jitted evaluation functions.</span>
@@ -371,6 +394,7 @@
         <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">calc_wrapper</span><span class="p">,</span> <span class="n">vmapped_calc_wrapper</span></div>
+
 </pre></div>
 
            </div>

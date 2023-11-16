@@ -4,22 +4,22 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example tutorials &mdash; Clinamen2 2023.05.1 documentation</title>
+  <title>Example tutorials &mdash; Clinamen2 2023.11.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=9bc12b8a"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="clinamen2" href="modules.html" />
+    <link rel="next" title="Calculator guide" href="calculator_guide.html" />
     <link rel="prev" title="Getting Started" href="getting_started.html" /> 
 </head>
 
@@ -52,6 +52,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#lennard-jones-cluster">Lennard-Jones cluster</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="calculator_guide.html">Calculator guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">clinamen2</a></li>
 </ul>
 
@@ -80,7 +81,7 @@
            <div itemprop="articleBody">
              
   <section id="example-tutorials">
-<h1>Example tutorials<a class="headerlink" href="#example-tutorials" title="Permalink to this heading"></a></h1>
+<h1>Example tutorials<a class="headerlink" href="#example-tutorials" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="#function-trial"><span class="std std-ref">Function trial</span></a></p></li>
 <li><p><a class="reference internal" href="#silver-cluster"><span class="std std-ref">Silver cluster with density functional theory</span></a></p></li>
@@ -88,11 +89,11 @@
 <li><p><a class="reference internal" href="#lennard-jones"><span class="std std-ref">Lennard-Jones cluster</span></a></p></li>
 </ul>
 <section id="function-trial">
-<span id="id1"></span><h2>Function trial<a class="headerlink" href="#function-trial" title="Permalink to this heading"></a></h2>
+<span id="id1"></span><h2>Function trial<a class="headerlink" href="#function-trial" title="Link to this heading"></a></h2>
 <p>The function trial can be performed from the command-line or by importing the
 relevant functions, e.g., to a Jupyter notebook.</p>
 <p>From the command-line call
-<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_test_function.py">evolve_test_function.py</a>
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_test_function.py">evolve_test_function.py</a>
 from the ‘examples’ directory</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_test_function</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
@@ -123,9 +124,9 @@ script placed in the ‘examples’ directory.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>To perform multiple runs the shell script <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/run_function_trial.sh">run_function_trial.sh</a>  can be adapted.</p>
+<p>To perform multiple runs the shell script <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/run_function_trial.sh">run_function_trial.sh</a>  can be adapted.</p>
 <p>Additionally, the function trial can be performed utilizing the BIPOP restart
-by calling <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_test_function_bipop.py">evolve_test_function_bipop.py</a></p>
+by calling <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_test_function_bipop.py">evolve_test_function_bipop.py</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">evolve_test_function_bipop</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
@@ -135,8 +136,8 @@ by calling <a class="reference external" href="https://github.com/Madsen-s-resea
 </div>
 </section>
 <section id="silver-cluster-with-density-functional-theory">
-<span id="silver-cluster"></span><h2>Silver cluster with density functional theory<a class="headerlink" href="#silver-cluster-with-density-functional-theory" title="Permalink to this heading"></a></h2>
-<p>To use this example, <a class="reference external" href="https://nwchemgit.github.io/">NWChem</a> needs to be
+<span id="silver-cluster"></span><h2>Silver cluster with density functional theory<a class="headerlink" href="#silver-cluster-with-density-functional-theory" title="Link to this heading"></a></h2>
+<p>To use this example, <a class="reference external" href="https://nwchemgit.github.io/">NWChem</a> or <a class="reference external" href="https://vasp.at">VASP</a> need to be
 installed on the system.</p>
 <p>Before starting the evolution, the <a class="reference external" href="https://docs.dask.org/en/stable/">Dask</a>
 components need to be started directly or with the provided scripts, adapted to
@@ -144,12 +145,16 @@ your system. In preparing this example we used <a class="reference external" hre
 to keep the scheduler running and have it easily accessible. For consistency,
 scheduler, workers and evolution need to use the same version of Dask in the
 respective environments.</p>
-<p>To start the scheduler one can use <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/scheduler_start_nwchem.sh">scheduler_start_nwchem.sh</a> or directly</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dask</span><span class="o">-</span><span class="n">scheduler</span> <span class="o">--</span><span class="n">port</span> <span class="mi">0</span> <span class="o">--</span><span class="n">scheduler</span><span class="o">-</span><span class="n">file</span> <span class="n">scheduler_nwchem</span><span class="o">.</span><span class="n">json</span> <span class="o">--</span><span class="n">interface</span> <span class="n">em2</span> <span class="mi">1</span><span class="o">&gt;</span><span class="n">LOG</span> <span class="mi">2</span><span class="o">&gt;</span><span class="n">LOGERR</span>
+<p>Depending on the choice of DFT code, different settings are required in the following steps.</p>
+<p>To start the scheduler one can use <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/scheduler_start_vasp.sh">scheduler_start_vasp.sh</a>
+or <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/scheduler_start_nwchem.sh">scheduler_start_nwchem.sh</a>,
+respectively.</p>
+<p>The direct command is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dask</span><span class="o">-</span><span class="n">scheduler</span> <span class="o">--</span><span class="n">port</span> <span class="mi">0</span> <span class="o">--</span><span class="n">scheduler</span><span class="o">-</span><span class="n">file</span> <span class="n">scheduler_</span><span class="o">&lt;</span><span class="n">DFT</span><span class="o">&gt;.</span><span class="n">json</span> <span class="o">--</span><span class="n">interface</span> <span class="n">em2</span> <span class="mi">1</span><span class="o">&gt;</span><span class="n">LOG</span> <span class="mi">2</span><span class="o">&gt;</span><span class="n">LOGERR</span>
 </pre></div>
 </div>
-<p>With this, the scheduler is active (check for example via ‘ps -ef’) and created
-the file ‘scheduler_nwchem.json’ with content similar to</p>
+<p>With this, the scheduler is active (check for example via ‘ps -ef’) and an associated
+‘scheduler_&lt;DFT&gt;.json’ file (&lt;DFT&gt; is either ‘vasp’ or ‘nwchem’) has been created, with content similar to</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Scheduler&quot;</span><span class="p">,</span>
     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;Scheduler-46f55f65-8e76-4337-80d4-5906a75fb7d0&quot;</span><span class="p">,</span>
@@ -162,48 +167,54 @@ the file ‘scheduler_nwchem.json’ with content similar to</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>If scheduler, workers and evolution are not executed on the same system, this
-‘scheduler_nwchem.json’ file has to be copied. It may also be necessary to set
+<p>If scheduler, workers and evolution are not executed on the same system, the corresponding
+scheduler json file has to be copied. It may also be necessary to set
 up ssh tunnels or similar to enable communication between the components.</p>
-<p>This example calls NWChem through ASE, therefore the system variable
-‘ASE_NWCHEM_COMMAND’ needs to be set. We additionally use a scratch directory
-to avoid data clutter. Using Slurm a worker can be started as follows, executed
-in an Anaconda environment called ‘clinamen2’.</p>
+<p>This example calls the DFT code through ASE (<a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/calculators/vasp.html">VASP</a>,
+<a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/calculators/nwchem.html">NWChem</a>),
+which requires some environment variables to be set.</p>
+<ul class="simple">
+<li><p>VASP: <em>ASE_VASP_COMMAND</em> and <em>VASP_PP_PATH</em></p></li>
+<li><p>NWChem: <em>ASE_NWCHEM_COMMAND</em></p></li>
+</ul>
+<p>We additionally use a scratch directory to avoid data clutter. Using Slurm a worker
+can be started as follows, executed in an Anaconda environment called ‘clinamen2’.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
-<span class="c1">#SBATCH -J nwc-16</span>
+<span class="c1">#SBATCH -J worker-16</span>
 <span class="c1">#SBATCH -n 16</span>
 
 <span class="nb">set</span> <span class="o">-</span><span class="n">ue</span>
 
 <span class="n">module</span> <span class="n">load</span> <span class="n">anaconda</span>
 <span class="n">source</span> <span class="n">activate</span> <span class="n">clinamen2</span>
-<span class="n">module</span> <span class="n">load</span> <span class="n">nwchem</span>
+<span class="n">module</span> <span class="n">load</span> <span class="o">&lt;</span><span class="n">DFT</span><span class="o">&gt;</span>
 
-<span class="n">export</span> <span class="n">ASE_NWCHEM_COMMAND</span><span class="o">=</span><span class="s2">&quot;prun nwchem PREFIX.nwi &gt; PREFIX.nwo&quot;</span>
+<span class="c1"># SET DFT-SPECIFIC ENVIRONMENT VARIABLES HERE</span>
+
 <span class="n">export</span> <span class="n">WORKER_SCRATCH_SPACE</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{CLUSTER_SCRATCH_DIR}</span><span class="s2">&quot;</span>
-<span class="n">DASK_TEMPORARY_DIRECTORY</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{WORKER_SCRATCH_SPACE}</span><span class="s2">&quot;</span> <span class="n">dask</span><span class="o">-</span><span class="n">worker</span> <span class="o">--</span><span class="n">nthreads</span> <span class="mi">1</span> <span class="o">--</span><span class="n">nworkers</span> <span class="mi">1</span> <span class="o">--</span><span class="n">local</span><span class="o">-</span><span class="n">directory</span> <span class="s2">&quot;$</span><span class="si">{WORKER_SCRATCH_SPACE}</span><span class="s2">&quot;</span> <span class="o">--</span><span class="n">scheduler</span><span class="o">-</span><span class="n">file</span> <span class="n">scheduler_nwchem</span><span class="o">.</span><span class="n">json</span>
+<span class="n">DASK_TEMPORARY_DIRECTORY</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{WORKER_SCRATCH_SPACE}</span><span class="s2">&quot;</span> <span class="n">dask</span><span class="o">-</span><span class="n">worker</span> <span class="o">--</span><span class="n">nthreads</span> <span class="mi">1</span> <span class="o">--</span><span class="n">nworkers</span> <span class="mi">1</span> <span class="o">--</span><span class="n">local</span><span class="o">-</span><span class="n">directory</span> <span class="s2">&quot;$</span><span class="si">{WORKER_SCRATCH_SPACE}</span><span class="s2">&quot;</span> <span class="o">--</span><span class="n">scheduler</span><span class="o">-</span><span class="n">file</span> <span class="n">scheduler_</span><span class="o">&lt;</span><span class="n">DFT</span><span class="o">&gt;.</span><span class="n">json</span>
 </pre></div>
 </div>
 <p>Like all included examples, the standard CMA-ES parameters can be passed as
 command line arguments. For a description of these and the Ag cluster specific
-arguments call the script <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_ag_cluster_nwchem.py">evolve_ag_cluster_nwchem.py</a> from the ‘examples’ directory</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_ag_cluster_nwchem</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
+arguments call the script <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_ag_cluster_dft.py">evolve_ag_cluster_dft.py</a> from the ‘examples’ directory</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_ag_cluster_dft</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
 <p>The example-specific parameters need to be chosen with care.</p>
 <ul class="simple">
 <li><p>‘founder’ points to an ASE compatible POSCAR with the right number of Ag atoms and a sufficiently large cell</p></li>
-<li><p>‘nwchem_mult’ is the NWChem parameter ‘dft.mult’ and has to be set to 2 for an uneven number of atoms in the cell</p></li>
+<li><p>‘dft_backend’ to choose between ‘nwchem’ and ‘vasp’</p></li>
 <li><p>‘randomize_positions’: If this flag is given, the atom positions read from the founder will be shuffled</p></li>
 <li><p>‘random_positions_limit’: Defines a radius or side length to restrict the position randomization</p></li>
 </ul>
 <p>Example call</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_ag_cluster_nwchem</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">l</span> <span class="n">agcluster</span> <span class="o">-</span><span class="n">r</span> <span class="mi">1</span> <span class="o">-</span><span class="n">s</span> <span class="mf">0.5</span> <span class="o">-</span><span class="n">g</span> <span class="mi">300</span> <span class="o">-</span><span class="n">f</span> <span class="n">data</span><span class="o">/</span><span class="n">ag</span><span class="o">/</span><span class="n">POSCAR_ag5</span> <span class="o">-</span><span class="n">m</span> <span class="mi">2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_ag_cluster_dft</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">founder</span> <span class="n">data</span><span class="o">/</span><span class="n">ag</span><span class="o">/</span><span class="n">POSCAR_ag5_small_box</span> <span class="o">--</span><span class="n">dft_backend</span> <span class="n">nwchem</span> <span class="o">-</span><span class="n">r</span> <span class="mi">5</span> <span class="o">-</span><span class="n">s</span> <span class="mf">1.0</span> <span class="o">--</span><span class="n">g</span> <span class="mi">350</span> <span class="o">-</span><span class="n">l</span> <span class="n">ag5_small_box</span> <span class="o">--</span><span class="n">randomize_positions</span> <span class="n">sphere</span>
 </pre></div>
 </div>
 </section>
 <section id="si-bulk-with-neural-network-force-field">
-<span id="si-bulk"></span><h2>Si bulk with neural-network force field<a class="headerlink" href="#si-bulk-with-neural-network-force-field" title="Permalink to this heading"></a></h2>
+<span id="si-bulk"></span><h2>Si bulk with neural-network force field<a class="headerlink" href="#si-bulk-with-neural-network-force-field" title="Link to this heading"></a></h2>
 <p>In order to use the neural-network force field (NNFF) featured in this example,
 additional packages need to be installed. First of all, <a class="reference external" href="https://github.com/google/jax">Google JAX</a>,
 with documentation and installation guide
@@ -224,7 +235,7 @@ public release to then install the compatible branch via</p>
 </pre></div>
 </div>
 <p>As per usual, the available command-line parameters can be viewed directly by
-calling <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_si_bulk_nnff.py">evolve_si_bulk_nnff.py</a> with</p>
+calling <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_si_bulk_nnff.py">evolve_si_bulk_nnff.py</a> with</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_si_bulk_nnff</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
@@ -243,7 +254,7 @@ manipulate and also to optionally bias the initial covariance matrix.</p>
 </pre></div>
 </div>
 <p>The local relaxation of any of the generations can be performed using
-<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/optimize_si_fire_nnff.py">optimize_si_fire_nnff.py</a></p>
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/optimize_si_fire_nnff.py">optimize_si_fire_nnff.py</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">optimize_si_fire_nnff</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
@@ -253,7 +264,7 @@ manipulate and also to optionally bias the initial covariance matrix.</p>
 </div>
 </section>
 <section id="lennard-jones-cluster">
-<span id="lennard-jones"></span><h2>Lennard-Jones cluster<a class="headerlink" href="#lennard-jones-cluster" title="Permalink to this heading"></a></h2>
+<span id="lennard-jones"></span><h2>Lennard-Jones cluster<a class="headerlink" href="#lennard-jones-cluster" title="Link to this heading"></a></h2>
 <p>This example optionally requires <a class="reference external" href="https://m3g.github.io/packmol/">PACKMOL</a>,
 as it may be used to set up founder structures. Other options are available too.</p>
 <p>All Lennard-Jones (LJ) reference values are taken from <a class="reference external" href="http://doye.chem.ox.ac.uk/abstracts/jpc97.html">The Cambridge Energy Landscape Database</a>.
@@ -264,7 +275,7 @@ parameter.</p>
 installation guide available at <a class="reference external" href="https://jax.readthedocs.io/en/latest/">readthedocs</a>
 is required. More information can also be found in example <a class="reference internal" href="#si-bulk"><span class="std std-ref">Si bulk with neural-network force field</span></a>.</p>
 <p>The Bi-Population (BIPOP) restart example is called via
-<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_lj_cluster_jax_bipop.py">evolve_lj_cluster_jax_bipop.py</a></p>
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_lj_cluster_jax_bipop.py">evolve_lj_cluster_jax_bipop.py</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">evolve_lj_cluster_jax_bipop</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
@@ -277,10 +288,14 @@ additional parameters described in the help output. In the file given as
 </pre></div>
 </div>
 <p>It is also possible to perform a single LJ evolution without restarts
-<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_lj_cluster_jax.py">evolve_lj_cluster_jax</a></p>
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_lj_cluster_jax.py">evolve_lj_cluster_jax</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_lj_cluster_jax</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">l</span> <span class="n">lj5</span> <span class="o">-</span><span class="n">s</span> <span class="mf">0.5</span> <span class="o">-</span><span class="n">g</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">n</span> <span class="mi">10</span> <span class="o">-</span><span class="n">a</span> <span class="mi">5</span> <span class="o">-</span><span class="n">c</span> <span class="n">sphere</span> <span class="o">-</span><span class="n">w</span> <span class="o">&lt;</span><span class="n">WALES_PATH</span><span class="o">&gt;</span>
 </pre></div>
 </div>
+<p>Variants of the CMA-ES incorporating restarts are especially useful when investigating highly multimodal loss
+landscapes. By repeatedly starting searches with different parameters, more of the focus is shifted to exploration.
+The choice of restart algorithm and parameters is highly problem dependent though, with no one-size-fits-all solution.
+Depending on the use case, a simple grid search across population- and step-sizes may be a good choice.</p>
 </section>
 </section>
 
@@ -289,7 +304,7 @@ additional parameters described in the help output. In the file given as
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modules.html" class="btn btn-neutral float-right" title="clinamen2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calculator_guide.html" class="btn btn-neutral float-right" title="Calculator guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

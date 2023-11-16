@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator guide &mdash; Clinamen2 2023.11.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=9bc12b8a"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="clinamen2" href="modules.html" />
+    <link rel="prev" title="Example tutorials" href="example_tutorials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Clinamen2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_tutorials.html">Example tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calculator guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#function-wrapper">Function wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#script-runner">ScriptRunner</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">clinamen2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Clinamen2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Calculator guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/calculator_guide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="calculator-guide">
+<h1>Calculator guide<a class="headerlink" href="#calculator-guide" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="#basics"><span class="std std-ref">Basics</span></a></p></li>
+<li><p><a class="reference internal" href="#function-wrapper"><span class="std std-ref">Function wrapper</span></a></p></li>
+<li><p><a class="reference internal" href="#script-runner"><span class="std std-ref">ScriptRunner</span></a></p></li>
+</ul>
+<section id="basics">
+<span id="id1"></span><h2>Basics<a class="headerlink" href="#basics" title="Link to this heading"></a></h2>
+<p>In principle, any ASE calculator can be utilized as a loss calculation backend to drive an evolution.
+For a simple use case this may be sequential evaluation from a wrapper function calling the calculator.
+For parallel calls to DFT the
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/clinamen2/runner/basic_runner.py">ScriptRunner</a>
+class on top of the Dask framework can be employed.</p>
+</section>
+<section id="function-wrapper">
+<span id="id2"></span><h2>Function wrapper<a class="headerlink" href="#function-wrapper" title="Link to this heading"></a></h2>
+<p>To show how to wrap an ASE calculator in a function we perform an evolution of an LJ5 cluster with
+<a class="reference external" href="https://wiki.fysik.dtu.dk/ase/ase/calculators/others.html">ase.calculators.lj.LennardJones</a> as the backend.
+The full example can be found in the notebook
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/clinamen2/examples/calculator_tutorial.ipynb">calculator_tutorial.ipynb</a></p>
+<p>Here, we illustrate the key steps to be taken when utilizing a calculator.</p>
+<ol class="arabic simple">
+<li><p>Get the degrees of freedom from an Atoms object. In this case, the coordinates of the first atom are fixed.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dof_from_atoms</span><span class="p">(</span><span class="n">atoms</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;flatten the positions into an array&quot;&quot;&quot;</span>
+
+    <span class="c1"># coordinates of the first atom remain fixed</span>
+    <span class="k">return</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_positions</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="mi">3</span><span class="p">:]</span>
+
+
+<span class="n">founder</span> <span class="o">=</span> <span class="n">dof_from_atoms</span><span class="p">(</span><span class="n">founder_atoms</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Instantiate a closure that can be passed to the algorithm for loss evaluation</p></li>
+</ol>
+<p>This needs to create an atoms object and call the energy calculation (via the calculator object).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">ase.calculators.lj</span> <span class="kn">import</span> <span class="n">LennardJones</span>
+
+<span class="c1"># we need a simple closure to</span>
+<span class="c1">#  - translate between the CMA and the ASE calculator</span>
+<span class="c1">#  - calculate the loss (LJ energy)</span>
+<span class="k">def</span> <span class="nf">get_eval_closure</span><span class="p">(</span><span class="n">founder_atoms</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a closure for transformation and evaluation&quot;&quot;&quot;</span>
+
+    <span class="n">calc</span> <span class="o">=</span> <span class="n">LennardJones</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">evaluate_dof</span><span class="p">(</span><span class="n">dof</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;return the LJ energy&quot;&quot;&quot;</span>
+
+        <span class="n">atoms</span> <span class="o">=</span> <span class="n">founder_atoms</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">positions</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">dof</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># 1st atom fixed</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">set_calculator</span><span class="p">(</span><span class="n">calc</span><span class="p">)</span>
+
+        <span class="n">energy</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">energy</span>
+
+    <span class="k">return</span> <span class="n">evaluate_dof</span>
+
+
+<span class="n">eval_closure</span> <span class="o">=</span> <span class="n">get_eval_closure</span><span class="p">(</span><span class="n">founder_atoms</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With this, the evolution can be set up and run (see
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/clinamen2/examples/calculator_tutorial.ipynb">calculator_tutorial.ipynb</a>).</p>
+</section>
+<section id="script-runner">
+<span id="id4"></span><h2>ScriptRunner<a class="headerlink" href="#script-runner" title="Link to this heading"></a></h2>
+<p>To utilize a different DFT code through an ASE calculator a couple of scripts need to be created
+and / or adapted. This guide aims to illustrate the steps to get from an NWChem call to a Vasp call.</p>
+<ol class="arabic simple">
+<li><p>Create a Jinja2 template for the actual call</p></li>
+</ol>
+<p>Copying <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/runner_scripts/nwchem_script.py.j2">nwchem_script.py.j2</a>,
+first change the calculator import to</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ase.calculators.vasp</span> <span class="kn">import</span> <span class="n">Vasp</span>
+</pre></div>
+</div>
+<p>We use Jinja2 to parse and replace input at runtime. The parsing can remain unchanged, but the Vasp
+calculator needs to be instantiated instead.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">Vasp</span><span class="p">(</span>
+<span class="p">{</span><span class="o">%-</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">vasp_params</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="o">%</span><span class="p">}</span>
+    <span class="p">{{</span><span class="n">key</span><span class="p">}}</span><span class="o">=</span><span class="p">{{</span><span class="n">value</span><span class="p">}},</span>
+<span class="p">{</span><span class="o">%-</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The calculation result has to be serialized as a
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/clinamen2/runner/basic_runner.py">WorkerResult</a>
+where the “information” dictionary may contain any data that is serializable.</p>
+<p>In the NWChem example we chose to simplify the calculation result to a SinglePointCalculator to demonstrate the possibility.
+This needs to be done if the original calculator is not serializable, e.g., due to MPI code as in the GPAW calculator. The Vasp
+calculator can be serialized as-is though, such that the conversion to a SinglePointCalculator can be left out.</p>
+<ol class="arabic simple" start="2">
+<li><p>Adapt or recreate the evolution script</p></li>
+</ol>
+<p>All necessary calculation parameters are passed at runtime as a dictionary and parsed into the Jinja2 template.
+The parameters need to be structured in the way the specific calculator expects them to be.
+In the Vasp Ag example, these parameters may be as shown below. Make sure to use the newly create Jinja2 template.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SCRIPT_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;vasp_params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;nsw&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;gga&quot;</span><span class="p">:</span> <span class="s2">&quot;&#39;PE&#39;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pp&quot;</span><span class="p">:</span> <span class="s2">&quot;&#39;PBE&#39;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ispin&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;isym&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;ismear&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.0001</span><span class="p">,</span>
+        <span class="s2">&quot;ediff&quot;</span><span class="p">:</span> <span class="mf">1e-6</span><span class="p">,</span>
+        <span class="s2">&quot;nelm&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+        <span class="s2">&quot;kpts&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="s2">&quot;lorbit&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s2">&quot;lcharg&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;lwave&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;ncore&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
+    <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;runner_scripts&quot;</span> <span class="o">/</span> <span class="s2">&quot;nwchem_script.py.j2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;r&quot;</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">SCRIPT_TEXT</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Additionally, make sure to use a suitable name for the scheduler file, e.g.,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">runner</span> <span class="o">=</span> <span class="n">ScriptRunner</span><span class="p">(</span>
+    <span class="n">script_text</span><span class="o">=</span><span class="n">SCRIPT_TEXT</span><span class="p">,</span>
+    <span class="n">script_config</span><span class="o">=</span><span class="n">SCRIPT_CONFIG</span><span class="p">,</span>
+    <span class="n">script_run_command</span><span class="o">=</span><span class="s2">&quot;python </span><span class="si">{SCRIPTFILE}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">convert_input</span><span class="o">=</span><span class="n">transform_dof</span><span class="p">,</span>
+    <span class="n">scheduler_info_path</span><span class="o">=</span><span class="s2">&quot;scheduler_vasp.json&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Scheduler and workers</p></li>
+</ol>
+<p>The scheduler and worker starts need to reflect this choice of filename</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dask</span><span class="o">-</span><span class="n">scheduler</span> <span class="o">--</span><span class="n">port</span> <span class="mi">0</span> <span class="o">--</span><span class="n">scheduler</span><span class="o">-</span><span class="n">file</span> <span class="n">scheduler_vasp</span><span class="o">.</span><span class="n">json</span> <span class="o">--</span><span class="n">interface</span> <span class="n">em2</span> <span class="mi">1</span><span class="o">&gt;</span><span class="n">LOG</span> <span class="mi">2</span><span class="o">&gt;</span><span class="n">LOGERR</span>
+</pre></div>
+</div>
+<p>Make sure to set all the required system variables in the worker start script, if not already set.
+(Commented out in the example below as a reminder.)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -l</span>
+<span class="c1">#SBATCH -J vasp-16</span>
+<span class="c1">#SBATCH -n 16</span>
+
+<span class="nb">set</span> <span class="o">-</span><span class="n">ue</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">anaconda</span>
+<span class="n">source</span> <span class="n">activate</span> <span class="n">clinamen2</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">vasp</span>
+
+<span class="c1"># export ASE_VASP_COMMAND=&quot;...&quot;</span>
+<span class="c1"># export VASP_PP_PATH=&quot;...&quot;</span>
+
+<span class="n">export</span> <span class="n">WORKER_SCRATCH_SPACE</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{CLUSTER_SCRATCH_DIR}</span><span class="s2">&quot;</span>
+<span class="n">DASK_TEMPORARY_DIRECTORY</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{WORKER_SCRATCH_SPACE}</span><span class="s2">&quot;</span> <span class="n">dask</span><span class="o">-</span><span class="n">worker</span> <span class="o">--</span><span class="n">nthreads</span> <span class="mi">1</span> <span class="o">--</span><span class="n">nworkers</span> <span class="mi">1</span> <span class="o">--</span><span class="n">local</span><span class="o">-</span><span class="n">directory</span> <span class="s2">&quot;$</span><span class="si">{WORKER_SCRATCH_SPACE}</span><span class="s2">&quot;</span> <span class="o">--</span><span class="n">scheduler</span><span class="o">-</span><span class="n">file</span> <span class="n">scheduler_vasp</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="example_tutorials.html" class="btn btn-neutral float-left" title="Example tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="clinamen2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, The Clinamen2 contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

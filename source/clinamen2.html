@@ -4,18 +4,18 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2 package &mdash; Clinamen2 2023.05.1 documentation</title>
+  <title>clinamen2 package &mdash; Clinamen2 2023.11.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=9bc12b8a"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -46,6 +46,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_tutorials.html">Example tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculator_guide.html">Calculator guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">clinamen2</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">clinamen2 package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
@@ -98,9 +99,9 @@
            <div itemprop="articleBody">
              
   <section id="clinamen2-package">
-<h1>clinamen2 package<a class="headerlink" href="#clinamen2-package" title="Permalink to this heading"></a></h1>
+<h1>clinamen2 package<a class="headerlink" href="#clinamen2-package" title="Link to this heading"></a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="clinamen2.cmaes.html">clinamen2.cmaes package</a><ul>
@@ -375,6 +376,7 @@
 <li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.create_filter_eval_workflow"><code class="docutils literal notranslate"><span class="pre">create_filter_eval_workflow()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.create_split_atom"><code class="docutils literal notranslate"><span class="pre">create_split_atom()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.create_transform_dof"><code class="docutils literal notranslate"><span class="pre">create_transform_dof()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.dir_context"><code class="docutils literal notranslate"><span class="pre">dir_context()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.get_distances_from_position"><code class="docutils literal notranslate"><span class="pre">get_distances_from_position()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.get_distances_from_scaled_position"><code class="docutils literal notranslate"><span class="pre">get_distances_from_scaled_position()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="clinamen2.utils.html#clinamen2.utils.structure_setup.place_atoms_packmol"><code class="docutils literal notranslate"><span class="pre">place_atoms_packmol()</span></code></a></li>
@@ -390,10 +392,10 @@
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
 <section id="module-clinamen2.test_functions">
-<span id="clinamen2-test-functions-module"></span><h2>clinamen2.test_functions module<a class="headerlink" href="#module-clinamen2.test_functions" title="Permalink to this heading"></a></h2>
+<span id="clinamen2-test-functions-module"></span><h2>clinamen2.test_functions module<a class="headerlink" href="#module-clinamen2.test_functions" title="Link to this heading"></a></h2>
 <p>This module contains auxiliary test functions as defined in table 1 of</p>
 <dl class="simple">
 <dt>[1] O. Krause, D. R. Arbonès, C. Igel, “CMA-ES with Optimal Covariance</dt><dd><p>Update and Storage Complexity”, part of [2], 2016.</p>
@@ -403,7 +405,7 @@
 </dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.test_functions.create_ackley_function">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_ackley_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_ackley_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_ackley_function" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_ackley_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_ackley_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_ackley_function" title="Link to this definition"></a></dt>
 <dd><p>Create Ackley test function.</p>
 <p>Args:</p>
 <dl class="field-list simple">
@@ -418,7 +420,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.test_functions.create_cigar_function">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_cigar_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_cigar_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_cigar_function" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_cigar_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_cigar_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_cigar_function" title="Link to this definition"></a></dt>
 <dd><p>Create cigar test function.</p>
 <p>Args:</p>
 <dl class="field-list simple">
@@ -433,7 +435,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.test_functions.create_diffpowers_function">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_diffpowers_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_diffpowers_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_diffpowers_function" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_diffpowers_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_diffpowers_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_diffpowers_function" title="Link to this definition"></a></dt>
 <dd><p>Different Powers test function.</p>
 <p>Args:</p>
 <dl class="field-list simple">
@@ -448,7 +450,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.test_functions.create_discus_function">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_discus_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_discus_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_discus_function" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_discus_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_discus_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_discus_function" title="Link to this definition"></a></dt>
 <dd><p>Create discus test function.</p>
 <p>Args:</p>
 <dl class="field-list simple">
@@ -463,7 +465,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.test_functions.create_ellipsoid_function">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_ellipsoid_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_ellipsoid_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_ellipsoid_function" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_ellipsoid_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_ellipsoid_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_ellipsoid_function" title="Link to this definition"></a></dt>
 <dd><p>Create ellipsoid test function.</p>
 <p>Args:</p>
 <dl class="field-list simple">
@@ -478,7 +480,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.test_functions.create_rosenbrock_function">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_rosenbrock_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_rosenbrock_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_rosenbrock_function" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_rosenbrock_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_rosenbrock_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_rosenbrock_function" title="Link to this definition"></a></dt>
 <dd><p>Create Rosenbrock test function.</p>
 <p>Args:</p>
 <dl class="field-list simple">
@@ -493,7 +495,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="clinamen2.test_functions.create_sphere_function">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_sphere_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_sphere_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_sphere_function" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">clinamen2.test_functions.</span></span><span class="sig-name descname"><span class="pre">create_sphere_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/test_functions.html#create_sphere_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.test_functions.create_sphere_function" title="Link to this definition"></a></dt>
 <dd><p>Create sphere test function.</p>
 <p>Args:</p>
 <dl class="field-list simple">
@@ -508,7 +510,7 @@
 
 </section>
 <section id="module-clinamen2">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-clinamen2" title="Permalink to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-clinamen2" title="Link to this heading"></a></h2>
 <p>Copyright 2023 The Clinamen2 contributors</p>
 <p>Licensed under the Apache License, Version 2.0 (the “License”);
 you may not use this file except in compliance with the License.

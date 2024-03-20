@@ -4,7 +4,15 @@
 
 ## General description
 
-This repository contains releases of the software package described in the manuscript *Clinamen2: Functional-style evolutionary optimization in Python for atomistic structure searches* by Ralf Wanzenböck, Florian Buchner, Péter Kovács, Georg K. H. Madsen and Jesús Carrete at the Institute of Materials Chemistry of TU Wien.
+This repository contains releases of the software package described in the paper
+
+*Clinamen2: Functional-style evolutionary optimization in Python for atomistic structure searches*
+
+Ralf Wanzenböck, Florian Buchner, Péter Kovács, Georg K. H. Madsen & Jesús Carrete
+
+Computer Physics Communications 297 (2024), 109065
+
+DOI: [10.1016/j.cpc.2023.109065](https://doi.org/10.1016/j.cpc.2023.109065)
 
 ## Quick start
 

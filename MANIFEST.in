@@ -1,9 +1,0 @@
-include pyproject.toml
-include .gitignore
-include LICENSE
-include NOTICE
-include README.md
-include AUTHORS
-graft docs
-graft tests
-graft clinamen2

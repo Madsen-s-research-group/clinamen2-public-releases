@@ -99,7 +99,7 @@ def bipop_next_restart(bipop: BIPOP) -> Tuple[int, float, BIPOP]:
             )
         )
         step_size = bipop.default_step_size * 10 ** (-2.0 * rng.random())
-        random_state = rng.bit_generator.__getstate__()
+        random_state = rng.bit_generator.state
     new_bipop = BIPOP(
         default_pop_size=bipop.default_pop_size,
         default_step_size=bipop.default_step_size,

@@ -9,9 +9,9 @@
 import numpy.typing as npt
 
 project = "Clinamen2"
-copyright = "2023, The Clinamen2 contributors"
+copyright = "2023-2024, The Clinamen2 contributors"
 author = "Ralf Wanzenböck, Florian Buchner, Péter Kovács, Georg K. H. Madsen, Jesús Carrete"
-release = "2023.11.1"
+release = "2024.07.1"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

@@ -4,7 +4,7 @@
     References:
         [1] O. Krause, D. R. Arbonès, C. Igel, "CMA-ES with Optimal Covariance
         Update and Storage Complexity", part of [2], 2016.
-        
+
         [2] D. Lee, M. Sugiyama, U. Luxburg, I. Guyon, R. Garnett, "Advances
         in Neural Information Processing Systems 29, 2016.
 """
@@ -252,7 +252,7 @@ def create_init_algorithm_state(parameters: AlgorithmParameters) -> Callable:
                 An AlgorithmState with default settings.
         """
         rng = np.random.default_rng(seed=parameters.random_seed)
-        random_state = rng.bit_generator.__getstate__()
+        random_state = rng.bit_generator.state
 
         if mean is None:
             mean = np.zeros(parameters.dimension)
@@ -693,7 +693,7 @@ def create_sample_from_state(parameters: AlgorithmParameters) -> Callable:
             )
             population.append(individual)
 
-        new_random_state = rng.bit_generator.__getstate__()
+        new_random_state = rng.bit_generator.state
         new_state = AlgorithmState(
             random_state=new_random_state,
             mean=state.mean,

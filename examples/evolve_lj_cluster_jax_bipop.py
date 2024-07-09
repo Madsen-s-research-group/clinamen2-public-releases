@@ -110,7 +110,7 @@ if __name__ == "__main__":
     bipop = bipop_init(
         default_pop_size=parameters.pop_size,
         default_step_size=args.step_size,
-        random_state=bipop_rng.bit_generator.__getstate__(),
+        random_state=bipop_rng.bit_generator.state,
     )
 
     result = {

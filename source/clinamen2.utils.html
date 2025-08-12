@@ -1,21 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2.utils package &mdash; Clinamen2 2024.07.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>clinamen2.utils package &mdash; Clinamen2 2025.07.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=1ca64f43"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=83e4dbd9"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -112,13 +112,13 @@ Mexico. hal-00823880.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>default_pop_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Default population size calculated by the CMA-ES.</p></li>
-<li><p><strong>default_step_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Default global variance of the Gaussian.</p></li>
-<li><p><strong>random_state</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – Dictionary representing the state of the random
+<li><p><strong>default_pop_size</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Default population size calculated by the CMA-ES.</p></li>
+<li><p><strong>default_step_size</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Default global variance of the Gaussian.</p></li>
+<li><p><strong>random_state</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>) – Dictionary representing the state of the random
 generator (numpy.random.default_rng()).</p></li>
-<li><p><strong>large_restart_counter</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of restarts with large population.</p></li>
-<li><p><strong>latest_large_pop_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Latest used large population size.</p></li>
-<li><p><strong>eval_counter</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Function evaluations for large and small restarts.
+<li><p><strong>large_restart_counter</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of restarts with large population.</p></li>
+<li><p><strong>latest_large_pop_size</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Latest used large population size.</p></li>
+<li><p><strong>eval_counter</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – Function evaluations for large and small restarts.
 Saved in a Tuple[large, small].</p></li>
 </ul>
 </dd>
@@ -170,7 +170,7 @@ necessarily the CMA-ES default values.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#clinamen2.utils.bipop_restart.BIPOP" title="clinamen2.utils.bipop_restart.BIPOP"><code class="xref py py-class docutils literal notranslate"><span class="pre">BIPOP</span></code></a></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#clinamen2.utils.bipop_restart.BIPOP" title="clinamen2.utils.bipop_restart.BIPOP"><code class="xref py py-class docutils literal notranslate"><span class="pre">BIPOP</span></code></a></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Initial state of the BIPOP.</p>
@@ -188,11 +188,11 @@ restart.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>BIPOP</strong> – Input state of the BIPOP.</p></li>
-<li><p><strong>bipop</strong> (<a class="reference internal" href="#clinamen2.utils.bipop_restart.BIPOP" title="clinamen2.utils.bipop_restart.BIPOP"><em>BIPOP</em></a>) – </p></li>
+<li><p><strong>bipop</strong> (<a class="reference internal" href="#clinamen2.utils.bipop_restart.BIPOP" title="clinamen2.utils.bipop_restart.BIPOP"><em>BIPOP</em></a>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <a class="reference internal" href="#clinamen2.utils.bipop_restart.BIPOP" title="clinamen2.utils.bipop_restart.BIPOP"><code class="xref py py-class docutils literal notranslate"><span class="pre">BIPOP</span></code></a>]</p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <a class="reference internal" href="#clinamen2.utils.bipop_restart.BIPOP" title="clinamen2.utils.bipop_restart.BIPOP"><code class="xref py py-class docutils literal notranslate"><span class="pre">BIPOP</span></code></a>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p>tuple containing</p>
@@ -216,12 +216,12 @@ restart.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bipop</strong> (<a class="reference internal" href="#clinamen2.utils.bipop_restart.BIPOP" title="clinamen2.utils.bipop_restart.BIPOP"><code class="xref py py-class docutils literal notranslate"><span class="pre">BIPOP</span></code></a>) – Input state of the BIPOP.</p></li>
-<li><p><strong>new_evals</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Evaluation count performed since input state.</p></li>
+<li><p><strong>bipop</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#clinamen2.utils.bipop_restart.BIPOP" title="clinamen2.utils.bipop_restart.BIPOP"><code class="xref py py-class docutils literal notranslate"><span class="pre">BIPOP</span></code></a></span>) – Input state of the BIPOP.</p></li>
+<li><p><strong>new_evals</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Evaluation count performed since input state.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#clinamen2.utils.bipop_restart.BIPOP" title="clinamen2.utils.bipop_restart.BIPOP"><code class="xref py py-class docutils literal notranslate"><span class="pre">BIPOP</span></code></a></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#clinamen2.utils.bipop_restart.BIPOP" title="clinamen2.utils.bipop_restart.BIPOP"><code class="xref py py-class docutils literal notranslate"><span class="pre">BIPOP</span></code></a></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>New state of the BIPOP.</p>
@@ -235,14 +235,14 @@ restart.</p>
 <p>Read and write CMA-ES results.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="clinamen2.utils.file_handling.CMAFileHandler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.utils.file_handling.</span></span><span class="sig-name descname"><span class="pre">CMAFileHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PosixPath('/home/rwanzenboeck/github/clinamen2-public-releases/docs')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/utils/file_handling.html#CMAFileHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.utils.file_handling.CMAFileHandler" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.utils.file_handling.</span></span><span class="sig-name descname"><span class="pre">CMAFileHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PosixPath('/home/rwanzenboeck/code/github_build/clinamen2-public-releases')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/utils/file_handling.html#CMAFileHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.utils.file_handling.CMAFileHandler" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Handle input and output files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Label of the evolution run.</p></li>
-<li><p><strong>target_dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – Full path to target directory. Default is the current
+<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Label of the evolution run.</p></li>
+<li><p><strong>target_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span>) – Full path to target directory. Default is the current
 working directory.</p></li>
 </ul>
 </dd>
@@ -253,10 +253,10 @@ working directory.</p></li>
 <dd><p>Return a pathlib.Path object representing the evolution file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>label</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Label of the evolution run.</p>
+<dd class="field-odd"><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Label of the evolution run.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -268,12 +268,12 @@ working directory.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>generation</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Generation index.</p></li>
-<li><p><strong>label</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Label of the evolution run.</p></li>
+<li><p><strong>generation</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Generation index.</p></li>
+<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Label of the evolution run.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -294,13 +294,13 @@ working directory.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – String to be added to filename.</p></li>
-<li><p><strong>file_format</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Indicate the file format used for serialization.
+<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – String to be added to filename.</p></li>
+<li><p><strong>file_format</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Indicate the file format used for serialization.
 The options are ‘json’ and ‘dill’. Default is ‘json’.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters" title="clinamen2.cmaes.params_and_state.AlgorithmParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmParameters</span></code></a>, <a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState" title="clinamen2.cmaes.params_and_state.AlgorithmState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmState</span></code></a>, <a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion" title="clinamen2.cmaes.termination_criterion.Criterion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Criterion</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]</p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters" title="clinamen2.cmaes.params_and_state.AlgorithmParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmParameters</span></code></a>, <a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState" title="clinamen2.cmaes.params_and_state.AlgorithmState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmState</span></code></a>, <a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion" title="clinamen2.cmaes.termination_criterion.Criterion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Criterion</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p>tuple containing</p>
@@ -324,16 +324,16 @@ The options are ‘json’ and ‘dill’. Default is ‘json’.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>generation</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – ID of generation to be loaded.</p></li>
-<li><p><strong>label</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – String to be added to filename.</p></li>
-<li><p><strong>allow_legacy</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, older results containing ‘fitness’</p></li>
-<li><p><strong>True.</strong> (<em>instead</em><em> of </em><em>'loss' can be loaded. Default is</em>) – </p></li>
-<li><p><strong>file_format</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Indicate the file format used for serialization.
+<li><p><strong>generation</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – ID of generation to be loaded.</p></li>
+<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – String to be added to filename.</p></li>
+<li><p><strong>allow_legacy</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True, older results containing ‘fitness’</p></li>
+<li><p><strong>True.</strong> (<em>instead</em><em> of </em><em>'loss' can be loaded. Default is</em>)</p></li>
+<li><p><strong>file_format</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Indicate the file format used for serialization.
 The options are ‘json’ and ‘dill’. Default is ‘json’.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState" title="clinamen2.cmaes.params_and_state.AlgorithmState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmState</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]</p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState" title="clinamen2.cmaes.params_and_state.AlgorithmState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmState</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p>tuple containing</p>
@@ -376,21 +376,21 @@ re-cast after loading.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>initial_parameters</strong> (<a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters" title="clinamen2.cmaes.params_and_state.AlgorithmParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmParameters</span></code></a>) – The initial parameters to start the evolution.</p></li>
-<li><p><strong>initial_state</strong> (<a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState" title="clinamen2.cmaes.params_and_state.AlgorithmState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmState</span></code></a>) – The initial state to start the evolution.</p></li>
-<li><p><strong>termination_criterion</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion" title="clinamen2.cmaes.termination_criterion.Criterion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Criterion</span></code></a>]) – The termination criterion set up for the
+<li><p><strong>initial_parameters</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters" title="clinamen2.cmaes.params_and_state.AlgorithmParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmParameters</span></code></a></span>) – The initial parameters to start the evolution.</p></li>
+<li><p><strong>initial_state</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState" title="clinamen2.cmaes.params_and_state.AlgorithmState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmState</span></code></a></span>) – The initial state to start the evolution.</p></li>
+<li><p><strong>termination_criterion</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion" title="clinamen2.cmaes.termination_criterion.Criterion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Criterion</span></code></a>]</span>) – The termination criterion set up for the
 evolution. Can be a combinated criterion.</p></li>
-<li><p><strong>label</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – String to be added to filename.</p></li>
-<li><p><strong>additional</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]) – Additional information to be saved with the
+<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – String to be added to filename.</p></li>
+<li><p><strong>additional</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]</span>) – Additional information to be saved with the
 initial evolution properties.</p></li>
-<li><p><strong>file_format</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Indicate the file format to be used for serialization.
+<li><p><strong>file_format</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Indicate the file format to be used for serialization.
 The options are ‘json’ and ‘dill’. Default is ‘json’.</p></li>
-<li><p><strong>json_encoder</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">JSONEncoder</span></code>) – If default encoder file_handling.JSONEncoder does not
+<li><p><strong>json_encoder</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONEncoder</span></code></span>) – If default encoder file_handling.JSONEncoder does not
 offer the required functionality, e.g., JAX datatypes.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Name of generated file.</p>
@@ -419,21 +419,21 @@ offer the required functionality, e.g., JAX datatypes.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>current_state</strong> (<a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState" title="clinamen2.cmaes.params_and_state.AlgorithmState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmState</span></code></a>) – The current state of the evolution.</p></li>
-<li><p><strong>population</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>) – The population of individuals of the generation.</p></li>
-<li><p><strong>loss</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>) – Loss of each individual within the population.</p></li>
-<li><p><strong>termination_state</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code>]) – State of termination criterion.</p></li>
-<li><p><strong>label</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – String to be added to filename.</p></li>
-<li><p><strong>additional</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]) – Additional information to be saved with the initial
+<li><p><strong>current_state</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState" title="clinamen2.cmaes.params_and_state.AlgorithmState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmState</span></code></a></span>) – The current state of the evolution.</p></li>
+<li><p><strong>population</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></span>) – The population of individuals of the generation.</p></li>
+<li><p><strong>loss</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></span>) – Loss of each individual within the population.</p></li>
+<li><p><strong>termination_state</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code>]</span>) – State of termination criterion.</p></li>
+<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – String to be added to filename.</p></li>
+<li><p><strong>additional</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]</span>) – Additional information to be saved with the initial
 evolution properties.</p></li>
-<li><p><strong>file_format</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Indicate the file format to be used for serialization.
+<li><p><strong>file_format</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Indicate the file format to be used for serialization.
 The options are ‘json’ and ‘dill’. Default is ‘json’.</p></li>
-<li><p><strong>json_encoder</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">JSONEncoder</span></code>) – If default encoder file_handling.JSONEncoder does not
+<li><p><strong>json_encoder</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">JSONEncoder</span></code></span>) – If default encoder file_handling.JSONEncoder does not
 offer the required functionality, e.g., JAX datatypes.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Name of generated file.</p>
@@ -458,13 +458,13 @@ information will be replaced.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Label of the evolution run.</p></li>
-<li><p><strong>additional</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]) – Additional information to be saved with the
+<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Label of the evolution run.</p></li>
+<li><p><strong>additional</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]</span>) – Additional information to be saved with the
 evolution properties.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Name of evolution file.</p>
@@ -541,15 +541,15 @@ from an entry in</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n_atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of atoms in the cluster.</p></li>
-<li><p><strong>identifier</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Additional identifier of a specific configuration.
+<li><p><strong>n_atoms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of atoms in the cluster.</p></li>
+<li><p><strong>identifier</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Additional identifier of a specific configuration.
 For example “i” for “38i”. Default is None.</p></li>
-<li><p><strong>wales_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – Path to the Wales potential data.</p></li>
+<li><p><strong>wales_path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – Path to the Wales potential data.</p></li>
 <li><p><strong>n_eval_batch</strong> – Batchsize to be vmapped.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><dl class="simple">
@@ -578,13 +578,13 @@ and T. F. Middleton, URL <a class="reference external" href="http://www-wales.ch
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>position_bounds</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>) – Positions components that may not be crossed.
+<li><p><strong>position_bounds</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></span>) – Positions components that may not be crossed.
 Shape is (3, 2): 3 components, lower and upper bound for each.</p></li>
-<li><p><strong>exception</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code>) – Exception identifying an issue with the calculation.</p></li>
+<li><p><strong>exception</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></span>) – Exception identifying an issue with the calculation.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -595,10 +595,10 @@ Shape is (3, 2): 3 components, lower and upper bound for each.</p></li>
 <dd><p>Evaluate LJ cluster positions and return largest span.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>lj_cluster</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>) – Positions of the LJ spheres.</p>
+<dd class="field-odd"><p><strong>lj_cluster</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></span>) – Positions of the LJ spheres.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -614,202 +614,8 @@ Shape is (3, 2): 3 components, lower and upper bound for each.</p></li>
 </dd></dl>
 
 </section>
-<section id="module-clinamen2.utils.neuralil_evaluation">
-<span id="clinamen2-utils-neuralil-evaluation-module"></span><h2>clinamen2.utils.neuralil_evaluation module<a class="headerlink" href="#module-clinamen2.utils.neuralil_evaluation" title="Link to this heading"></a></h2>
-<p>Functions to evaluate NeuralIL models (including ensembles).</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">clinamen2.utils.neuralil_evaluation.</span></span><span class="sig-name descname"><span class="pre">NeuralILInputPipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuralil_pipeline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clinamen_pipeline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/utils/neuralil_evaluation.html#NeuralILInputPipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
-<p>Combined pipelines for input transformation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>neuralil_pipeline</strong> (<em>Callable</em>) – Function pipeline performing NeuralIL specific data
-transformation.</p></li>
-<li><p><strong>clinamen_pipeline</strong> (<em>Callable</em>) – Function pipeline performing Clinamen2 specific
-data transformation.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline.clinamen_pipeline">
-<span class="sig-name descname"><span class="pre">clinamen_pipeline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></em><a class="headerlink" href="#clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline.clinamen_pipeline" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 1</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline.neuralil_pipeline">
-<span class="sig-name descname"><span class="pre">neuralil_pipeline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></em><a class="headerlink" href="#clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline.neuralil_pipeline" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 0</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="clinamen2.utils.neuralil_evaluation.create_batch_input_pipeline">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.utils.neuralil_evaluation.</span></span><span class="sig-name descname"><span class="pre">create_batch_input_pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/utils/neuralil_evaluation.html#create_batch_input_pipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.utils.neuralil_evaluation.create_batch_input_pipeline" title="Link to this definition"></a></dt>
-<dd><p>Create combined pipeline.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pipeline</strong> (<a class="reference internal" href="#clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline" title="clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">NeuralILInputPipeline</span></code></a>) – Function pipeline for batched input transformation.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="clinamen2.utils.neuralil_evaluation.create_input_pipeline">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.utils.neuralil_evaluation.</span></span><span class="sig-name descname"><span class="pre">create_input_pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pipeline</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/utils/neuralil_evaluation.html#create_input_pipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.utils.neuralil_evaluation.create_input_pipeline" title="Link to this definition"></a></dt>
-<dd><p>Create combined pipeline.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pipeline</strong> (<a class="reference internal" href="#clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline" title="clinamen2.utils.neuralil_evaluation.NeuralILInputPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">NeuralILInputPipeline</span></code></a>) – Function pipeline for input transformation.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.utils.neuralil_evaluation.</span></span><span class="sig-name descname"><span class="pre">create_neuralil_calc_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dynamics_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/utils/neuralil_evaluation.html#create_neuralil_calc_energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy" title="Link to this definition"></a></dt>
-<dd><p>Closure that returns wrappers for jitted evaluation functions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dynamics_model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code>) – NeuralIL model or ensemble model.</p></li>
-<li><p><strong>model_info</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NeuralILModelInfo</span></code>) – Model info containing parameters.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>]</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><p>tuple containing</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Closure for evaluation of single structure.</p></li>
-<li><p>Closure for vmapped evaluation.</p></li>
-</ul>
-</div></blockquote>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy_and_forces">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.utils.neuralil_evaluation.</span></span><span class="sig-name descname"><span class="pre">create_neuralil_calc_energy_and_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dynamics_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/utils/neuralil_evaluation.html#create_neuralil_calc_energy_and_forces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy_and_forces" title="Link to this definition"></a></dt>
-<dd><p>Closure that returns wrappers for jitted evaluation functions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dynamics_model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code>) – NeuralIL model or ensemble model.</p></li>
-<li><p><strong>model_info</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NeuralILModelInfo</span></code>) – Model info containing parameters.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>]</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><p>tuple containing</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Closure for evaluation of single structure.</p></li>
-<li><p>Closure for vmapped evaluation.</p></li>
-</ul>
-</div></blockquote>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy_and_forces_uncertainty">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.utils.neuralil_evaluation.</span></span><span class="sig-name descname"><span class="pre">create_neuralil_calc_energy_and_forces_uncertainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dynamics_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/utils/neuralil_evaluation.html#create_neuralil_calc_energy_and_forces_uncertainty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.utils.neuralil_evaluation.create_neuralil_calc_energy_and_forces_uncertainty" title="Link to this definition"></a></dt>
-<dd><p>Closure that returns wrappers for jitted evaluation functions.</p>
-<blockquote>
-<div><p>Also returns uncertainty calculated from forces.</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dynamics_model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code>) – NeuralIL model or ensemble model.</p></li>
-<li><p><strong>model_info</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NeuralILModelInfo</span></code>) – Model info containing parameters.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>]</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><p>tuple containing</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Closure for evaluation of single structure.</p></li>
-<li><p>Closure for vmapped evaluation.</p></li>
-</ul>
-</div></blockquote>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="clinamen2.utils.neuralil_evaluation.get_ensemble_model">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.utils.neuralil_evaluation.</span></span><span class="sig-name descname"><span class="pre">get_ensemble_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">individual_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_ensemble</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensemble_class</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/utils/neuralil_evaluation.html#get_ensemble_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.utils.neuralil_evaluation.get_ensemble_model" title="Link to this definition"></a></dt>
-<dd><p>Function to load a NeuralIL cheap ensemble for evaluation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>individual_model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NeuralIL</span></code>) – Trained NeuralIL model.</p></li>
-<li><p><strong>n_ensemble</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of members in the ensemble.</p></li>
-<li><p><strong>ensemble_class</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>) – Type of neuralil.ensemble_model</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>NeuralIL cheap ensemble.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="clinamen2.utils.neuralil_evaluation.load_neuralil_model">
-<span class="sig-prename descclassname"><span class="pre">clinamen2.utils.neuralil_evaluation.</span></span><span class="sig-name descname"><span class="pre">load_neuralil_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pickled_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_neighbors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">core_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_class=&lt;class</span> <span class="pre">'neuralil.model.NeuralIL'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/clinamen2/utils/neuralil_evaluation.html#load_neuralil_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#clinamen2.utils.neuralil_evaluation.load_neuralil_model" title="Link to this definition"></a></dt>
-<dd><p>Load a NeuralIL model for evaluation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>pickled_model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Filename and full path to model.</p></li>
-<li><p><strong>max_neighbors</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Maximum number of neighbors to be taken into account
-for descriptor generation.</p></li>
-<li><p><strong>core_class</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>) – Type of the neuralil.model core.</p></li>
-<li><p><strong>model_class</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>) – Type of the neuralil.model model.</p></li>
-<li><p><strong>kwargs</strong> – These parameters are passed to PowerSpectrumGenerator().</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NeuralIL</span></code></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><p>tuple containing</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Individual NeuralIL model.</p></li>
-<li><p>Model info.</p></li>
-</ul>
-</div></blockquote>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="clinamen2-utils-neuralil-evaluation-module">
+<h2>clinamen2.utils.neuralil_evaluation module<a class="headerlink" href="#clinamen2-utils-neuralil-evaluation-module" title="Link to this heading"></a></h2>
 </section>
 <section id="module-clinamen2.utils.plot_functions">
 <span id="clinamen2-utils-plot-functions-module"></span><h2>clinamen2.utils.plot_functions module<a class="headerlink" href="#module-clinamen2.utils.plot_functions" title="Link to this heading"></a></h2>
@@ -822,10 +628,10 @@ for descriptor generation.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Label identifying the evolution and its results.</p></li>
-<li><p><strong>input_dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – Directory to read data from.</p></li>
+<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Label identifying the evolution and its results.</p></li>
+<li><p><strong>input_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span>) – Directory to read data from.</p></li>
 <li><p><strong>handler</strong> – Object to access the stored evolution and generations.</p></li>
-<li><p><strong>generation_bounds</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – First and last generation to include. Count starts
+<li><p><strong>generation_bounds</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – First and last generation to include. Count starts
 at 1, because generation 0 is the founder.
 If generation_bounds[1] is passed in with value -1, the last
 generation is read from the evolution element “last_gen” if
@@ -833,7 +639,7 @@ present.</p></li>
 <li><p><strong>losses</strong> – Loss of all read individuals.</p></li>
 <li><p><strong>generations</strong> – Indices of all read generations.</p></li>
 <li><p><strong>step_sizes</strong> – Step size of AlgorithmState.</p></li>
-<li><p><strong>output_dir</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – Directory to save files to. Will be created if it does not
+<li><p><strong>output_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – Directory to save files to. Will be created if it does not
 exist. Default is None.</p></li>
 <li><p><strong>information_list</strong> – List of dictionaries with additional information per
 generation.</p></li>
@@ -841,10 +647,10 @@ generation.</p></li>
 and the corresponding types as values for all additional
 information that is of type numpy.ndarray, list of Numbers or
 Number.</p></li>
-<li><p><strong>figsize</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Default figure size to be used when no alternative is passed
+<li><p><strong>figsize</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Default figure size to be used when no alternative is passed
 to a plotting function.</p></li>
-<li><p><strong>colors</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – Dictionary of colors to be used in the plots.</p></li>
-<li><p><strong>fontsizes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – Dictionary of fontsizes to be used in the plots.</p></li>
+<li><p><strong>colors</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>) – Dictionary of colors to be used in the plots.</p></li>
+<li><p><strong>fontsizes</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>) – Dictionary of fontsizes to be used in the plots.</p></li>
 </ul>
 </dd>
 </dl>
@@ -867,18 +673,18 @@ to a plotting function.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Key that identifies the additional information. Supercedes
+<li><p><strong>key</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Key that identifies the additional information. Supercedes
 index if both given. Default is None.</p></li>
-<li><p><strong>ax</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Axis</span></code>]) – Main ax of figure. To be twinned if present. Default is None.</p></li>
-<li><p><strong>generation_bounds</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – First and last generation to include. Count
+<li><p><strong>ax</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Axis</span></code>]</span>) – Main ax of figure. To be twinned if present. Default is None.</p></li>
+<li><p><strong>generation_bounds</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]</span>) – First and last generation to include. Count
 starts at 1, because generation 0 is the founder.</p></li>
-<li><p><strong>figsize</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Default figure size to be used when no alternative is
+<li><p><strong>figsize</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Default figure size to be used when no alternative is
 passed to a plotting function.</p></li>
-<li><p><strong>y_units</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Units of loss to be added to y_label. Default is empty
+<li><p><strong>y_units</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Units of loss to be added to y_label. Default is empty
 string.</p></li>
-<li><p><strong>save_fig</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True the figure will be saved to file. Default is
+<li><p><strong>save_fig</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True the figure will be saved to file. Default is
 False.</p></li>
-<li><p><strong>fig_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – File type to be saved. Default is ‘pdf’.</p></li>
+<li><p><strong>fig_type</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – File type to be saved. Default is ‘pdf’.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -897,25 +703,25 @@ False.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Key that identifies the additional information.
+<li><p><strong>key</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Key that identifies the additional information.
 Supercedes index if both given. Default is None.</p></li>
 <li><p><strong>generations</strong> – Number of generations to be included.</p></li>
-<li><p><strong>generation_bounds</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – First and last generation to include. Count
+<li><p><strong>generation_bounds</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]</span>) – First and last generation to include. Count
 starts at 1, because generation 0 is the founder.</p></li>
-<li><p><strong>figsize</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Default figure size to be used when no alternative is
+<li><p><strong>figsize</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Default figure size to be used when no alternative is
 passed to a plotting function.</p></li>
-<li><p><strong>show_legend</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, plot a legend. Default is True.</p></li>
-<li><p><strong>ref_val</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Value to be plotted as a reference line. Default is None.</p></li>
-<li><p><strong>y_units</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Units of loss to be added to y_label. Default is empty
+<li><p><strong>show_legend</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True, plot a legend. Default is True.</p></li>
+<li><p><strong>ref_val</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Value to be plotted as a reference line. Default is None.</p></li>
+<li><p><strong>y_units</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Units of loss to be added to y_label. Default is empty
 string.</p></li>
-<li><p><strong>save_fig</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True the figure will be saved to file. Default  is
+<li><p><strong>save_fig</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True the figure will be saved to file. Default  is
 False.</p></li>
-<li><p><strong>fig_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – File type to be saved. Default is ‘pdf’.</p></li>
-<li><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]) – Dicitionary with additional keywords.</p></li>
+<li><p><strong>fig_type</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – File type to be saved. Default is ‘pdf’.</p></li>
+<li><p><strong>kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]</span>) – Dicitionary with additional keywords.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -927,22 +733,22 @@ False.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>generations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – Index of generations to be plotted. More than five will
+<li><p><strong>generations</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Index of generations to be plotted. More than five will
 not produce a satisfactory result.</p></li>
-<li><p><strong>figsize</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Default figure size to be used when no alternative is
+<li><p><strong>figsize</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Default figure size to be used when no alternative is
 passed to a plotting function.</p></li>
-<li><p><strong>y_units</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Units of loss to be added to y_label. Default is empty
+<li><p><strong>y_units</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Units of loss to be added to y_label. Default is empty
 string.</p></li>
-<li><p><strong>color_key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – If True, the scatter plot will be colored according
+<li><p><strong>color_key</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – If True, the scatter plot will be colored according
 to the data in ‘key’. Default is False.</p></li>
-<li><p><strong>save_fig</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True the figure will be saved to file. Default is
+<li><p><strong>save_fig</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True the figure will be saved to file. Default is
 False.</p></li>
-<li><p><strong>fig_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – File type to be saved. Default is ‘pdf’.</p></li>
-<li><p><strong>color_by_key</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>fig_type</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – File type to be saved. Default is ‘pdf’.</p></li>
+<li><p><strong>color_by_key</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -955,23 +761,23 @@ False.</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>generations</strong> – Number of generations to be included.</p></li>
-<li><p><strong>generation_bounds</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – First and last generation to include. Count
+<li><p><strong>generation_bounds</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]</span>) – First and last generation to include. Count
 starts at 1, because generation 0 is the founder.</p></li>
-<li><p><strong>figsize</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Default figure size to be used when no alternative is
+<li><p><strong>figsize</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Default figure size to be used when no alternative is
 passed to a plotting function.</p></li>
-<li><p><strong>show_legend</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, plot a legend. Default is True.</p></li>
-<li><p><strong>ref_val</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Value to be plotted as a reference line. Default is None.</p></li>
-<li><p><strong>y_units</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Units of loss to be added to y_label. Default is empty
+<li><p><strong>show_legend</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True, plot a legend. Default is True.</p></li>
+<li><p><strong>ref_val</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Value to be plotted as a reference line. Default is None.</p></li>
+<li><p><strong>y_units</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Units of loss to be added to y_label. Default is empty
 string.</p></li>
-<li><p><strong>y_lim</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Limit to restrict y axis. Default is None.</p></li>
-<li><p><strong>save_fig</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True the figure will be saved to file. Default is
+<li><p><strong>y_lim</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Limit to restrict y axis. Default is None.</p></li>
+<li><p><strong>save_fig</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True the figure will be saved to file. Default is
 False.</p></li>
-<li><p><strong>fig_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – File type to be saved. Default is ‘pdf’.</p></li>
-<li><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]) – Dicitionary with additional keywords.</p></li>
+<li><p><strong>fig_type</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – File type to be saved. Default is ‘pdf’.</p></li>
+<li><p><strong>kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]</span>) – Dicitionary with additional keywords.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -983,20 +789,20 @@ False.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>generation</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Index of generation.</p></li>
-<li><p><strong>key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Identifies the additional information to be plotted.</p></li>
-<li><p><strong>figsize</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Default figure size to be used when no alternative is
+<li><p><strong>generation</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Index of generation.</p></li>
+<li><p><strong>key</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Identifies the additional information to be plotted.</p></li>
+<li><p><strong>figsize</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Default figure size to be used when no alternative is
 passed to a plotting function.</p></li>
-<li><p><strong>errorbars</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, errorbars are plotted.</p></li>
-<li><p><strong>y_units</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Units of loss to be added to y_label.Default is empty
+<li><p><strong>errorbars</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True, errorbars are plotted.</p></li>
+<li><p><strong>y_units</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Units of loss to be added to y_label.Default is empty
 string.</p></li>
-<li><p><strong>save_fig</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True the figure will be saved to file. Default is
+<li><p><strong>save_fig</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True the figure will be saved to file. Default is
 False.</p></li>
-<li><p><strong>fig_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – File type to be saved. Default is ‘pdf’.</p></li>
+<li><p><strong>fig_type</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – File type to be saved. Default is ‘pdf’.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1009,29 +815,29 @@ False.</p></li>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>generations</strong> – Number of generations to be included.</p></li>
-<li><p><strong>generation_bounds</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – First and last generation to include. Count
+<li><p><strong>generation_bounds</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]</span>) – First and last generation to include. Count
 starts at 1, because generation 0 is the founder.</p></li>
-<li><p><strong>figsize</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Default figure size to be used when no alternative is
+<li><p><strong>figsize</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Default figure size to be used when no alternative is
 passed to a plotting function.</p></li>
-<li><p><strong>show_sigma_e</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, sigma_e_mult * std deviation is plotted
+<li><p><strong>show_sigma_e</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True, sigma_e_mult * std deviation is plotted
 additionally around the mean. Default is True.</p></li>
-<li><p><strong>sigma_e_mult</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – If sigma_e is shown, this defines the width.</p></li>
-<li><p><strong>show_min_e</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, the minimum loss within each generation will
+<li><p><strong>sigma_e_mult</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – If sigma_e is shown, this defines the width.</p></li>
+<li><p><strong>show_min_e</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True, the minimum loss within each generation will
 be plotted. Default is False.</p></li>
-<li><p><strong>show_sigma</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, plot step size on axis y2. Default is False.</p></li>
-<li><p><strong>show_legend</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, plot a legend. Default is True.</p></li>
-<li><p><strong>y_units</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Units of loss to be added to y_label. Default is empty
+<li><p><strong>show_sigma</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True, plot step size on axis y2. Default is False.</p></li>
+<li><p><strong>show_legend</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True, plot a legend. Default is True.</p></li>
+<li><p><strong>y_units</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Units of loss to be added to y_label. Default is empty
 string.</p></li>
-<li><p><strong>y_lim</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Tuple of y_min and y_max to restrict the plot.
+<li><p><strong>y_lim</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Tuple of y_min and y_max to restrict the plot.
 Default is None.</p></li>
-<li><p><strong>ref_val</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Value to be plotted as a reference line. Default is None.</p></li>
-<li><p><strong>save_fig</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True the figure will be saved to file. Default is
+<li><p><strong>ref_val</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Value to be plotted as a reference line. Default is None.</p></li>
+<li><p><strong>save_fig</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True the figure will be saved to file. Default is
 False.</p></li>
-<li><p><strong>fig_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – File type to be saved. Default is ‘pdf’.</p></li>
+<li><p><strong>fig_type</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – File type to be saved. Default is ‘pdf’.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1043,15 +849,15 @@ False.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ax</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Axis</span></code>) – Main ax of figure. To be twinned.</p></li>
-<li><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>) – Values for x-axis.</p></li>
-<li><p><strong>selected_generations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>) – Generations to be plotted.</p></li>
-<li><p><strong>y_units</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Units of loss to be added to y_label.
+<li><p><strong>ax</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Axis</span></code></span>) – Main ax of figure. To be twinned.</p></li>
+<li><p><strong>x</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></span>) – Values for x-axis.</p></li>
+<li><p><strong>selected_generations</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></span>) – Generations to be plotted.</p></li>
+<li><p><strong>y_units</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Units of loss to be added to y_label.
 Default is r’ / si{ngstrom}’.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Axis</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Axis</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1071,7 +877,7 @@ Default is r’ / si{ngstrom}’.</p></li>
 may not have a shortcut.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentParser</span></code></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentParser</span></code></span></p>
 </dd>
 </dl>
 <dl class="simple">
@@ -1086,7 +892,7 @@ may not have a shortcut.</p>
 <dd><p>Helper function to initialize the algorithm</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters" title="clinamen2.cmaes.params_and_state.AlgorithmParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmParameters</span></code></a>, <a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState" title="clinamen2.cmaes.params_and_state.AlgorithmState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmState</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>]</p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmParameters" title="clinamen2.cmaes.params_and_state.AlgorithmParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmParameters</span></code></a>, <a class="reference internal" href="clinamen2.cmaes.html#clinamen2.cmaes.params_and_state.AlgorithmState" title="clinamen2.cmaes.params_and_state.AlgorithmState"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmState</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>]</span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1102,17 +908,17 @@ may not have a shortcut.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Label of the evolution run.</p></li>
-<li><p><strong>input_dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – Full path to the generated data.</p></li>
-<li><p><strong>generation_bounds</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Plot data between these generations.</p></li>
-<li><p><strong>output_dir</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – Full path to save figures to. DEfaults to input_dir.</p></li>
-<li><p><strong>figsize</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Matpplotlib figure size. Default is (10, 8).</p></li>
-<li><p><strong>y_units</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Units of loss. Default is empty string.</p></li>
-<li><p><strong>json</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Data is stored in JSON files.</p></li>
+<li><p><strong>label</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Label of the evolution run.</p></li>
+<li><p><strong>input_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span>) – Full path to the generated data.</p></li>
+<li><p><strong>generation_bounds</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – Plot data between these generations.</p></li>
+<li><p><strong>output_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – Full path to save figures to. DEfaults to input_dir.</p></li>
+<li><p><strong>figsize</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Matpplotlib figure size. Default is (10, 8).</p></li>
+<li><p><strong>y_units</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Units of loss. Default is empty string.</p></li>
+<li><p><strong>json</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Data is stored in JSON files.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1131,10 +937,10 @@ a possible starting point / template for more complex applications.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>immutable_atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code>) – Atoms that always have to be added to complete the
+<li><p><strong>immutable_atoms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code></span>) – Atoms that always have to be added to complete the
 transformation of a CMA-ES sample to an atoms object to perform
 calculations on.</p></li>
-<li><p><strong>sort_atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, ase.build.sort() will be applied to the resulting
+<li><p><strong>sort_atoms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If True, ase.build.sort() will be applied to the resulting
 atoms object.</p></li>
 </ul>
 </dd>
@@ -1187,7 +993,7 @@ of freedem vector. Default is None, None function will be skipped.</p></li>
 positions of atoms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>template_atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code>) – Template of an atoms object.</p>
+<dd class="field-odd"><p><strong>template_atoms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code></span>) – Template of an atoms object.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1227,16 +1033,16 @@ positions of atoms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code>) – Input structure.</p></li>
+<li><p><strong>atoms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code></span>) – Input structure.</p></li>
 <li><p><strong>scaled_positions</strong> – Positions to compare to (in [0, 1]).</p></li>
-<li><p><strong>c_r</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Overall bias weight parameter.</p></li>
-<li><p><strong>sigma_cov</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Gaussian weight parameter.</p></li>
-<li><p><strong>dimension</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Dimension of the input problem.</p></li>
-<li><p><strong>scaled_position</strong> (<em>_SupportsArray</em><em>[</em><em>dtype</em><em>[</em><em>Any</em><em>]</em><em>] </em><em>| </em><em>_NestedSequence</em><em>[</em><em>_SupportsArray</em><em>[</em><em>dtype</em><em>[</em><em>Any</em><em>]</em><em>]</em><em>] </em><em>| </em><em>bool</em><em> | </em><em>int</em><em> | </em><em>float</em><em> | </em><em>complex</em><em> | </em><em>str</em><em> | </em><em>bytes</em><em> | </em><em>_NestedSequence</em><em>[</em><em>bool</em><em> | </em><em>int</em><em> | </em><em>float</em><em> | </em><em>complex</em><em> | </em><em>str</em><em> | </em><em>bytes</em><em>]</em>) – </p></li>
+<li><p><strong>c_r</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Overall bias weight parameter.</p></li>
+<li><p><strong>sigma_cov</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Gaussian weight parameter.</p></li>
+<li><p><strong>dimension</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Dimension of the input problem.</p></li>
+<li><p><strong>scaled_position</strong> (<em>_SupportsArray</em><em>[</em><em>dtype</em><em>[</em><em>Any</em><em>]</em><em>] </em><em>| </em><em>_NestedSequence</em><em>[</em><em>_SupportsArray</em><em>[</em><em>dtype</em><em>[</em><em>Any</em><em>]</em><em>]</em><em>] </em><em>| </em><em>bool</em><em> | </em><em>int</em><em> | </em><em>float</em><em> | </em><em>complex</em><em> | </em><em>str</em><em> | </em><em>bytes</em><em> | </em><em>_NestedSequence</em><em>[</em><em>bool</em><em> | </em><em>int</em><em> | </em><em>float</em><em> | </em><em>complex</em><em> | </em><em>str</em><em> | </em><em>bytes</em><em>]</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1248,15 +1054,15 @@ positions of atoms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code>) – Input structure.</p></li>
+<li><p><strong>atoms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code></span>) – Input structure.</p></li>
 <li><p><strong>scaled_positions</strong> – Positions to compare to (in [0, 1]).</p></li>
-<li><p><strong>c_r</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Overall bias weight parameter.</p></li>
-<li><p><strong>dimension</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Dimension of the input problem.</p></li>
-<li><p><strong>scaled_position</strong> (<em>_SupportsArray</em><em>[</em><em>dtype</em><em>[</em><em>Any</em><em>]</em><em>] </em><em>| </em><em>_NestedSequence</em><em>[</em><em>_SupportsArray</em><em>[</em><em>dtype</em><em>[</em><em>Any</em><em>]</em><em>]</em><em>] </em><em>| </em><em>bool</em><em> | </em><em>int</em><em> | </em><em>float</em><em> | </em><em>complex</em><em> | </em><em>str</em><em> | </em><em>bytes</em><em> | </em><em>_NestedSequence</em><em>[</em><em>bool</em><em> | </em><em>int</em><em> | </em><em>float</em><em> | </em><em>complex</em><em> | </em><em>str</em><em> | </em><em>bytes</em><em>]</em>) – </p></li>
+<li><p><strong>c_r</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Overall bias weight parameter.</p></li>
+<li><p><strong>dimension</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Dimension of the input problem.</p></li>
+<li><p><strong>scaled_position</strong> (<em>_SupportsArray</em><em>[</em><em>dtype</em><em>[</em><em>Any</em><em>]</em><em>] </em><em>| </em><em>_NestedSequence</em><em>[</em><em>_SupportsArray</em><em>[</em><em>dtype</em><em>[</em><em>Any</em><em>]</em><em>]</em><em>] </em><em>| </em><em>bool</em><em> | </em><em>int</em><em> | </em><em>float</em><em> | </em><em>complex</em><em> | </em><em>str</em><em> | </em><em>bytes</em><em> | </em><em>_NestedSequence</em><em>[</em><em>bool</em><em> | </em><em>int</em><em> | </em><em>float</em><em> | </em><em>complex</em><em> | </em><em>str</em><em> | </em><em>bytes</em><em>]</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></span></p>
 </dd>
 </dl>
 <dl class="simple">
@@ -1271,11 +1077,11 @@ positions of atoms.</p>
 <dd><p>Closure to create the apply_weights() function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>weights</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code>) – Vector of floats to be applied to a CMA-ES sample by
+<dd class="field-odd"><p><strong>weights</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></span>) – Vector of floats to be applied to a CMA-ES sample by
 multiplication.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Function that applies the given weights to a numpy array.</p>
@@ -1289,10 +1095,10 @@ multiplication.</p>
 <dd><p>Create evaluation workflow with uncertainty.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>workflow</strong> (<a class="reference internal" href="#clinamen2.utils.structure_setup.FilterEvalWorkflow" title="clinamen2.utils.structure_setup.FilterEvalWorkflow"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterEvalWorkflow</span></code></a>) – Workflow to create closure from.</p>
+<dd class="field-odd"><p><strong>workflow</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#clinamen2.utils.structure_setup.FilterEvalWorkflow" title="clinamen2.utils.structure_setup.FilterEvalWorkflow"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterEvalWorkflow</span></code></a></span>) – Workflow to create closure from.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1304,10 +1110,10 @@ multiplication.</p>
 <p>That is, positions, types and cell.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>sorted_elements</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – Input for symbol_map setup.</p>
+<dd class="field-odd"><p><strong>sorted_elements</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>) – Input for symbol_map setup.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1318,11 +1124,11 @@ multiplication.</p>
 <dd><p>Closure to create a composite function from DofPipeline.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pipeline</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code>) – Named tuple containing the functions to be applied in
+<dd class="field-odd"><p><strong>pipeline</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></span>) – Named tuple containing the functions to be applied in
 reverse order.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1333,7 +1139,7 @@ reverse order.</p>
 <dd><p>Create a context to run code in a different directory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dir_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – Route to the directory.</p>
+<dd class="field-odd"><p><strong>dir_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span>) – Route to the directory.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1345,8 +1151,8 @@ reverse order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code>) – Atoms object to calculate distances for.</p></li>
-<li><p><strong>position</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Position to calculate distance from.</p></li>
+<li><p><strong>atoms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code></span>) – Atoms object to calculate distances for.</p></li>
+<li><p><strong>position</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Position to calculate distance from.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1359,8 +1165,8 @@ reverse order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code>) – Atoms object to calculate distances for.</p></li>
-<li><p><strong>scaled_position</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Position to calculate distance from.</p></li>
+<li><p><strong>atoms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atoms</span></code></span>) – Atoms object to calculate distances for.</p></li>
+<li><p><strong>scaled_position</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Position to calculate distance from.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1376,11 +1182,11 @@ Input file is created from a jinja2 template.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n_atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of atoms to be placed.</p></li>
-<li><p><strong>side_length</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Atoms are placed within a cube of this side length.</p></li>
-<li><p><strong>tolerance</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Packmol parameter tolerance (interatomic distance).</p></li>
-<li><p><strong>exec_string</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Packmol executable with full path.</p></li>
-<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Seed for packmol input. Default is -1, which leads to
+<li><p><strong>n_atoms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of atoms to be placed.</p></li>
+<li><p><strong>side_length</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Atoms are placed within a cube of this side length.</p></li>
+<li><p><strong>tolerance</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Packmol parameter tolerance (interatomic distance).</p></li>
+<li><p><strong>exec_string</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Packmol executable with full path.</p></li>
+<li><p><strong>random_seed</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Seed for packmol input. Default is -1, which leads to
 packmol generating a random seed.</p></li>
 </ul>
 </dd>
@@ -1398,9 +1204,9 @@ J. Comput. Chem., 30(13):2157-2164, 2009.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n_atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of atoms to be placed.</p></li>
-<li><p><strong>side_length</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Side length of the cube.</p></li>
-<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Seed for the random number generator. Default is 0.</p></li>
+<li><p><strong>n_atoms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of atoms to be placed.</p></li>
+<li><p><strong>side_length</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Side length of the cube.</p></li>
+<li><p><strong>random_seed</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Seed for the random number generator. Default is 0.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1414,9 +1220,9 @@ J. Comput. Chem., 30(13):2157-2164, 2009.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n_atoms</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of atoms to be placed.</p></li>
-<li><p><strong>radius</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Radius of the sphere.</p></li>
-<li><p><strong>random_seed</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Seed for the random number generator. Default is 0.</p></li>
+<li><p><strong>n_atoms</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of atoms to be placed.</p></li>
+<li><p><strong>radius</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Radius of the sphere.</p></li>
+<li><p><strong>random_seed</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Seed for the random number generator. Default is 0.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1430,13 +1236,13 @@ J. Comput. Chem., 30(13):2157-2164, 2009.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>founder</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>) – Full path to founder POSCAR.</p></li>
-<li><p><strong>scaled_center</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – Center point of dof sphere, in scaled coordinates.</p></li>
-<li><p><strong>radius</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Radius of dof sphere.</p></li>
+<li><p><strong>founder</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span>) – Full path to founder POSCAR.</p></li>
+<li><p><strong>scaled_center</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</span>) – Center point of dof sphere, in scaled coordinates.</p></li>
+<li><p><strong>radius</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Radius of dof sphere.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.typing.ArrayLike</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1444,7 +1250,7 @@ J. Comput. Chem., 30(13):2157-2164, 2009.</p>
 </section>
 <section id="module-clinamen2.utils">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-clinamen2.utils" title="Link to this heading"></a></h2>
-<p>Copyright 2023-2024 The Clinamen2 contributors</p>
+<p>Copyright 2023-2025 The Clinamen2 contributors</p>
 <p>Licensed under the Apache License, Version 2.0 (the “License”);
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at</p>
@@ -1469,7 +1275,7 @@ limitations under the License.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2024, The Clinamen2 contributors.</p>
+    <p>&#169; Copyright 2023-2025, The Clinamen2 contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

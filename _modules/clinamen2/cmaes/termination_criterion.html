@@ -1,22 +1,20 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2.cmaes.termination_criterion &mdash; Clinamen2 2024.07.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+  <title>clinamen2.cmaes.termination_criterion &mdash; Clinamen2 2025.07.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=1ca64f43"></script>
-        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=83e4dbd9"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -75,12 +73,12 @@
              
   <h1>Source code for clinamen2.cmaes.termination_criterion</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Classes and functions implementing the CMA-ES termination criteria.&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Sequence</span>
 
-<span class="kn">import</span> <span class="nn">numpy.typing</span> <span class="k">as</span> <span class="nn">npt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">npt</span>
 
-<span class="kn">from</span> <span class="nn">clinamen2.cmaes.params_and_state</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">clinamen2.cmaes.params_and_state</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">AlgorithmParameters</span><span class="p">,</span>
     <span class="n">AlgorithmState</span><span class="p">,</span>
 <span class="p">)</span>
@@ -88,7 +86,7 @@
 
 <div class="viewcode-block" id="StaleLossState">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossState">[docs]</a>
-<span class="k">class</span> <span class="nc">StaleLossState</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">StaleLossState</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;NamedTuple to keep track of the state of a criterion.</span>
 
 <span class="sd">    Args:</span>
@@ -103,7 +101,7 @@
 
 <div class="viewcode-block" id="CriteriaCombinationState">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaCombinationState">[docs]</a>
-<span class="k">class</span> <span class="nc">CriteriaCombinationState</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CriteriaCombinationState</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;NamedTuple to keep track of a tuple of criterion states.</span>
 
 <span class="sd">    Args:</span>
@@ -123,21 +121,21 @@
 
 <div class="viewcode-block" id="Criterion">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion">[docs]</a>
-<span class="k">class</span> <span class="nc">Criterion</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Criterion</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract base class for termination criteria.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        parameters: Initial, immutable parameters of the CMA-ES run.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructor&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">parameters</span>
 
 <div class="viewcode-block" id="Criterion.init">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion.init">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NamedTuple</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NamedTuple</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the associated state.</span>
 
@@ -149,7 +147,7 @@
 <div class="viewcode-block" id="Criterion.update">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion.update">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">criterion_state</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">,</span>
         <span class="n">state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
@@ -172,7 +170,7 @@
 <div class="viewcode-block" id="Criterion.met">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.Criterion.met">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Args:</span>
@@ -187,7 +185,7 @@
 
 <div class="viewcode-block" id="StaleLossCriterion">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossCriterion">[docs]</a>
-<span class="k">class</span> <span class="nc">StaleLossCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">StaleLossCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that implements a termination criterion of the CMA-ES.</span>
 
 <span class="sd">    Takes the loss trajectory into account. If the loss is stale for a</span>
@@ -201,7 +199,7 @@
 <span class="sd">            stale for the criterion to be met.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">,</span>
         <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -213,7 +211,7 @@
 
 <div class="viewcode-block" id="StaleLossCriterion.init">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossCriterion.init">[docs]</a>
-    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StaleLossState</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StaleLossState</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the associated CriterionState.</span>
 
 <span class="sd">        Use base CriterionState and set counter to zero.</span>
@@ -223,7 +221,7 @@
 
 <div class="viewcode-block" id="StaleLossCriterion.update">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossCriterion.update">[docs]</a>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">criterion_state</span><span class="p">:</span> <span class="n">StaleLossState</span><span class="p">,</span>
         <span class="n">state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
@@ -254,7 +252,7 @@
 
 <div class="viewcode-block" id="StaleLossCriterion.met">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleLossCriterion.met">[docs]</a>
-    <span class="k">def</span> <span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">StaleLossState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">StaleLossState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Args:</span>
@@ -270,7 +268,7 @@
 
 <div class="viewcode-block" id="StaleStepCriterion">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStepCriterion">[docs]</a>
-<span class="k">class</span> <span class="nc">StaleStepCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">StaleStepCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that implements a termination criterion of the CMA-ES.</span>
 
 <span class="sd">    Takes the step size trajectory into account. If the step size is stale for</span>
@@ -284,7 +282,7 @@
 <span class="sd">           be stale for the criterion to be met.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">,</span>
         <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -296,7 +294,7 @@
 
 <div class="viewcode-block" id="StaleStepCriterion.init">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStepCriterion.init">[docs]</a>
-    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StaleStepState</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StaleStepState</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the associated CriterionState.</span>
 
 <span class="sd">        Use base CriterionState and set counter to zero.</span>
@@ -306,7 +304,7 @@
 
 <div class="viewcode-block" id="StaleStepCriterion.update">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStepCriterion.update">[docs]</a>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">criterion_state</span><span class="p">:</span> <span class="n">StaleStepState</span><span class="p">,</span>
         <span class="n">state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
@@ -338,7 +336,7 @@
 
 <div class="viewcode-block" id="StaleStepCriterion.met">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStepCriterion.met">[docs]</a>
-    <span class="k">def</span> <span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">StaleStepState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">StaleStepState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Args:</span>
@@ -354,7 +352,7 @@
 
 <div class="viewcode-block" id="StaleStdCriterion">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStdCriterion">[docs]</a>
-<span class="k">class</span> <span class="nc">StaleStdCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">StaleStdCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that implements a termination criterion of the CMA-ES.</span>
 
 <span class="sd">    Takes the standard deviation within generations into account. If the std</span>
@@ -368,7 +366,7 @@
 <span class="sd">            threshold for the criterion to be met.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">,</span>
         <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -380,7 +378,7 @@
 
 <div class="viewcode-block" id="StaleStdCriterion.init">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStdCriterion.init">[docs]</a>
-    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StaleStdState</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StaleStdState</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the associated CriterionState.</span>
 
 <span class="sd">        Use base CriterionState and set counter to zero.</span>
@@ -390,7 +388,7 @@
 
 <div class="viewcode-block" id="StaleStdCriterion.update">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStdCriterion.update">[docs]</a>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">criterion_state</span><span class="p">:</span> <span class="n">StaleStdState</span><span class="p">,</span>
         <span class="n">state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
@@ -419,7 +417,7 @@
 
 <div class="viewcode-block" id="StaleStdCriterion.met">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.StaleStdCriterion.met">[docs]</a>
-    <span class="k">def</span> <span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">StaleStdState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">StaleStdState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Args:</span>
@@ -435,7 +433,7 @@
 
 <div class="viewcode-block" id="CriteriaCombination">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaCombination">[docs]</a>
-<span class="k">class</span> <span class="nc">CriteriaCombination</span><span class="p">(</span><span class="n">Criterion</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CriteriaCombination</span><span class="p">(</span><span class="n">Criterion</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract class that combines criteria.</span>
 
 <span class="sd">    Args:</span>
@@ -443,7 +441,7 @@
 <span class="sd">        criteria: Sequence of criteria to be combined.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">,</span>
         <span class="n">criteria</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span>
@@ -453,7 +451,7 @@
 
 <div class="viewcode-block" id="CriteriaCombination.init">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaCombination.init">[docs]</a>
-    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the associated CriterionState instances.&quot;&quot;&quot;</span>
         <span class="n">criteria_states</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">criterion</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">criteria</span><span class="p">:</span>
@@ -463,7 +461,7 @@
 
 <div class="viewcode-block" id="CriteriaCombination.update">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaCombination.update">[docs]</a>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">criterion_state</span><span class="p">:</span> <span class="n">CriteriaCombinationState</span><span class="p">,</span>
         <span class="n">state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
@@ -496,7 +494,7 @@
 <div class="viewcode-block" id="CriteriaCombination.met">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaCombination.met">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">CriteriaCombinationState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">CriteriaCombinationState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Args:</span>
@@ -511,7 +509,7 @@
 
 <div class="viewcode-block" id="CriteriaAnd">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaAnd">[docs]</a>
-<span class="k">class</span> <span class="nc">CriteriaAnd</span><span class="p">(</span><span class="n">CriteriaCombination</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CriteriaAnd</span><span class="p">(</span><span class="n">CriteriaCombination</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that combines criteria that all have to be fulfilled.</span>
 
 <span class="sd">    Evaluates multiple criteria (instances of Criterion). All have to meet</span>
@@ -524,7 +522,7 @@
 
 <div class="viewcode-block" id="CriteriaAnd.met">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaAnd.met">[docs]</a>
-    <span class="k">def</span> <span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">CriteriaAndState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">CriteriaAndState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Args:</span>
@@ -543,7 +541,7 @@
 
 <div class="viewcode-block" id="CriteriaOr">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaOr">[docs]</a>
-<span class="k">class</span> <span class="nc">CriteriaOr</span><span class="p">(</span><span class="n">CriteriaCombination</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CriteriaOr</span><span class="p">(</span><span class="n">CriteriaCombination</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that combines criteria were one has to be fulfilled.</span>
 
 <span class="sd">    Evaluates multiple criteria (instances of Criterion). Any one has to meet</span>
@@ -556,7 +554,7 @@
 
 <div class="viewcode-block" id="CriteriaOr.met">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.termination_criterion.CriteriaOr.met">[docs]</a>
-    <span class="k">def</span> <span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">CriteriaOrState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">CriteriaOrState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Args:</span>
@@ -580,7 +578,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2024, The Clinamen2 contributors.</p>
+    <p>&#169; Copyright 2023-2025, The Clinamen2 contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

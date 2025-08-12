@@ -1,22 +1,20 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2.utils.structure_setup &mdash; Clinamen2 2024.07.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+  <title>clinamen2.utils.structure_setup &mdash; Clinamen2 2025.07.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=1ca64f43"></script>
-        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=83e4dbd9"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -79,27 +77,27 @@
 <span class="sd">    Meant to offer simple versions of reusable functions and</span>
 <span class="sd">    a possible starting point / template for more complex applications.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">copy</span>
-<span class="kn">import</span> <span class="nn">shlex</span>
-<span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">import</span> <span class="nn">tempfile</span>
-<span class="kn">import</span> <span class="nn">contextlib</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shlex</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 
-<span class="kn">import</span> <span class="nn">ase.atoms</span>
-<span class="kn">import</span> <span class="nn">jinja2</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">numpy.typing</span> <span class="k">as</span> <span class="nn">npt</span>
-<span class="kn">from</span> <span class="nn">ase.build</span> <span class="kn">import</span> <span class="n">sort</span>
-<span class="kn">from</span> <span class="nn">ase.io</span> <span class="kn">import</span> <span class="n">read</span>
-<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">cholesky</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ase.atoms</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jinja2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">npt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">sort</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">cholesky</span>
 
 
 <div class="viewcode-block" id="DofToAtoms">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.DofToAtoms">[docs]</a>
-<span class="k">class</span> <span class="nc">DofToAtoms</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DofToAtoms</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that creates an atoms object from a compatible CMA-ES sample.</span>
 
 <span class="sd">    The degrees of freedom making up the sample are translated into the</span>
@@ -109,7 +107,7 @@
 <span class="sd">        template_atoms: Template of an atoms object.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dof</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dof</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Copy the atoms template and take positions from dof.</span>
 
 <span class="sd">        Args:</span>
@@ -122,7 +120,7 @@
 
         <span class="k">return</span> <span class="n">atoms</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template_atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template_atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructor&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">template_atoms</span> <span class="o">=</span> <span class="n">template_atoms</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
@@ -131,7 +129,7 @@
 
 <div class="viewcode-block" id="DofPipeline">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.DofPipeline">[docs]</a>
-<span class="k">class</span> <span class="nc">DofPipeline</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DofPipeline</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Functions to be applied to CMA samples in reverse order.</span>
 
 <span class="sd">    Args:</span>
@@ -151,7 +149,7 @@
 
 <div class="viewcode-block" id="AnchorToImmutable">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.AnchorToImmutable">[docs]</a>
-<span class="k">class</span> <span class="nc">AnchorToImmutable</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AnchorToImmutable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that appends immutable atoms to an atoms object.</span>
 
 <span class="sd">    Args:</span>
@@ -162,7 +160,7 @@
 <span class="sd">            atoms object.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Extend the given atoms by the immutable atoms of the class.</span>
 
 <span class="sd">        atoms: Atoms object to be extended.</span>
@@ -172,7 +170,7 @@
 
         <span class="k">return</span> <span class="n">sort</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sort_atoms</span> <span class="k">else</span> <span class="n">result</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">immutable_atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">,</span> <span class="n">sort_atoms</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructor&quot;&quot;&quot;</span>
@@ -184,7 +182,7 @@
 
 <div class="viewcode-block" id="prepare_dof_and_pipeline">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.prepare_dof_and_pipeline">[docs]</a>
-<span class="k">def</span> <span class="nf">prepare_dof_and_pipeline</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">prepare_dof_and_pipeline</span><span class="p">(</span>
     <span class="n">founder</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
     <span class="n">scaled_center</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -234,7 +232,7 @@
 
 <div class="viewcode-block" id="create_apply_weights">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.create_apply_weights">[docs]</a>
-<span class="k">def</span> <span class="nf">create_apply_weights</span><span class="p">(</span><span class="n">weights</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_apply_weights</span><span class="p">(</span><span class="n">weights</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Closure to create the apply_weights() function.</span>
 
 <span class="sd">    Args:</span>
@@ -245,7 +243,7 @@
 <span class="sd">        Function that applies the given weights to a numpy array.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">apply_weights</span><span class="p">(</span><span class="n">dof</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_weights</span><span class="p">(</span><span class="n">dof</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply weights passed to the closure to a CMA-ES sample.</span>
 
 <span class="sd">        Args:</span>
@@ -261,7 +259,7 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Weights (shape </span><span class="si">{</span><span class="n">weights</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">) and degrees of freedom&quot;</span>
                 <span class="sa">f</span><span class="s2">&quot; (shape </span><span class="si">{</span><span class="n">dof</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">) need to have the same shape.&quot;</span>
-            <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
         <span class="k">return</span> <span class="n">result</span>
 
@@ -271,7 +269,7 @@
 
 <div class="viewcode-block" id="create_split_atom">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.create_split_atom">[docs]</a>
-<span class="k">def</span> <span class="nf">create_split_atom</span><span class="p">(</span><span class="n">sorted_elements</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_split_atom</span><span class="p">(</span><span class="n">sorted_elements</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Translate ase.atoms.Atoms object to NeuralIL input.</span>
 
 <span class="sd">    That is, positions, types and cell.</span>
@@ -281,7 +279,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">symbol_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sorted_elements</span><span class="p">)}</span>
 
-    <span class="k">def</span> <span class="nf">split_atom</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">split_atom</span><span class="p">(</span>
         <span class="n">atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get positions, types and cell from atoms object.&quot;&quot;&quot;</span>
@@ -299,7 +297,7 @@
 
 <div class="viewcode-block" id="create_transform_dof">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.create_transform_dof">[docs]</a>
-<span class="k">def</span> <span class="nf">create_transform_dof</span><span class="p">(</span><span class="n">pipeline</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_transform_dof</span><span class="p">(</span><span class="n">pipeline</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Closure to create a composite function from DofPipeline.</span>
 
 <span class="sd">    Args:</span>
@@ -307,7 +305,7 @@
 <span class="sd">            reverse order.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">transform_dof</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">transform_dof</span><span class="p">(</span>
         <span class="n">dof</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Applies the reversed pipeline given to the closure.</span>
@@ -328,7 +326,7 @@
 
 <div class="viewcode-block" id="FilterEvalWorkflow">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.FilterEvalWorkflow">[docs]</a>
-<span class="k">class</span> <span class="nc">FilterEvalWorkflow</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FilterEvalWorkflow</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluation and filter.</span>
 
 <span class="sd">    Args:</span>
@@ -343,14 +341,14 @@
 
 <div class="viewcode-block" id="create_filter_eval_workflow">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.create_filter_eval_workflow">[docs]</a>
-<span class="k">def</span> <span class="nf">create_filter_eval_workflow</span><span class="p">(</span><span class="n">workflow</span><span class="p">:</span> <span class="n">FilterEvalWorkflow</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_filter_eval_workflow</span><span class="p">(</span><span class="n">workflow</span><span class="p">:</span> <span class="n">FilterEvalWorkflow</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create evaluation workflow with uncertainty.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        workflow: Workflow to create closure from.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">filter_eval_workflow</span><span class="p">(</span><span class="n">inputs</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter_eval_workflow</span><span class="p">(</span><span class="n">inputs</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply evaluation pipeline.&quot;&quot;&quot;</span>
 
         <span class="n">evaluated</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">evaluate_loss</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
@@ -363,7 +361,7 @@
 
 <div class="viewcode-block" id="place_atoms_random_cube">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.place_atoms_random_cube">[docs]</a>
-<span class="k">def</span> <span class="nf">place_atoms_random_cube</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">place_atoms_random_cube</span><span class="p">(</span>
     <span class="n">n_atoms</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">38</span><span class="p">,</span> <span class="n">side_length</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">8.0</span><span class="p">,</span> <span class="n">random_seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Place atoms randomly within a cube of a given size.</span>
@@ -386,7 +384,7 @@
 
 <div class="viewcode-block" id="place_atoms_random_sphere">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.place_atoms_random_sphere">[docs]</a>
-<span class="k">def</span> <span class="nf">place_atoms_random_sphere</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">place_atoms_random_sphere</span><span class="p">(</span>
     <span class="n">n_atoms</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">38</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.5</span><span class="p">,</span> <span class="n">random_seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Place atoms randomly within a sphere of a given radius.</span>
@@ -441,7 +439,7 @@
 <div class="viewcode-block" id="dir_context">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.dir_context">[docs]</a>
 <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
-<span class="k">def</span> <span class="nf">dir_context</span><span class="p">(</span><span class="n">dir_name</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dir_context</span><span class="p">(</span><span class="n">dir_name</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a context to run code in a different directory.</span>
 
 <span class="sd">    Args:</span>
@@ -458,7 +456,7 @@
 
 <div class="viewcode-block" id="place_atoms_packmol">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.place_atoms_packmol">[docs]</a>
-<span class="k">def</span> <span class="nf">place_atoms_packmol</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">place_atoms_packmol</span><span class="p">(</span>
     <span class="n">n_atoms</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">38</span><span class="p">,</span>
     <span class="n">side_length</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span>
     <span class="n">tolerance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
@@ -519,7 +517,7 @@
 
 <div class="viewcode-block" id="get_distances_from_position">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.get_distances_from_position">[docs]</a>
-<span class="k">def</span> <span class="nf">get_distances_from_position</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_distances_from_position</span><span class="p">(</span>
     <span class="n">atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get distances to position in Angstrom.</span>
@@ -542,7 +540,7 @@
 
 <div class="viewcode-block" id="get_distances_from_scaled_position">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.get_distances_from_scaled_position">[docs]</a>
-<span class="k">def</span> <span class="nf">get_distances_from_scaled_position</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_distances_from_scaled_position</span><span class="p">(</span>
     <span class="n">atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">,</span> <span class="n">scaled_position</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrapper for get_distances_from_position().</span>
@@ -559,7 +557,7 @@
 
 <div class="viewcode-block" id="bias_covariance_matrix_gauss">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.bias_covariance_matrix_gauss">[docs]</a>
-<span class="k">def</span> <span class="nf">bias_covariance_matrix_gauss</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bias_covariance_matrix_gauss</span><span class="p">(</span>
     <span class="n">atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">,</span>
     <span class="n">scaled_position</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span>
     <span class="n">c_r</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -589,7 +587,7 @@
 
 <div class="viewcode-block" id="bias_covariance_matrix_r">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.structure_setup.bias_covariance_matrix_r">[docs]</a>
-<span class="k">def</span> <span class="nf">bias_covariance_matrix_r</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bias_covariance_matrix_r</span><span class="p">(</span>
     <span class="n">atoms</span><span class="p">:</span> <span class="n">ase</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atoms</span><span class="p">,</span>
     <span class="n">scaled_position</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span>
     <span class="n">c_r</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -623,7 +621,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2024, The Clinamen2 contributors.</p>
+    <p>&#169; Copyright 2023-2025, The Clinamen2 contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

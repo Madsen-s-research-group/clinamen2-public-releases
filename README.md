@@ -8,7 +8,7 @@ The local compilation of the documentation requires the packages:
 
 that can be installed manually or by installing Clinamen2 with
 ```
-    pip install -e .[doc]
+    pip install -e .[docs]
 ```
 
 Then you can run

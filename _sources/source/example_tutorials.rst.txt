@@ -7,6 +7,7 @@ Example tutorials
 * :ref:`silver_cluster`
 * :ref:`si_bulk`
 * :ref:`lennard_jones`
+* :ref:`mos2_mace`
 
 .. _function\_trial:
 
@@ -17,7 +18,7 @@ The function trial can be performed from the command-line or by importing the
 relevant functions, e.g., to a Jupyter notebook.
 
 From the command-line call
-`evolve_test_function.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_test_function.py>`_
+`evolve_test_function.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_test_function.py>`_
 from the 'examples' directory
 ::
 
@@ -52,10 +53,10 @@ script placed in the 'examples' directory.
         generation_bounds=(0, -1), # all generations,
     )
 
-To perform multiple runs the shell script `run_function_trial.sh <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/run_function_trial.sh>`_  can be adapted.
+To perform multiple runs the shell script `run_function_trial.sh <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/run_function_trial.sh>`_  can be adapted.
 
 Additionally, the function trial can be performed utilizing the BIPOP restart
-by calling `evolve_test_function_bipop.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_test_function_bipop.py>`_
+by calling `evolve_test_function_bipop.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_test_function_bipop.py>`_
 ::
 
     evolve_test_function_bipop.py --help
@@ -84,8 +85,8 @@ respective environments.
 Depending on the choice of DFT code, different settings are required in the following steps.
 
 
-To start the scheduler one can use `scheduler_start_vasp.sh <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/scheduler_start_vasp.sh>`_
-or `scheduler_start_nwchem.sh <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/scheduler_start_nwchem.sh>`_,
+To start the scheduler one can use `scheduler_start_vasp.sh <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/scheduler_start_vasp.sh>`_
+or `scheduler_start_nwchem.sh <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/scheduler_start_nwchem.sh>`_,
 respectively.
 
 The direct command is
@@ -113,8 +114,8 @@ If scheduler, workers and evolution are not executed on the same system, the cor
 scheduler json file has to be copied. It may also be necessary to set
 up ssh tunnels or similar to enable communication between the components.
 
-This example calls the DFT code through ASE (`VASP <https://wiki.fysik.dtu.dk/ase/ase/calculators/vasp.html>`__,
-`NWChem <https://wiki.fysik.dtu.dk/ase/ase/calculators/nwchem.html>`__),
+This example calls the DFT code through ASE (`VASP <https://wiki.fysik.dtu.dk/ase/ase/calculators/vasp.html>`_,
+`NWChem <https://wiki.fysik.dtu.dk/ase/ase/calculators/nwchem.html>`_),
 which requires some environment variables to be set.
 
 - VASP: *ASE_VASP_COMMAND* and *VASP_PP_PATH*
@@ -143,7 +144,7 @@ can be started as follows, executed in an Anaconda environment called 'clinamen2
 
 Like all included examples, the standard CMA-ES parameters can be passed as
 command line arguments. For a description of these and the Ag cluster specific
-arguments call the script `evolve_ag_cluster_dft.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_ag_cluster_dft.py>`_ from the 'examples' directory
+arguments call the script `evolve_ag_cluster_dft.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_ag_cluster_dft.py>`_ from the 'examples' directory
 
 ::
 
@@ -192,7 +193,7 @@ We recommend setting memory pre-allocation to false in the command line:
     export XLA_PYTHON_CLIENT_PREALLOCATE=false
 
 As per usual, the available command-line parameters can be viewed directly by
-calling `evolve_si_bulk_nnff.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_si_bulk_nnff.py>`_ with
+calling `evolve_si_bulk_nnff.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_si_bulk_nnff.py>`_ with
 ::
 
     python evolve_si_bulk_nnff.py --help
@@ -213,7 +214,7 @@ Example call
     python evolve_si_bulk_nnff.py -l sibulk -r 1 -s 0.1 -g 500 --scaled_center 0.0 0.0 0.0 --radius 4.0 --c_r 20.0
 
 The local relaxation of any of the generations can be performed using
-`optimize_si_fire_nnff.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/optimize_si_fire_nnff.py>`_
+`optimize_si_fire_nnff.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/optimize_si_fire_nnff.py>`_
 ::
 
     python optimize_si_fire_nnff.py --help
@@ -242,7 +243,7 @@ installation guide available at `readthedocs <https://jax.readthedocs.io/en/late
 is required. More information can also be found in example :ref:`si_bulk`.
 
 The Bi-Population (BIPOP) restart example is called via
-`evolve_lj_cluster_jax_bipop.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_lj_cluster_jax_bipop.py>`_
+`evolve_lj_cluster_jax_bipop.py <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_lj_cluster_jax_bipop.py>`_
 ::
 
     evolve_lj_cluster_jax_bipop.py --help
@@ -258,7 +259,7 @@ To perform a BIPOP restart evolution of the LJ13 cluster call for example
     python evolve_lj_cluster_jax_bipop.py -l lj13 -s 0.25 -g 10000 -n 10 -a 13 -c sphere -j lj13_bipop.json -w <WALES_PATH>
 
 It is also possible to perform a single LJ evolution without restarts
-`evolve_lj_cluster_jax <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_lj_cluster_jax.py>`_
+`evolve_lj_cluster_jax <https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_lj_cluster_jax.py>`_
 ::
 
     python evolve_lj_cluster_jax.py -l lj5 -s 0.5 -g 1000 -n 10 -a 5 -c sphere -w <WALES_PATH>
@@ -267,3 +268,31 @@ Variants of the CMA-ES incorporating restarts are especially useful when investi
 landscapes. By repeatedly starting searches with different parameters, more of the focus is shifted to exploration.
 The choice of restart algorithm and parameters is highly problem dependent though, with no one-size-fits-all solution.
 Depending on the use case, a simple grid search across population- and step-sizes may be a good choice.
+
+
+.. _mos2\_mace:
+
+Monolayer MoS2 with MACE
+----------------------------------------
+
+This example requires `MACE <https://mace-docs.readthedocs.io/en/latest/index.html>`_ for the prediction of the energies and forces. The code was tested with versions `mace-torch 0.3.10` and `torch 2.6.0`. Please refer to the online documentation for installation details.
+
+The module `symmetry_setup.py` allows to reduce the number of degrees of freedom by applying symmetry operations such as rotations and reflections during the evolution. This feature helps to improve the convergence of the algorithm to reasonable structures, even if the initial step size is set rather large. 
+
+Due to their large surface, two-dimensional materials such as monolayer MoS2 are predestined for the application of these kinds of constraints.
+
+If, for example, an evolution of such a monolayer structure with both a threefold rotation and a horizontal reflection should be executed, the following command can be called:
+::
+
+    python evolve_mos2_mace.py --symmetry threefold_horizontal --random_seed 1 --pop_size 25 --step_size 0.75 --generations 1000
+
+If only one of these two operations should be performed, the `--symmetry` argument can instead be set to either `threefold` or `horizontal`. If no symmetry constraint should be applied, set the argument to `none`.
+
+There are a number of additional input parameters available that can modify the behaviour of the applied operations. The exact values of these parameters are highly dependent on the structure file of the founder. For more information on these details either call 
+::
+
+    python evolve_mos2_mace.py --help
+
+or refer to the source code in the `symmetry_setup.py` module.
+
+After the evolution is finished, the example script automatically generates a structure file that contains the residual slice after all symmetry operations are performed, or, in other words, the remaining degrees of freedom that are used as input for the random sampling step. Also an `ASE <https://wiki.fysik.dtu.dk/ase/#>`_ trajectory file is created which documents all generations of the evolution. Both the residual slice and the trajectory can be viewed in the ASE GUI. These features help to verify the correctness of the selected symmetry constraints.

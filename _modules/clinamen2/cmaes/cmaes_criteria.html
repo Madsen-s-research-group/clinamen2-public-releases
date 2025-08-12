@@ -1,22 +1,20 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2.cmaes.cmaes_criteria &mdash; Clinamen2 2024.07.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+  <title>clinamen2.cmaes.cmaes_criteria &mdash; Clinamen2 2025.07.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=1ca64f43"></script>
-        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=83e4dbd9"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -80,24 +78,24 @@
 
 <span class="sd">    [1] N. Hansen, 2016, arXiv:1604.00772 [cs.LG]</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="k">as</span> <span class="nn">lin</span>
-<span class="kn">import</span> <span class="nn">numpy.typing</span> <span class="k">as</span> <span class="nn">npt</span>
-<span class="kn">import</span> <span class="nn">scipy.linalg</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy.linalg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lin</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">npt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.linalg</span>
 
-<span class="kn">from</span> <span class="nn">clinamen2.cmaes.params_and_state</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">clinamen2.cmaes.params_and_state</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">AlgorithmParameters</span><span class="p">,</span>
     <span class="n">AlgorithmState</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">clinamen2.cmaes.termination_criterion</span> <span class="kn">import</span> <span class="n">Criterion</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">clinamen2.cmaes.termination_criterion</span><span class="w"> </span><span class="kn">import</span> <span class="n">Criterion</span>
 
 
 <div class="viewcode-block" id="ConditionCovState">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.ConditionCovState">[docs]</a>
-<span class="k">class</span> <span class="nc">ConditionCovState</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConditionCovState</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;NamedTuple to keep track of condition number</span>
 
 <span class="sd">    Args:</span>
@@ -110,7 +108,7 @@
 
 <div class="viewcode-block" id="ConditionCovCriterion">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion">[docs]</a>
-<span class="k">class</span> <span class="nc">ConditionCovCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConditionCovCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;ConditionCov criterion</span>
 
 <span class="sd">    Stop if the condition number of the covariance matrix exceeds 1e14.</span>
@@ -120,7 +118,7 @@
 <span class="sd">        threshold: Upper limit for accepted condition number. Default is 1e14.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e14</span>
     <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span>
@@ -128,14 +126,14 @@
 
 <div class="viewcode-block" id="ConditionCovCriterion.init">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.init">[docs]</a>
-    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ConditionCovState</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ConditionCovState</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the associated NamedTuple.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">ConditionCovState</span><span class="p">(</span><span class="n">cond</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ConditionCovCriterion.update">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.update">[docs]</a>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">criterion_state</span><span class="p">:</span> <span class="n">ConditionCovState</span><span class="p">,</span>
         <span class="n">state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
@@ -160,7 +158,7 @@
 
 <div class="viewcode-block" id="ConditionCovCriterion.met">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.ConditionCovCriterion.met">[docs]</a>
-    <span class="k">def</span> <span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">ConditionCovState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">ConditionCovState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Decide if the stopping criterion is met.</span>
 
 <span class="sd">        Args:</span>
@@ -174,7 +172,7 @@
 
 <div class="viewcode-block" id="EqualFunValuesState">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.EqualFunValuesState">[docs]</a>
-<span class="k">class</span> <span class="nc">EqualFunValuesState</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">EqualFunValuesState</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;NamedTuple to keep track of function value staleness.</span>
 
 <span class="sd">    Args:</span>
@@ -188,7 +186,7 @@
 
 <div class="viewcode-block" id="EqualFunValuesCriterion">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion">[docs]</a>
-<span class="k">class</span> <span class="nc">EqualFunValuesCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">EqualFunValuesCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;EqualFunValues criterion</span>
 
 <span class="sd">    Stop if the range of the loss within a certain range of generations is</span>
@@ -203,7 +201,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">,</span>
         <span class="n">generation_span</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
@@ -219,7 +217,7 @@
 
 <div class="viewcode-block" id="EqualFunValuesCriterion.init">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.init">[docs]</a>
-    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EqualFunValuesState</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EqualFunValuesState</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the associated NamedTuple.&quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;span is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">generation_span</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">EqualFunValuesState</span><span class="p">(</span>
@@ -229,7 +227,7 @@
 
 <div class="viewcode-block" id="EqualFunValuesCriterion.update">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.update">[docs]</a>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">criterion_state</span><span class="p">:</span> <span class="n">EqualFunValuesState</span><span class="p">,</span>
         <span class="n">state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
@@ -255,7 +253,7 @@
 
 <div class="viewcode-block" id="EqualFunValuesCriterion.met">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.EqualFunValuesCriterion.met">[docs]</a>
-    <span class="k">def</span> <span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">EqualFunValuesState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">EqualFunValuesState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Decide if the stopping criterion is met.</span>
 
 <span class="sd">        Args:</span>
@@ -273,7 +271,7 @@
 
 <div class="viewcode-block" id="TolXUpState">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpState">[docs]</a>
-<span class="k">class</span> <span class="nc">TolXUpState</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TolXUpState</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;NamedTuple to keep track of function value staleness.</span>
 
 <span class="sd">    Args:</span>
@@ -288,7 +286,7 @@
 
 <div class="viewcode-block" id="TolXUpCriterion">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion">[docs]</a>
-<span class="k">class</span> <span class="nc">TolXUpCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TolXUpCriterion</span><span class="p">(</span><span class="n">Criterion</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;TolXUp criterion</span>
 
 <span class="sd">    Stop if sigma times max(diag(D)) exceeds a threshold when compared to the</span>
@@ -303,7 +301,7 @@
 <span class="sd">            Default is False. Use True for large matrices.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">,</span>
         <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e4</span><span class="p">,</span>
@@ -321,14 +319,14 @@
 
 <div class="viewcode-block" id="TolXUpCriterion.init">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.init">[docs]</a>
-    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TolXUpState</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TolXUpState</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the associated NamedTuple.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">TolXUpState</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="TolXUpCriterion.update">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.update">[docs]</a>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">criterion_state</span><span class="p">:</span> <span class="n">TolXUpState</span><span class="p">,</span>
         <span class="n">state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
@@ -359,7 +357,7 @@
 
 <div class="viewcode-block" id="TolXUpCriterion.met">
 <a class="viewcode-back" href="../../../source/clinamen2.cmaes.html#clinamen2.cmaes.cmaes_criteria.TolXUpCriterion.met">[docs]</a>
-    <span class="k">def</span> <span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">TolXUpState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">met</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">criterion_state</span><span class="p">:</span> <span class="n">TolXUpState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Decide if the stopping criterion is met.</span>
 
 <span class="sd">        Args:</span>
@@ -378,7 +376,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2024, The Clinamen2 contributors.</p>
+    <p>&#169; Copyright 2023-2025, The Clinamen2 contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

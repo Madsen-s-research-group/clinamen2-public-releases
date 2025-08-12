@@ -1,22 +1,20 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>clinamen2.utils.file_handling &mdash; Clinamen2 2024.07.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+  <title>clinamen2.utils.file_handling &mdash; Clinamen2 2025.07.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=1ca64f43"></script>
-        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=83e4dbd9"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -75,31 +73,31 @@
              
   <h1>Source code for clinamen2.utils.file_handling</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Read and write CMA-ES results.&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">asdict</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">asdict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Tuple</span>
 
-<span class="kn">import</span> <span class="nn">dill</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">numpy.typing</span> <span class="k">as</span> <span class="nn">npt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dill</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">npt</span>
 
-<span class="kn">from</span> <span class="nn">clinamen2.cmaes.params_and_state</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">clinamen2.cmaes.params_and_state</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">AlgorithmParameters</span><span class="p">,</span>
     <span class="n">AlgorithmState</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">clinamen2.cmaes.termination_criterion</span> <span class="kn">import</span> <span class="n">Criterion</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">clinamen2.cmaes.termination_criterion</span><span class="w"> </span><span class="kn">import</span> <span class="n">Criterion</span>
 
 
 <div class="viewcode-block" id="JSONEncoder">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.JSONEncoder">[docs]</a>
-<span class="k">class</span> <span class="nc">JSONEncoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">JSONEncoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that extends JSONEncoder to handle different data types.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="JSONEncoder.default">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.JSONEncoder.default">[docs]</a>
-    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a json-izable version of o or delegate on the base class.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">generic</span><span class="p">):</span>
             <span class="c1"># Deal with non-serializable types such as numpy.int64</span>
@@ -123,17 +121,17 @@
 
 <div class="viewcode-block" id="JSONDecoder">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.JSONDecoder">[docs]</a>
-<span class="k">class</span> <span class="nc">JSONDecoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONDecoder</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">JSONDecoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONDecoder</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that extends the JSONDecoder to handle different data types.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">json</span><span class="o">.</span><span class="n">JSONDecoder</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="n">object_hook</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">object_hook</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
 
 <div class="viewcode-block" id="JSONDecoder.object_hook">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.JSONDecoder.object_hook">[docs]</a>
-    <span class="k">def</span> <span class="nf">object_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">object_hook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reencode numpy arrays from dictionary.&quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">main_type</span><span class="p">,</span> <span class="o">*</span><span class="n">extra</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;main_type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
@@ -150,7 +148,7 @@
 
 <div class="viewcode-block" id="CMAFileHandler">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler">[docs]</a>
-<span class="k">class</span> <span class="nc">CMAFileHandler</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CMAFileHandler</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Handle input and output files.</span>
 
 <span class="sd">    Args:</span>
@@ -159,7 +157,7 @@
 <span class="sd">            working directory.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">target_dir</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span>
@@ -174,7 +172,7 @@
 
 <div class="viewcode-block" id="CMAFileHandler.get_evolution_filename">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.get_evolution_filename">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_evolution_filename</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_evolution_filename</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">:</span>
@@ -195,7 +193,7 @@
 
 <div class="viewcode-block" id="CMAFileHandler.get_generation_filename">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.get_generation_filename">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_generation_filename</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_generation_filename</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">generation</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -220,7 +218,7 @@
 
 <div class="viewcode-block" id="CMAFileHandler.save_evolution">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.save_evolution">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_evolution</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_evolution</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">initial_parameters</span><span class="p">:</span> <span class="n">AlgorithmParameters</span><span class="p">,</span>
         <span class="n">initial_state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
@@ -303,7 +301,7 @@
 
 <div class="viewcode-block" id="CMAFileHandler.load_evolution">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.load_evolution">[docs]</a>
-    <span class="k">def</span> <span class="nf">load_evolution</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_evolution</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">file_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
@@ -358,7 +356,7 @@
 
 <div class="viewcode-block" id="CMAFileHandler.save_generation">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.save_generation">[docs]</a>
-    <span class="k">def</span> <span class="nf">save_generation</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save_generation</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">current_state</span><span class="p">:</span> <span class="n">AlgorithmState</span><span class="p">,</span>
         <span class="n">population</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">ArrayLike</span><span class="p">,</span>
@@ -445,7 +443,7 @@
 
 <div class="viewcode-block" id="CMAFileHandler.load_generation">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.load_generation">[docs]</a>
-    <span class="k">def</span> <span class="nf">load_generation</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_generation</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">generation</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -505,14 +503,14 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
                     <span class="s2">&quot;Legacy data may not be loaded. Check settings.&quot;</span>
-                <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+                <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
         <span class="k">return</span> <span class="n">current_state</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">termination_state</span><span class="p">,</span> <span class="n">loaded</span></div>
 
 
 <div class="viewcode-block" id="CMAFileHandler.update_evolution">
 <a class="viewcode-back" href="../../../source/clinamen2.utils.html#clinamen2.utils.file_handling.CMAFileHandler.update_evolution">[docs]</a>
-    <span class="k">def</span> <span class="nf">update_evolution</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_evolution</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">additional</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -562,7 +560,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2024, The Clinamen2 contributors.</p>
+    <p>&#169; Copyright 2023-2025, The Clinamen2 contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

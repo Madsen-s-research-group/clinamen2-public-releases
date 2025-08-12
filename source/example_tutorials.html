@@ -1,21 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example tutorials &mdash; Clinamen2 2024.07.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Example tutorials &mdash; Clinamen2 2025.07.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=1ca64f43"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=83e4dbd9"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#silver-cluster-with-density-functional-theory">Silver cluster with density functional theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#si-bulk-with-neural-network-force-field">Si bulk with neural-network force field</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lennard-jones-cluster">Lennard-Jones cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monolayer-mos2-with-mace">Monolayer MoS2 with MACE</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="calculator_guide.html">Calculator guide</a></li>
@@ -87,13 +88,14 @@
 <li><p><a class="reference internal" href="#silver-cluster"><span class="std std-ref">Silver cluster with density functional theory</span></a></p></li>
 <li><p><a class="reference internal" href="#si-bulk"><span class="std std-ref">Si bulk with neural-network force field</span></a></p></li>
 <li><p><a class="reference internal" href="#lennard-jones"><span class="std std-ref">Lennard-Jones cluster</span></a></p></li>
+<li><p><a class="reference internal" href="#mos2-mace"><span class="std std-ref">Monolayer MoS2 with MACE</span></a></p></li>
 </ul>
 <section id="function-trial">
 <span id="id1"></span><h2>Function trial<a class="headerlink" href="#function-trial" title="Link to this heading"></a></h2>
 <p>The function trial can be performed from the command-line or by importing the
 relevant functions, e.g., to a Jupyter notebook.</p>
 <p>From the command-line call
-<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_test_function.py">evolve_test_function.py</a>
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_test_function.py">evolve_test_function.py</a>
 from the ‘examples’ directory</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_test_function</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
@@ -108,8 +110,8 @@ passing in the ‘–plot_mean’ flag, two figures are created and saved to pdf
 ‘examples/mytest’. Only generations that were saved to disk can be plotted.</p>
 <p>The same result can be achieved by the following steps, with the notebook or
 script placed in the ‘examples’ directory.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">from</span> <span class="nn">evolve_test_function</span> <span class="kn">import</span> <span class="n">evolution</span><span class="p">,</span> <span class="n">generate_result_figures</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">evolve_test_function</span><span class="w"> </span><span class="kn">import</span> <span class="n">evolution</span><span class="p">,</span> <span class="n">generate_result_figures</span>
 
 <span class="n">LABEL</span> <span class="o">=</span> <span class="s2">&quot;mytest&quot;</span>
 
@@ -124,9 +126,9 @@ script placed in the ‘examples’ directory.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>To perform multiple runs the shell script <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/run_function_trial.sh">run_function_trial.sh</a>  can be adapted.</p>
+<p>To perform multiple runs the shell script <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/run_function_trial.sh">run_function_trial.sh</a>  can be adapted.</p>
 <p>Additionally, the function trial can be performed utilizing the BIPOP restart
-by calling <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_test_function_bipop.py">evolve_test_function_bipop.py</a></p>
+by calling <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_test_function_bipop.py">evolve_test_function_bipop.py</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">evolve_test_function_bipop</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
@@ -146,8 +148,8 @@ to keep the scheduler running and have it easily accessible. For consistency,
 scheduler, workers and evolution need to use the same version of Dask in the
 respective environments.</p>
 <p>Depending on the choice of DFT code, different settings are required in the following steps.</p>
-<p>To start the scheduler one can use <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/scheduler_start_vasp.sh">scheduler_start_vasp.sh</a>
-or <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/scheduler_start_nwchem.sh">scheduler_start_nwchem.sh</a>,
+<p>To start the scheduler one can use <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/scheduler_start_vasp.sh">scheduler_start_vasp.sh</a>
+or <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/scheduler_start_nwchem.sh">scheduler_start_nwchem.sh</a>,
 respectively.</p>
 <p>The direct command is</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dask</span><span class="o">-</span><span class="n">scheduler</span> <span class="o">--</span><span class="n">port</span> <span class="mi">0</span> <span class="o">--</span><span class="n">scheduler</span><span class="o">-</span><span class="n">file</span> <span class="n">scheduler_</span><span class="o">&lt;</span><span class="n">DFT</span><span class="o">&gt;.</span><span class="n">json</span> <span class="o">--</span><span class="n">interface</span> <span class="n">em2</span> <span class="mi">1</span><span class="o">&gt;</span><span class="n">LOG</span> <span class="mi">2</span><span class="o">&gt;</span><span class="n">LOGERR</span>
@@ -197,7 +199,7 @@ can be started as follows, executed in an Anaconda environment called ‘cliname
 </div>
 <p>Like all included examples, the standard CMA-ES parameters can be passed as
 command line arguments. For a description of these and the Ag cluster specific
-arguments call the script <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_ag_cluster_dft.py">evolve_ag_cluster_dft.py</a> from the ‘examples’ directory</p>
+arguments call the script <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_ag_cluster_dft.py">evolve_ag_cluster_dft.py</a> from the ‘examples’ directory</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_ag_cluster_dft</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
@@ -235,7 +237,7 @@ public release to then install the compatible branch via</p>
 </pre></div>
 </div>
 <p>As per usual, the available command-line parameters can be viewed directly by
-calling <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_si_bulk_nnff.py">evolve_si_bulk_nnff.py</a> with</p>
+calling <a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_si_bulk_nnff.py">evolve_si_bulk_nnff.py</a> with</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_si_bulk_nnff</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
@@ -254,7 +256,7 @@ manipulate and also to optionally bias the initial covariance matrix.</p>
 </pre></div>
 </div>
 <p>The local relaxation of any of the generations can be performed using
-<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/optimize_si_fire_nnff.py">optimize_si_fire_nnff.py</a></p>
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/optimize_si_fire_nnff.py">optimize_si_fire_nnff.py</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">optimize_si_fire_nnff</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
@@ -275,7 +277,7 @@ parameter.</p>
 installation guide available at <a class="reference external" href="https://jax.readthedocs.io/en/latest/">readthedocs</a>
 is required. More information can also be found in example <a class="reference internal" href="#si-bulk"><span class="std std-ref">Si bulk with neural-network force field</span></a>.</p>
 <p>The Bi-Population (BIPOP) restart example is called via
-<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_lj_cluster_jax_bipop.py">evolve_lj_cluster_jax_bipop.py</a></p>
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_lj_cluster_jax_bipop.py">evolve_lj_cluster_jax_bipop.py</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">evolve_lj_cluster_jax_bipop</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
@@ -288,7 +290,7 @@ additional parameters described in the help output. In the file given as
 </pre></div>
 </div>
 <p>It is also possible to perform a single LJ evolution without restarts
-<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.11.1/examples/evolve_lj_cluster_jax.py">evolve_lj_cluster_jax</a></p>
+<a class="reference external" href="https://github.com/Madsen-s-research-group/clinamen2-public-releases/blob/public_release_v2023.05.1/examples/evolve_lj_cluster_jax.py">evolve_lj_cluster_jax</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_lj_cluster_jax</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">l</span> <span class="n">lj5</span> <span class="o">-</span><span class="n">s</span> <span class="mf">0.5</span> <span class="o">-</span><span class="n">g</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">n</span> <span class="mi">10</span> <span class="o">-</span><span class="n">a</span> <span class="mi">5</span> <span class="o">-</span><span class="n">c</span> <span class="n">sphere</span> <span class="o">-</span><span class="n">w</span> <span class="o">&lt;</span><span class="n">WALES_PATH</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -296,6 +298,23 @@ additional parameters described in the help output. In the file given as
 landscapes. By repeatedly starting searches with different parameters, more of the focus is shifted to exploration.
 The choice of restart algorithm and parameters is highly problem dependent though, with no one-size-fits-all solution.
 Depending on the use case, a simple grid search across population- and step-sizes may be a good choice.</p>
+</section>
+<section id="monolayer-mos2-with-mace">
+<span id="mos2-mace"></span><h2>Monolayer MoS2 with MACE<a class="headerlink" href="#monolayer-mos2-with-mace" title="Link to this heading"></a></h2>
+<p>This example requires <a class="reference external" href="https://mace-docs.readthedocs.io/en/latest/index.html">MACE</a> for the prediction of the energies and forces. The code was tested with versions <cite>mace-torch 0.3.10</cite> and <cite>torch 2.6.0</cite>. Please refer to the online documentation for installation details.</p>
+<p>The module <cite>symmetry_setup.py</cite> allows to reduce the number of degrees of freedom by applying symmetry operations such as rotations and reflections during the evolution. This feature helps to improve the convergence of the algorithm to reasonable structures, even if the initial step size is set rather large.</p>
+<p>Due to their large surface, two-dimensional materials such as monolayer MoS2 are predestined for the application of these kinds of constraints.</p>
+<p>If, for example, an evolution of such a monolayer structure with both a threefold rotation and a horizontal reflection should be executed, the following command can be called:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_mos2_mace</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">symmetry</span> <span class="n">threefold_horizontal</span> <span class="o">--</span><span class="n">random_seed</span> <span class="mi">1</span> <span class="o">--</span><span class="n">pop_size</span> <span class="mi">25</span> <span class="o">--</span><span class="n">step_size</span> <span class="mf">0.75</span> <span class="o">--</span><span class="n">generations</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+<p>If only one of these two operations should be performed, the <cite>–symmetry</cite> argument can instead be set to either <cite>threefold</cite> or <cite>horizontal</cite>. If no symmetry constraint should be applied, set the argument to <cite>none</cite>.</p>
+<p>There are a number of additional input parameters available that can modify the behaviour of the applied operations. The exact values of these parameters are highly dependent on the structure file of the founder. For more information on these details either call</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">evolve_mos2_mace</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+<p>or refer to the source code in the <cite>symmetry_setup.py</cite> module.</p>
+<p>After the evolution is finished, the example script automatically generates a structure file that contains the residual slice after all symmetry operations are performed, or, in other words, the remaining degrees of freedom that are used as input for the random sampling step. Also an <a class="reference external" href="https://wiki.fysik.dtu.dk/ase/#">ASE</a> trajectory file is created which documents all generations of the evolution. Both the residual slice and the trajectory can be viewed in the ASE GUI. These features help to verify the correctness of the selected symmetry constraints.</p>
 </section>
 </section>
 
@@ -310,7 +329,7 @@ Depending on the use case, a simple grid search across population- and step-size
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023-2024, The Clinamen2 contributors.</p>
+    <p>&#169; Copyright 2023-2025, The Clinamen2 contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

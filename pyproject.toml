@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Clinamen2, a versatile implementation of the Cholesky CMA-ES.
-# Copyright (C) 2023-2024 The Clinamen2 contributors
+# Copyright (C) 2023-2025 The Clinamen2 contributors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ classifiers=[
 ]
 dependencies = [
     "ase>=3.22",
-    "numpy>=1.20",
+    "numpy>=1.20,<3.0",
     "scipy>=1.8",
     "dask>=2022.9.0",
     "distributed>=2022.9.0",
@@ -53,7 +53,7 @@ readme = "README.md"
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-datadir"]
-doc = ["sphinx", "sphinx-autodoc-typehints", "sphinx-rtd-theme"]
+docs = ["sphinx", "sphinx-autodoc-typehints", "sphinx-rtd-theme"]
 
 [tool.setuptools]
 packages = ["clinamen2"]
